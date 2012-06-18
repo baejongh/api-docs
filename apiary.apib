@@ -17,7 +17,9 @@ Sentiment Analysis Resources
 Detects sentiments and opinions in text using deep sentiment reasoning and gradient sentiment scores.
 --
 Get the sentiment from a source text.
-GET /sentiment?level=doc
+GET /sentiment?text=this is a test
 < 200
+< Access-Control-Allow-Origin:*
+< Content-Length:91
 < Content-Type: application/json
 {"sentiment":{"label":"NEUTRAL","positive":0.0,"negative":0.0,"neutral":1.0},"wordCount":4}
