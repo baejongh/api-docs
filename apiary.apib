@@ -32,6 +32,7 @@ Detects sentiments and opinions in text using deep sentiment reasoning and gradi
 --
 Get the sentiment from text.
 GET /v1/sentiment?text=I%20really%20like%20theysay
+> Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
 < Content-Length:91
@@ -48,6 +49,7 @@ GET /v1/sentiment?text=I%20really%20like%20theysay
 
 Get the sentiment for each sentence in a piece of text. Add the `level=sentence` parameter.
 GET /v1/sentiment?text=...&level=sentence
+> Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
 < Content-Length:91
@@ -79,7 +81,8 @@ GET /v1/sentiment?text=...&level=sentence
 }]
 
 Get the sentiment for each word in a piece of text. Add the `level=word` parameter.
-GET /v1/sentiment?text=I%20really%20like%20theysay
+GET /v1/sentiment?text=I%20really%20like%20theysay&level=word
+> Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
 < Content-Length:91
@@ -121,6 +124,7 @@ Detects speculative expressions in text.
 --
 Get the speculative expressions from a source text.
 GET /v1/speculation?text=I%20might%20buy%20macbooks
+> Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
 < Content-Length:91
