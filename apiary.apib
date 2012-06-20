@@ -30,7 +30,7 @@ Sentiment Analysis
 
 Detects sentiments and opinions in text using deep sentiment reasoning and gradient sentiment scores.
 --
-Get the sentiment from a source text.
+Get the sentiment from text.
 GET /v1/sentiment?text=I%20really%20like%20theysay
 < 200
 < Access-Control-Allow-Origin:*
@@ -46,7 +46,7 @@ GET /v1/sentiment?text=I%20really%20like%20theysay
   "wordCount": 4
 }
 
-Get the sentiment for each sentence from a source text. Add the `level=sentence` parameter.
+Get the sentiment for each sentence in a piece of text. Add the `level=sentence` parameter.
 GET /v1/sentiment?text=...&level=sentence
 < 200
 < Access-Control-Allow-Origin:*
@@ -76,6 +76,42 @@ GET /v1/sentiment?text=...&level=sentence
   "end": 52,
   "sentenceIndex": 1,
   "text": "The individual then receives a small amount of that as salary and the rest as a loan , which because it can technically be recalled , does not attract tax ."
+}]
+
+Get the sentiment for each word in a piece of text. Add the `level=word` parameter.
+GET /v1/sentiment?text=I%20really%20like%20theysay
+< 200
+< Access-Control-Allow-Origin:*
+< Content-Length:91
+< Content-Type: application/json
+[{
+  "sentiment": {
+    "label": "POSITIVE",
+    "timelineY": 1.0
+  },
+  "wordIndex": 0,
+  "text": "I"
+}, {
+  "sentiment": {
+    "label": "POSITIVE",
+    "timelineY": 1.0170000000000001
+  },
+  "wordIndex": 1,
+  "text": "really"
+}, {
+  "sentiment": {
+    "label": "POSITIVE",
+    "timelineY": 1.033
+  },
+  "wordIndex": 2,
+  "text": "like"
+}, {
+  "sentiment": {
+    "label": "POSITIVE",
+    "timelineY": 1.05
+  },
+  "wordIndex": 3,
+  "text": "theysay"
 }]
 
 
