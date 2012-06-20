@@ -140,3 +140,44 @@ GET /v1/speculation?text=I%20might%20buy%20macbooks
   "speculationType": "SPECULATION",
   "text": "I might buy macbooks"
 }]
+
+
+--
+Part-of-Speech Tagging
+Lists word and their part-of-speech tags of a piece of text.
+--
+GET /v1/postag?text=I%20might%20buy%20macbooks
+> Accept: application/json
+< 200
+< Access-Control-Allow-Origin:*
+< Content-Length:91
+< Content-Type: application/json
+[{
+  "posTag": "PRP",
+  "posTaggedWord": "I/PRP",
+  "sentenceIndex": 0,
+  "stem": "I|i",
+  "text": "I",
+  "wordIndex": 0
+}, {
+  "posTag": "MD",
+  "posTaggedWord": "might/MD",
+  "sentenceIndex": 0,
+  "stem": "might|may",
+  "text": "might",
+  "wordIndex": 1
+}, {
+  "posTag": "VB",
+  "posTaggedWord": "buy/VB",
+  "sentenceIndex": 0,
+  "stem": "buy",
+  "text": "buy",
+  "wordIndex": 2
+}, {
+  "posTag": "NNS",
+  "posTaggedWord": "macbooks/NNS",
+  "sentenceIndex": 0,
+  "stem": "macbooks|macbook",
+  "text": "macbooks",
+  "wordIndex": 3
+}]
