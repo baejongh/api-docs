@@ -1,4 +1,4 @@
-HOST: http://api.theysay.io/
+HOST: http://api.theysay.io/v1
 
 --- TheySay REST API Resources v1 ---
 ---
@@ -33,7 +33,7 @@ Sentiment Analysis
 Detects sentiments and opinions in text using deep sentiment reasoning and gradient sentiment scores.
 --
 Get the sentiment from text.
-GET /v1/sentiment?text=I%20really%20like%20theysay
+GET /sentiment?text=I%20really%20like%20theysay
 > Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
@@ -51,7 +51,7 @@ GET /v1/sentiment?text=I%20really%20like%20theysay
 
 
 Get the sentiment for each sentence in a piece of text. Add the `level=sentence` parameter.
-GET /v1/sentiment?text=...&level=sentence
+GET /sentiment?text=...&level=sentence
 > Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
@@ -85,7 +85,7 @@ GET /v1/sentiment?text=...&level=sentence
 
 
 Get the sentiment for each word in a piece of text. Add the `level=word` parameter.
-GET /v1/sentiment?text=I%20really%20like%20theysay&level=word
+GET /sentiment?text=I%20really%20like%20theysay&level=word
 > Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
@@ -127,7 +127,7 @@ Speculation Detection
 Detects speculative expressions in text.
 --
 Get the speculative expressions from a source text.
-GET /v1/speculation?text=I%20might%20buy%20macbooks
+GET /speculation?text=I%20might%20buy%20macbooks
 > Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
@@ -146,7 +146,7 @@ GET /v1/speculation?text=I%20might%20buy%20macbooks
 Part-of-Speech Tagging
 Lists word and their part-of-speech tags of a piece of text.
 --
-GET /v1/postag?text=I%20might%20buy%20macbooks
+GET /postag?text=I%20might%20buy%20macbooks
 > Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
