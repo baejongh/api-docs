@@ -43,7 +43,7 @@ GET /v1/sentiment?text=I%20really%20like%20theysay
   "wordCount": 4
 }
 
-Get the for each sentence from a source text.
+Get the sentiment for each sentence from a source text.
 GET /v1/sentiment?text=...&level=sentence
 < 200
 < Access-Control-Allow-Origin:*
@@ -52,10 +52,10 @@ GET /v1/sentiment?text=...&level=sentence
 [{
   "sentiment": {
     "label": "POSITIVE",
-    "positive": 0.8388489208633094,
+    "positive": 0.838,
     "negative": 0.0,
-    "neutral": 0.16115107913669063,
-    "confidence": 0.729072247705902
+    "neutral": 0.161,
+    "confidence": 0.729
   },
   "start": 0,
   "end": 21,
@@ -64,10 +64,10 @@ GET /v1/sentiment?text=...&level=sentence
 }, {
   "sentiment": {
     "label": "NEGATIVE",
-    "positive": 0.03172504957038995,
-    "negative": 0.9279576999339062,
-    "neutral": 0.04031725049570388,
-    "confidence": 0.5753608183586987
+    "positive": 0.031,
+    "negative": 0.927,
+    "neutral": 0.040,
+    "confidence": 0.575
   },
   "start": 22,
   "end": 52,
