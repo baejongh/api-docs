@@ -24,6 +24,7 @@ http://api.theysay.io/v1/sentiment?text=...&callback=processSentiment
 
 --
 Sentiment Analysis
+
 Detects sentiments and opinions in text using deep sentiment reasoning and gradient sentiment scores.
 --
 Get the sentiment from a source text.
@@ -41,6 +42,38 @@ GET /v1/sentiment?text=I%20really%20like%20theysay
   },
   "wordCount": 4
 }
+
+Get the for each sentence from a source text.
+GET /v1/sentiment?text=...&level=sentence
+< 200
+< Access-Control-Allow-Origin:*
+< Content-Length:91
+< Content-Type: application/json
+[{
+  "sentiment": {
+    "label": "POSITIVE",
+    "positive": 0.8388489208633094,
+    "negative": 0.0,
+    "neutral": 0.16115107913669063,
+    "confidence": 0.729072247705902
+  },
+  "start": 0,
+  "end": 21,
+  "sentenceIndex": 0,
+  "text": "Under it , an individual resigns from their company and any salary they subsequently receive is paid to an offshore trust ."
+}, {
+  "sentiment": {
+    "label": "NEGATIVE",
+    "positive": 0.03172504957038995,
+    "negative": 0.9279576999339062,
+    "neutral": 0.04031725049570388,
+    "confidence": 0.5753608183586987
+  },
+  "start": 22,
+  "end": 52,
+  "sentenceIndex": 1,
+  "text": "The individual then receives a small amount of that as salary and the rest as a loan , which because it can technically be recalled , does not attract tax ."
+}]
 
 --
 Speculation Detection
