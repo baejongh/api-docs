@@ -49,6 +49,7 @@ GET /v1/sentiment?text=I%20really%20like%20theysay
   "wordCount": 4
 }
 
+
 Get the sentiment for each sentence in a piece of text. Add the `level=sentence` parameter.
 GET /v1/sentiment?text=...&level=sentence
 > Accept: application/json
@@ -81,6 +82,7 @@ GET /v1/sentiment?text=...&level=sentence
   "sentenceIndex": 1,
   "text": "The individual then receives a small amount of that as salary and the rest as a loan , which because it can technically be recalled , does not attract tax ."
 }]
+
 
 Get the sentiment for each word in a piece of text. Add the `level=word` parameter.
 GET /v1/sentiment?text=I%20really%20like%20theysay&level=word
