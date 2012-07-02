@@ -36,15 +36,15 @@ For example `http://api.theysay.io/v1/sentiment?text=...&callback=processSentime
 --
 Sentiment Analysis
 
-Sentiment, a dimension of non-factuality that is closely related to subjectivity and affect/emotion, reflects the following central poles of psychological evaluation:
+Sentiment, a dimension of non-factuality that is closely related to subjectivity/affect/emotion/moods, reflects the following fundamental poles manifesting psychological evaluation:
 
 * good/positive/thumbs up/favourable/desirable/recommended/...
 * bad/negative/thumbs down/unfavourable/undesirable/not recommended/...
 
-You can use the Sentiment Analysis service to discover deep fine-grained sentiments and opinions in text.
+You can use the Sentiment Analysis service to discover deep, fine-grained sentiments and opinions in text.
 The analysis, output by a human-like sentiment reasoning algorithm, captures both explicit "author sentiment" as well as general, implicit "reader-sentiment" about what is generally good vs. bad in the world. 
 The analysis can target multiple structural levels of text ranging from entire documents to individual entity mentions.
-The returned analysis includes majority sentiment labels, 3-way positive/neutral/negative sentiment scores, and other auxiliary fields.
+The returned analysis includes majority sentiment labels, fine-grained 3-way positive/neutral/negative sentiment scores, and other auxiliary fields.
 --
 Get sentiment information about the text snippet as a whole.
 GET /sentiment?text=I%20really%20like%20theysay
@@ -186,9 +186,11 @@ GET /sentiment?text=I%20really%20like%20theysay&level=word
 
 --
 Speculation Detection
-Speculative content refers to directly or indirectly to any 'irrealis' events that are yet to happen. 
+Speculative content refers directly or indirectly to any 'irrealis' events that are yet to happen. 
 Speculative expressions can hence cover events as diverse as predictions, plans, wanting, wishes, waiting, and risks and warnings, to name a few.      
-You can use this service to detects speculative expressions in text at the document and the sentence level.
+You can use this service to detects speculative expressions in text at the document and sentence level.
+The returned analysis contains only identified speculative content.
+Any detected subtypes of speculation are denoted with a dot character (e.g. SPECULATION.SUBTYPE).
 --
 Get an overall speculation score and individual speculation types from a text snippet.
 GET /speculation?text=I%20might%20buy%20macbooks
