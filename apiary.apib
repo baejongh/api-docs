@@ -1,28 +1,28 @@
 HOST: http://api.theysay.io/v1
 
---- TheySay REST API Resources v1 ---
+--- TheySay AffectR REST API Resources v1 ---
 ---
 
-Getting started with TheySay is easy. Explore the REST API below, and [sign up](http://theysay.io/signup) to 
+Getting started with TheySay is easy. Explore the AffectR REST API below, and [sign up](http://theysay.io/signup) to 
 receive a development key. Have a question? [Read the FAQ](http://theysay.io/faq). Don't know what to 
 build? Check out our [Case Studies](http://theysay.io/casestudies).
 
-The REST API enables developers to access our powerful text analysis, including sentiment detection, part-of-speech 
-tagging, speculation detection and named entity detection. If you're building application that leverages text analysis,
+The platform-agnostic AffectR REST API enables developers to access our powerful text analysis processors that cover sentiment analysis, speculation detection, part-of-speech 
+tagging, dependency parsing, and others. If you're building application that requires text analysis,
 then this is the API for you. Imagine building a hotel booking app: bathroom sentiment, entities surrounding the hotel, 
 discover sentiment around to topics you did't know existed - all with a few RESTful API calls.
 
-&copy; 2012 TheySay Ltd. All rights reserved.
+&copy; 2012 TheySay Ltd. All Rights Reserved.
 
 Rate Limiting
 -------------
-The TheySay API only allows clients to make a limited number of calls in a given hour. This policy affects the
-APIs in different ways. The default rate limit for calls to the REST API varies depending on the authorization method
-being used and whether the method itself requires authentication. If your application is being rate-limited by the 
-REST API it will receive a HTTP `403` response code.
+By default, AffectR API allows API clients to make a limited number of calls in a given hour. This policy affects your usage 
+in different ways. The default rate limit for calls to the REST API varies depending on the authorisation method used 
+and whether the method itself requires authentication. If your application exceeds the rate limit, it will receive a HTTP `403` error response code.
+The following thresholds apply:
 
-* Unauthenticated calls are permitted 30 requests per hour.
-* Authenticated calls are permitted 3500 requests per hour and are measured against the token used in the request.
+* Unauthenticated calls are permitted up to 30 requests per hour.
+* Authenticated calls are permitted up to 3500 requests per hour, and are measured against the token submitted with the request.
 
 JSONP
 -----
