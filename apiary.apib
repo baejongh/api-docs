@@ -180,7 +180,8 @@ GET /sentiment?text=...&level=entityrelation
 }]
 
 
-Get the sentiment for each word in a piece of text. Add the `level=word` parameter.
+Get contextual sentence-level sentiment labels for each word in the text snippet, 
+accompanied by temporal coordinates that can be used to plot the development (or flow) of sentiment through the text. Add the `level=word` parameter.
 GET /sentiment?text=I%20really%20like%20theysay&level=word
 > Accept: application/json
 < 200
