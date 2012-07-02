@@ -49,7 +49,7 @@ The analysis can target multiple structural levels of text ranging from entire d
 The returned analysis includes majority sentiment labels, fine-grained 3-way positive/neutral/negative sentiment scores, 
 and other auxiliary fields.
 --
-Get sentiment information about the text snippet as a whole.
+Get document-level sentiment information about the text snippet as a whole.
 GET /sentiment?text=I%20really%20like%20theysay
 > Accept: application/json
 < 200
@@ -101,7 +101,7 @@ GET /sentiment?text=...&level=sentence
 }]
 
 
-Get sentiment information about each entity mentioned in the text snippet. Add the `level=entity` parameter.
+Get sentiment information about each individual entity mentioned in the text snippet. Add the `level=entity` parameter.
 GET /sentiment?text=...&level=entity
 > Accept: application/json
 < 200
@@ -146,6 +146,37 @@ GET /sentiment?text=...&level=entity
   "sentenceHtml": "Under it , an individual resigns from their company and any salary they subsequently receive is paid to an offshore trust .",
   "text": "President Obama",
   "words": ["President Obama", "Obama"]
+}]
+
+
+Get sentiment information about how pairs of entities are related in the text snippet. Add the `level=entityrelation` parameter.
+GET /sentiment?text=...&level=entityrelation
+> Accept: application/json
+< 200
+< Access-Control-Allow-Origin:*
+< Content-Length:91
+< Content-Type: application/json
+[{
+  "entity1": {
+    "head": "Obama"
+    "headIndex": 0,
+    "text": "President Obama"
+  },
+  "entity2": {
+    "head": "Merkel"
+    "headIndex": 0,
+    "text": "Angela Merkel"
+  },
+  "salience": 0.66,
+  "sentiment": {
+    "confidence": 0.729
+    "label": "NEGATIVE",
+    "positive": 0,
+    "negative": 0.161,
+    "neutral": 0.838
+  },
+  "sentence": "Under it , an individual resigns from their company and any salary they subsequently receive is paid to an offshore trust .",
+  "sentenceHtml": "Under it , an individual resigns from their company and any salary they subsequently receive is paid to an offshore trust ."
 }]
 
 
