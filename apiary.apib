@@ -38,13 +38,16 @@ Sentiment Analysis
 
 Sentiment, a dimension of non-factuality that is closely related to subjectivity/affect/emotion/moods, reflects the following fundamental poles manifesting psychological evaluation:
 
-* good/positive/thumbs up/favourable/desirable/recommended/...
-* bad/negative/thumbs down/unfavourable/undesirable/not recommended/...
+* good/positive/pros/favourable/desirable/recommended/thumbs up/...
+* bad/negative/cons/unfavourable/undesirable/not recommended/thumbs down/...
 
 You can use the Sentiment Analysis service to discover deep, fine-grained sentiments and opinions in text.
-The analysis, output by a human-like sentiment reasoning algorithm, captures both explicit "author sentiment" as well as general, implicit "reader-sentiment" about what is generally good vs. bad in the world. 
+The analysis, output by a human-like sentiment reasoning algorithm, captures both explicit "author sentiment" as well as 
+general, implicit "reader-sentiment" beyond opinions that ultimately stems from affective commons sense as well as issues and events that are 
+generally considered to be good vs. bad in the world. 
 The analysis can target multiple structural levels of text ranging from entire documents to individual entity mentions.
-The returned analysis includes majority sentiment labels, fine-grained 3-way positive/neutral/negative sentiment scores, and other auxiliary fields.
+The returned analysis includes majority sentiment labels, fine-grained 3-way positive/neutral/negative sentiment scores, 
+and other auxiliary fields.
 --
 Get sentiment information about the text snippet as a whole.
 GET /sentiment?text=I%20really%20like%20theysay
