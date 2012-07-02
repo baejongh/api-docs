@@ -277,4 +277,109 @@ GET /depparse?text=We%20found%20two%20bugs%20in%20your%20app
 < Access-Control-Allow-Origin:*
 < Content-Length:91
 < Content-Type: application/json
-[]
+[{
+  "dependency": {
+    "predicate": "nsubj(We-0, found-1)",
+    "relation": "nsubj"
+  },
+  "dependent": {
+    "stem": "we",
+    "text": "We",
+    "wordIndex": 0
+  },
+  "governor": {
+    "stem": "find",
+    "text": "found",
+    "wordIndex": 1
+  }
+}, {
+  "dependency": {
+    "predicate": "root(ROOT, found-1)",
+    "relation": "root"
+  },
+  "dependent": {
+    "stem": "find",
+    "text": "found",
+    "wordIndex": 0
+  },
+  "governor": {
+    "stem": "ROOT",
+    "text": "ROOT",
+    "wordIndex": 1
+  }
+}, {
+  "dependency": {
+    "predicate": "det(bugs-0, two-1)",
+    "relation": "det"
+  },
+  "dependent": {
+    "stem": "two",
+    "text": "two",
+    "wordIndex": 0
+  },
+  "governor": {
+    "stem": "bug",
+    "text": "bugs",
+    "wordIndex": 1
+  }
+}, {
+  "dependency": {
+    "predicate": "dobj(found-0, bugs-1)",
+    "relation": "dobj"
+  },
+  "dependent": {
+    "stem": "bug",
+    "text": "bugs",
+    "wordIndex": 0
+  },
+  "governor": {
+    "stem": "find",
+    "text": "found",
+    "wordIndex": 1
+  }
+}, {
+  "dependency": {
+    "predicate": "prep(found-0, in-1)",
+    "relation": "prep"
+  },
+  "dependent": {
+    "stem": "in",
+    "text": "in",
+    "wordIndex": 0
+  },
+  "governor": {
+    "stem": "find",
+    "text": "found",
+    "wordIndex": 1
+  }
+}, {
+  "dependency": {
+    "predicate": "det(app-0, your-1)",
+    "relation": "det"
+  },
+  "dependent": {
+    "stem": "your",
+    "text": "your",
+    "wordIndex": 0
+  },
+  "governor": {
+    "stem": "app",
+    "text": "app",
+    "wordIndex": 1
+  }
+}, {
+  "dependency": {
+    "predicate": "pobj(in-0, app-1)",
+    "relation": "pobj"
+  },
+  "dependent": {
+    "stem": "app",
+    "text": "app",
+    "wordIndex": 0
+  },
+  "governor": {
+    "stem": "in",
+    "text": "in",
+    "wordIndex": 1
+  }
+}]
