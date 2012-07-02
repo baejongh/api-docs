@@ -3,7 +3,7 @@ HOST: http://api.theysay.io/v1
 --- TheySay REST API Resources v1 ---
 ---
 
-Getting started wit TheySay is easy. Explore the REST API below, and [sign up](http://theysay.io/signup) to 
+Getting started with TheySay is easy. Explore the REST API below, and [sign up](http://theysay.io/signup) to 
 receive a development key. Have a question? [Read the FAQ](http://theysay.io/faq). Don't know what to 
 build? Check out our [Case Studies](http://theysay.io/casestudies).
 
@@ -41,10 +41,10 @@ Sentiment, a dimension of non-factuality that is closely related to subjectivity
 * good/positive/thumbs up/favourable/desirable/recommended/...
 * bad/negative/thumbs down/unfavourable/undesirable/not recommended/...
 
-You can use the Sentiment Analysis service to discover fine-grained sentiments and opinions in text.
-The analysis, output by a deep human-like sentiment reasoning algorithm, captures both explicit "author sentiment" as well as general, implicit "reader-sentiment" about what is generally good vs. bad in the world. 
+You can use the Sentiment Analysis service to discover deep fine-grained sentiments and opinions in text.
+The analysis, output by a human-like sentiment reasoning algorithm, captures both explicit "author sentiment" as well as general, implicit "reader-sentiment" about what is generally good vs. bad in the world. 
 The analysis can target multiple structural levels of text ranging from entire documents to individual entity mentions.
-The analysis includes majority sentiment labels, 3-way positive/neutral/negative sentiment scores, and other auxiliary fields.
+The returned analysis includes majority sentiment labels, 3-way positive/neutral/negative sentiment scores, and other auxiliary fields.
 --
 Get sentiment information about the text snippet as a whole.
 GET /sentiment?text=I%20really%20like%20theysay
@@ -72,31 +72,30 @@ GET /sentiment?text=...&level=sentence
 < Content-Length:91
 < Content-Type: application/json
 [{
+  "end": 21,
+  "sentenceIndex": 0,
   "sentiment": {
+    "confidence": 0.729,
     "label": "POSITIVE",
     "positive": 0.838,
     "negative": 0.0,
-    "neutral": 0.161,
-    "confidence": 0.729
+    "neutral": 0.161
   },
   "start": 0,
-  "end": 21,
-  "sentenceIndex": 0,
   "text": "Under it , an individual resigns from their company and any salary they subsequently receive is paid to an offshore trust ."
 }, {
+  "end": 52,
+  "sentenceIndex": 1,
   "sentiment": {
+    "confidence": 0.575,
     "label": "NEGATIVE",
     "positive": 0.031,
     "negative": 0.927,
-    "neutral": 0.040,
-    "confidence": 0.575
+    "neutral": 0.040 
   },
   "start": 22,
-  "end": 52,
-  "sentenceIndex": 1,
   "text": "The individual then receives a small amount of that as salary and the rest as a loan , which because it can technically be recalled , does not attract tax ."
 }]
-
 
 
 Get sentiment information about each entity mentioned in the text snippet. Add the `level=entity` parameter.
@@ -110,6 +109,7 @@ GET /sentiment?text=...&level=entity
   "end": 21,
   "headNoun": "Obama",
   "headNounIndex": "1",
+  "namedEntityTypes": ["PEOPLE"],
   "salience": 0.9,
   "sentenceIndex": 0,
   "sentiment": {
@@ -128,6 +128,7 @@ GET /sentiment?text=...&level=entity
   "end": 21,
   "headNoun": "Obama",
   "headNounIndex": "1",
+  "namedEntityTypes": ["LOCATION"],
   "salience": 0.9,
   "sentenceIndex": 0,
   "sentiment": {
@@ -185,9 +186,11 @@ GET /sentiment?text=I%20really%20like%20theysay&level=word
 
 --
 Speculation Detection
-Detects speculative expressions in text.
+Speculative content refers to directly or indirectly to future 'irrealis' events that are yet to happen. 
+Speculative expressions can hence cover events as diverse as predictions, plans, wanting, wishes, waiting, and risks and warnings, to name a few.      
+You can use this service to detects speculative expressions in text at the document and the sentence level.
 --
-Get the speculative expressions from a source text.
+Get an overall speculation score and individual speculation types from a text snippet.
 GET /speculation?text=I%20might%20buy%20macbooks
 > Accept: application/json
 < 200
@@ -195,13 +198,28 @@ GET /speculation?text=I%20might%20buy%20macbooks
 < Content-Length:91
 < Content-Type: application/json
 [{
-  "start": 0,
   "end": 3,
   "sentenceIndex": 0,
   "speculationType": "SPECULATION",
+  "start": 0,
   "text": "I might buy macbooks"
 }]
 
+
+Get speculation types for each sentence in the text snippet.  Add the `level=sentence` parameter.
+GET /speculation?text=...&level=sentence
+> Accept: application/json
+< 200
+< Access-Control-Allow-Origin:*
+< Content-Length:91
+< Content-Type: application/json
+[{
+  "end": 3,
+  "sentenceIndex": 0,
+  "speculationType": "SPECULATION",
+  "start": 0,
+  "text": "I might buy macbooks"
+}]
 
 --
 Part-of-Speech Tagging
