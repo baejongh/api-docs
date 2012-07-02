@@ -186,7 +186,7 @@ GET /sentiment?text=I%20really%20like%20theysay&level=word
 
 --
 Speculation Detection
-Speculative content refers to directly or indirectly to future 'irrealis' events that are yet to happen. 
+Speculative content refers to directly or indirectly to any 'irrealis' events that are yet to happen. 
 Speculative expressions can hence cover events as diverse as predictions, plans, wanting, wishes, waiting, and risks and warnings, to name a few.      
 You can use this service to detects speculative expressions in text at the document and the sentence level.
 --
@@ -198,11 +198,8 @@ GET /speculation?text=I%20might%20buy%20macbooks
 < Content-Length:91
 < Content-Type: application/json
 [{
-  "end": 3,
-  "sentenceIndex": 0,
-  "speculationType": "SPECULATION",
-  "start": 0,
-  "text": "I might buy macbooks"
+  "speculationScore": 0.75,
+  "speculationTypes": ["SPECULATION", "SPECULATION.PLAN"]
 }]
 
 
@@ -216,10 +213,18 @@ GET /speculation?text=...&level=sentence
 [{
   "end": 3,
   "sentenceIndex": 0,
-  "speculationType": "SPECULATION",
+  "speculationType": "",
+  "start": 6,
+  "text": "I spotted this message on Twitter."
+},
+{
+  "end": 7,
+  "sentenceIndex": 1,
+  "speculationType": "SPECULATION.WARNING",
   "start": 0,
-  "text": "I might buy macbooks"
-}]
+  "text": "Laptops come with huge health risks!"
+}
+]
 
 --
 Part-of-Speech Tagging
