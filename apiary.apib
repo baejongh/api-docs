@@ -67,7 +67,7 @@ GET /sentiment?text=I%20really%20like%20theysay
 }
 
 
-Get sentiment information about each sentence in the text snippet. Add the `level=sentence` parameter.
+Add the `level=sentence` parameter to get sentiment information about each sentence in the text snippet.
 GET /sentiment?text=...&level=sentence
 > Accept: application/json
 < 200
@@ -101,7 +101,7 @@ GET /sentiment?text=...&level=sentence
 }]
 
 
-Get sentiment information about each individual entity mentioned in the text snippet. Add the `level=entity` parameter.
+Add the `level=entity` parameter to get sentiment information about each individual entity mentioned in the text snippet.
 GET /sentiment?text=...&level=entity
 > Accept: application/json
 < 200
@@ -149,7 +149,7 @@ GET /sentiment?text=...&level=entity
 }]
 
 
-Get sentiment information about how pairs of entities are related in the text snippet. Add the `level=entityrelation` parameter.
+Add the `level=entityrelation` parameter to get sentiment information about how pairs of entities are related in the text snippet.
 GET /sentiment?text=...&level=entityrelation
 > Accept: application/json
 < 200
@@ -180,8 +180,8 @@ GET /sentiment?text=...&level=entityrelation
 }]
 
 
-Get contextual sentence-level sentiment labels for each word in the text snippet, 
-accompanied by temporal coordinates that can be used to plot the development (or flow) of sentiment through the text. Add the `level=word` parameter.
+Add the `level=word` parameter to get information about the temporal development (or flow) of sentiment through the text snippet.
+For each word in the text snippet, contextual sentence-level sentiment labels are provided.
 GET /sentiment?text=I%20really%20like%20theysay&level=word
 > Accept: application/json
 < 200
@@ -240,7 +240,7 @@ GET /speculation?text=I%20might%20buy%20macbooks
 }]
 
 
-Get speculation types for each sentence in the text snippet.  Add the `level=sentence` parameter.
+Add the `level=sentence` parameter to get speculation types for each sentence in the text snippet.
 GET /speculation?text=...&level=sentence
 > Accept: application/json
 < 200
