@@ -268,11 +268,11 @@ GET /speculation?text=...&level=sentence
 
 --
 Named Entity Recognition
-This service detects expressions in the text snippet that refer explicitly or implicitly to people, places, 
-organisations, time, and money.
-For each expression, the detected Named Entity types are ranked by their salience (most salient first).
+This service detects expressions in the text snippet that refer explicitly or implicitly to human (PEOPLE), locative (LOCATION), 
+organisational (ORGANISATION), temporal (TIMEDATE), and monetary (MONEY) entities and concepts.
+For each identified expression (simple and complex Noun Phrases, Adjective Phrases, or Adverb Phrases), the detected Named Entity types are ranked by their salience (most salient first).
 --
-GET /namedentity?text=I%20might%20buy%20macbooks
+GET /namedentity?text=I%20might%20buy%20macbooks&level=phrase
 > Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
