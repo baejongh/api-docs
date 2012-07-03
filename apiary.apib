@@ -268,10 +268,11 @@ GET /speculation?text=...&level=sentence
 
 --
 Named Entity Recognition
-This service assigns word class types to individual words in the text snippet.
-The [tagset]() used is largely compatible with the [Penn Treebank Tagset](http://www.cis.upenn.edu/~treebank/).
+This service detects expressions in the text snippet that refer explicitly or implicitly to people, places, 
+organisations, time, and money.
+For each expression, the detected Named Entity types are ranked by their salience (most salient first).
 --
-GET /postag?text=I%20might%20buy%20macbooks
+GET /namedentity?text=I%20might%20buy%20macbooks
 > Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
@@ -291,20 +292,6 @@ GET /postag?text=I%20might%20buy%20macbooks
   "stem": "might|may",
   "text": "might",
   "wordIndex": 1
-}, {
-  "posTag": "VB",
-  "posTaggedWord": "buy/VB",
-  "sentenceIndex": 0,
-  "stem": "buy",
-  "text": "buy",
-  "wordIndex": 2
-}, {
-  "posTag": "NNS",
-  "posTaggedWord": "macbooks/NNS",
-  "sentenceIndex": 0,
-  "stem": "macbooks|macbook",
-  "text": "macbooks",
-  "wordIndex": 3
 }]
 
 
