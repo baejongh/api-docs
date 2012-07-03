@@ -53,7 +53,7 @@ The returned analysis includes majority sentiment labels, fine-grained 3-way pos
 and other auxiliary fields.
 --
 Get document-level sentiment information about the text snippet as a whole.
-GET /sentiment?text=I%20really%20like%20theysay
+GET /sentiment?text=Angela%20Merkel%20failed%20to%20convince%20the%20Parliament. 
 > Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
@@ -61,12 +61,12 @@ GET /sentiment?text=I%20really%20like%20theysay
 < Content-Type: application/json
 {
   "sentiment": {
-    "label": "POSITIVE",
-    "positive": 0.933,
-    "negative": 0.0,
-    "neutral": 0.066
+    "label": "NEGATIVE",
+    "positive": 0.119,
+    "negative": 0.873,
+    "neutral": 0.007
   },
-  "wordCount": 4
+  "wordCount": 8
 }
 
 
