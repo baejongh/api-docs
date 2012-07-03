@@ -223,7 +223,7 @@ GET /sentiment?text=I%20really%20like%20theysay&level=word
 Speculation Detection
 Speculative content refers directly or indirectly to any 'irrealis' events that are yet to happen. 
 Speculative expressions can hence cover events as diverse as predictions, plans, wanting, wishes, waiting, and risks and warnings, to name a few.      
-You can use this service to detects speculative expressions in text at the document and sentence level.
+This service detects speculative expressions at the document and sentence level.
 The returned analysis contains only identified speculative content.
 Any detected subtypes of speculation are denoted with a dot character (e.g. SPECULATION.SUBTYPE).
 --
@@ -264,7 +264,7 @@ GET /speculation?text=...&level=sentence
 
 --
 Part-of-Speech Tagging
-Part-of-speech tagging assigns word class types to individual words in the text snippet.
+This service assigns word class types to individual words in the text snippet.
 The [tagset]() used is largely compatible with the [Penn Treebank Tagset](http://www.cis.upenn.edu/~treebank/).
 --
 GET /postag?text=I%20might%20buy%20macbooks
@@ -306,8 +306,8 @@ GET /postag?text=I%20might%20buy%20macbooks
 
 --
 Dependency Parsing
-Dependency parsing assigns typed syntactic dependencies between individual words in each sentence in the text snippet.
-The parses and the [typed dependencies used]() resemble the labels and types used in the [Cambridge Grammar of the English Language](http://www.cambridge.org/uk/linguistics/cgel/). 
+This service analyses the grammatical structure of the input text and assigns typed syntactic dependencies between individual words in each sentence.
+The parses and the [typed dependencies used]() resemble the labels and types described in the [Cambridge Grammar of the English Language](http://www.cambridge.org/uk/linguistics/cgel/). 
 --
 GET /depparse?text=We%20found%20two%20bugs%20in%20your%20app
 > Accept: application/json
