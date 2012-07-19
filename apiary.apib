@@ -157,26 +157,45 @@ GET /sentiment?text=...&level=entityrelation
 < Content-Length:91
 < Content-Type: application/json
 [{
-  "entity1": {
-    "head": "Obama"
-    "headIndex": 0,
-    "text": "President Obama"
+ "entity1": {
+    "head": "Avanesov",
+    "headIndex": 2,
+    "text": "Russian Georgiy Avanesov"
   },
   "entity2": {
-    "head": "Merkel"
-    "headIndex": 0,
-    "text": "Angela Merkel"
+    "head": "botnet",
+    "headIndex": 17,
+    "text": "Bredolab botnet"
   },
-  "salience": 0.66,
   "sentiment": {
-    "confidence": 0.729
     "label": "NEGATIVE",
-    "positive": 0,
-    "negative": 0.161,
-    "neutral": 0.838
+    "positive": 0.209,
+    "negative": 0.523,
+    "neutral": 0.268
   },
-  "sentence": "Under it , an individual resigns from their company and any salary they subsequently receive is paid to an offshore trust .",
-  "sentenceHtml": "Under it , an individual resigns from their company and any salary they subsequently receive is paid to an offshore trust ."
+  "salience": 0.243,
+  "sentence": "Russian Georgiy Avanesov was in May sentenced to four years in jail for being behind the Bredolab botnet which was believed to have been generating more than # 80,000 a month in revenue .",
+  "sentenceHtml": " <span class=\"entity1\">Russian Georgiy Avanesov</span> was in May sentenced to four years in jail for being behind the <span class=\"entity2\">Bredolab botnet</span> which was believed to have been generating more than # 80,000 a month in revenue ."
+}, {
+  "entity1": {
+    "head": "Avanesov",
+    "headIndex": 2,
+    "text": "Russian Georgiy Avanesov"
+  },
+  "entity2": {
+    "head": "revenue",
+    "headIndex": 32,
+    "text": "revenue"
+  },
+  "sentiment": {
+    "label": "POSITIVE",
+    "positive": 0.377,
+    "negative": 0.314,
+    "neutral": 0.309
+  },
+  "salience": 0.155,
+  "sentence": "Russian Georgiy Avanesov was in May sentenced to four years in jail for being behind the Bredolab botnet which was believed to have been generating more than # 80,000 a month in revenue .",
+  "sentenceHtml": " <span class=\"entity1\">Russian Georgiy Avanesov</span> was in May sentenced to four years in jail for being behind the Bredolab botnet which was believed to have been generating more than # 80,000 a month in <span class=\"entity2\">revenue</span> ."
 }]
 
 
