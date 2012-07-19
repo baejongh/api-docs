@@ -47,10 +47,12 @@ Sentiment, a dimension of non-factuality that is closely related to subjectivity
 You can use the Sentiment Analysis service to discover deep, fine-grained sentiments and opinions in text.
 The analysis, output by a human-like sentiment reasoning algorithm, captures both explicit "author sentiment" as well as 
 general, implicit "reader-sentiment" beyond opinions that ultimately stems from affective commons sense as well as issues and events that are 
-generally considered to be good vs. bad in the world. 
+generally considered to be good vs. bad in the world.
+
 The analysis can target multiple structural levels of text ranging from entire documents to individual entity mentions.
 The returned analysis includes majority sentiment labels, fine-grained 3-way positive/neutral/negative sentiment scores, 
 and other auxiliary fields.
+
 If no `level=` parameter is specified, document-level analysis is used by default (`level=doc`).
 --
 Get document-level sentiment information about the text snippet as a whole.
