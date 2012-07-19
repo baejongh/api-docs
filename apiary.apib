@@ -345,18 +345,33 @@ GET /postag?text=I%20might%20buy%20macbooks
   "text": "buy",
   "wordIndex": 2
 }, {
-  "posTag": "NNS",
-  "posTaggedWord": "macbooks/NNS",
+  "posTag": "DT",
+  "posTaggedWord": "a/DT",
   "sentenceIndex": 0,
-  "stem": "macbooks|macbook",
-  "text": "macbooks",
+  "stem": "a",
+  "text": "a",
   "wordIndex": 3
+}, {
+  "posTag": "NNP",
+  "posTaggedWord": "MacBookPro/NNP",
+  "sentenceIndex": 0,
+  "stem": "MacBookPro|macbookpro",
+  "text": "MacBookPro",
+  "wordIndex": 4
+}, {
+  "posTag": ".",
+  "posTaggedWord": "./.",
+  "sentenceIndex": 0,
+  "stem": ".",
+  "text": ".",
+  "wordIndex": 5
 }]
 
 
 --
 Dependency Parsing
-This service analyses the grammatical structure of each sentence in the text snippet. For each sentence, typed syntactic dependencies between individual words are provided.
+This service analyses the grammatical structure of each sentence in the text snippet.
+For each sentence, typed syntactic dependencies between individual words are provided.
 The parses and the [typed dependencies]() used resemble the labels and types described in the [Cambridge Grammar of the English Language](http://www.cambridge.org/uk/linguistics/cgel/).
 --
 GET /depparse?text=We%20found%20two%20bugs%20in%20your%20app
