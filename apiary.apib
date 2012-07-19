@@ -23,20 +23,20 @@ Comments, suggestions, or feedback? [Contact us](contact@theysayanalytics.com) -
 
 Rate Limiting
 -------------
-By default, AffectR REST API allows API clients to make a limited number of calls in a given hour. 
+By default, AffectR API allows API clients to make a limited number of calls in a given hour. 
 In practice, this policy will affect your usage in a number of different ways. 
-The default rate limit for calls to the REST API varies depending on the authorisation method used and whether the method itself requires authentication. 
+The default rate limit for calls to the AffectR API varies depending on the authorisation method used and whether the method itself requires authentication. 
 If your application exceeds the rate limit, it will receive a HTTP `403` error response code.
-The following thresholds apply:
+The following threshold apply:
 
-* Calls are permitted up to 500 requests per day, and are measured against the username/password combination submitted with the request.
+* Calls are permitted up to 500 requests per day, and are measured against the username/password combination submitted with each request.
 
 JSONP
 -----
 JSONP or "JSON with padding" is a complement to the base JSON data format. You can add 'padding' by 
 including the request parameter `callback`. The returned `Content-Type` will be `application/javascript`.
 
-For example `http://api.theysay.io/v1/sentiment?text=...&callback=processSentiment`.
+Example: `http://api.theysay.io/v1/sentiment?text=...&callback=processSentiment`.
 
 ---
 
