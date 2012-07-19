@@ -24,8 +24,7 @@ in a number of different ways. The default rate limit for calls to the REST API 
 and whether the method itself requires authentication. If your application exceeds the rate limit, it will receive a HTTP `403` error response code.
 The following thresholds apply:
 
-* Unauthenticated calls are permitted up to 30 requests per hour.
-* Authenticated calls are permitted up to 3500 requests per hour, and are measured against the token submitted with the request.
+* Calls are permitted up to 500 requests per day, and are measured against the username/password combination submitted with the request.
 
 JSONP
 -----
