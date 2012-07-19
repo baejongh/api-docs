@@ -182,9 +182,9 @@ GET /sentiment?text=...&level=entityrelation
 }]
 
 
-Add the `level=word` parameter to get information about the temporal development (or flow) of sentiment through the text snippet.
-For each word in the text snippet, contextual sentence-level sentiment labels are provided.
-GET /sentiment?text=I%20really%20like%20theysay&level=word
+Add the `level=word` parameter to obtain contextual sentence-level sentiment labels for individual words in the text snippet.
+You can use the returned sentiment labels and temporal word position co-ordinates to plot the temporal development (or flow) of sentiment through the text snippet.
+GET /sentiment?text=There%20have%20been%20clashes%20throughout%20the%20night%20in%20many%20parts%20of%20Syria.&level=word
 > Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
@@ -192,32 +192,95 @@ GET /sentiment?text=I%20really%20like%20theysay&level=word
 < Content-Type: application/json
 [{
   "sentiment": {
-    "label": "POSITIVE",
-    "timelineY": 1.0
+    "label": "NEGATIVE",
+    "timelineY": -1.0
   },
   "wordIndex": 0,
-  "text": "I"
+  "text": "There"
 }, {
   "sentiment": {
-    "label": "POSITIVE",
-    "timelineY": 1.0170000000000001
+    "label": "NEGATIVE",
+    "timelineY": -1.004
   },
   "wordIndex": 1,
-  "text": "really"
+  "text": "have"
 }, {
   "sentiment": {
-    "label": "POSITIVE",
-    "timelineY": 1.033
+    "label": "NEGATIVE",
+    "timelineY": -1.008
   },
   "wordIndex": 2,
-  "text": "like"
+  "text": "been"
 }, {
   "sentiment": {
-    "label": "POSITIVE",
-    "timelineY": 1.05
+    "label": "NEGATIVE",
+    "timelineY": -1.012
   },
   "wordIndex": 3,
-  "text": "theysay"
+  "text": "clashes"
+}, {
+  "sentiment": {
+    "label": "NEGATIVE",
+    "timelineY": -1.0170000000000001
+  },
+  "wordIndex": 4,
+  "text": "throughout"
+}, {
+  "sentiment": {
+    "label": "NEGATIVE",
+    "timelineY": -1.0210000000000001
+  },
+  "wordIndex": 5,
+  "text": "the"
+}, {
+  "sentiment": {
+    "label": "NEGATIVE",
+    "timelineY": -1.025
+  },
+  "wordIndex": 6,
+  "text": "night"
+}, {
+  "sentiment": {
+    "label": "NEGATIVE",
+    "timelineY": -1.029
+  },
+  "wordIndex": 7,
+  "text": "in"
+}, {
+  "sentiment": {
+    "label": "NEGATIVE",
+    "timelineY": -1.033
+  },
+  "wordIndex": 8,
+  "text": "many"
+}, {
+  "sentiment": {
+    "label": "NEGATIVE",
+    "timelineY": -1.037
+  },
+  "wordIndex": 9,
+  "text": "parts"
+}, {
+  "sentiment": {
+    "label": "NEGATIVE",
+    "timelineY": -1.042
+  },
+  "wordIndex": 10,
+  "text": "of"
+}, {
+  "sentiment": {
+    "label": "NEGATIVE",
+    "timelineY": -1.046
+  },
+  "wordIndex": 11,
+  "text": "Syria"
+}, {
+  "sentiment": {
+    "label": "NEUTRAL",
+    "timelineY": -1.046
+  },
+  "wordIndex": 12,
+  "text": "."
 }]
 
 
