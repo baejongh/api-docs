@@ -271,44 +271,50 @@ Named Entity Recognition
 This service detects expressions in the text snippet that refer explicitly or implicitly to
 people and humans in general (PEOPLE); places and locations (LOCATION); organisations and companies (ORGANISATION);
 times and dates (TIMEDATE); and monetary issues (MONEY).
-For each identified expression (simple and complex Noun Phrases, Adjective Phrases, or Adverb Phrases), the detected Named Entity types are ranked by their salience (most salient first).
+For each identified expression (which can be simple and complex Noun Phrases, Adjective Phrases, or Adverb Phrases), the detected Named Entity types are ranked by their salience (most salient first).
 --
-GET /namedentity?text=I%20might%20buy%20macbooks&level=phrase
+GET /namedentity?text=yourText&level=phrase
 > Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
 < Content-Length:91
 < Content-Type: application/json
 [{
-  "end": 5,
   "head": "Hollande",
   "headIndex": 5,
-  "namedEntityTypes": ["PEOPLE", "ORGANISATION", "LOCATION"],
-  "sentence" : "The new French President Francois Hollande wants a \" growth pact \" in Europe - a set of reforms designed to boost European economies and mitigate the pain caused by government spending cuts across the continent .",
-  "sentenceHtml" : "<span class=\"namedEntity\">The new French President Francois Hollande</span> wants a \" growth pact \" in Europe - a set of reforms designed to boost European economies and mitigate the pain caused by government spending cuts across the continent .",
-  "sentenceIndex": 0,
   "start": 0,
-  "text": "The new French President Francois Hollande"
+  "end": 5,
+  "sentence": "The new French President Francois Hollande wants a '' growth pact '' in Europe - a set of reforms designed to boost European economies and mitigate the pain caused by government spending cuts across the continent .",
+  "sentenceHtml": "The new French President Francois Hollande wants a '' growth pact '' in Europe - a set of reforms designed to boost European economies and mitigate the pain caused by government spending cuts across the continent .",
+  "text": "The new French President Francois Hollande",
+  "namedEntityTypes": ["PEOPLE"]
 }, {
-  "end": 15,
   "head": "area",
   "headIndex": 7,
-  "namedEntityTypes": ["LOCATION"],
-  "sentence" : "The three lifeboats have been searching an area 25 miles ( 40km ) south of Wick , in the Beatrice oil field , for the two crew who remain missing . ",
-  "sentenceHtml" : "The three lifeboats have been searching <span class=\"namedEntity\">an area 25 miles ( 40km ) south of Wick</span> , in the Beatrice oil field , for the two crew who remain missing . ",
-  "sentenceIndex": 1,
   "start": 6,
-  "text": "an area 25 miles ( 40km ) south of Wick"
+  "end": 15,
+  "sentence": "The three lifeboats have been searching an area 25 miles ( 40km ) south of Wick , in the Beatrice oil field , for the two crew who remain missing .",
+  "sentenceHtml": "The three lifeboats have been searching an area 25 miles ( 40km ) south of Wick , in the Beatrice oil field , for the two crew who remain missing .",
+  "text": "an area 25 miles ( 40km ) south of Wick",
+  "namedEntityTypes": ["LOCATION"]
 }, {
-  "end": 18,
-  "head": "counterpart",
-  "headIndex": 14,
-  "namedEntityTypes": ["PEOPLE", "LOCATION"],
-  "sentence" : "Mrs Clinton made the announcement in Washington after talks by phone with her Pakistani counterpart , Hina Rabbani Khar .",
-  "sentenceHtml" : "Mrs Clinton made the announcement in Washington after talks by phone with <span class=\"namedEntity\">her Pakistani counterpart , Hina Rabbani Khar</span> .",
-  "sentenceIndex": 1,
-  "start": 12,
-  "text": "her Pakistani counterpart , Hina Rabbani Khar"
+  "head": "Co-op",
+  "headIndex": 1,
+  "start": 0,
+  "end": 1,
+  "sentence": "The Co-op will pay GBP350m upfront and up to an additional # 400m based on the performance of the combined business .",
+  "sentenceHtml": "The Co-op will pay GBP350m upfront and up to an additional # 400m based on the performance of the combined business .",
+  "text": "The Co-op",
+  "namedEntityTypes": ["ORGANISATION"]
+}, {
+  "head": "shares",
+  "headIndex": 31,
+  "start": 30,
+  "end": 31,
+  "sentence": "The resolution for change was filed by Christian Brothers Investment Services ( CBIS ) and members of the Local Authority Pension Fund Forum ( LAPFF ) , organizations that own B shares .",
+  "sentenceHtml": "The resolution for change was filed by Christian Brothers Investment Services ( CBIS ) and members of the Local Authority Pension Fund Forum ( LAPFF ) , organizations that own B shares .",
+  "text": "B shares",
+  "namedEntityTypes": ["MONEY"]
 }]
 
 
@@ -317,7 +323,7 @@ Part-of-Speech Tagging
 This service assigns word class types to individual words in the text snippet.
 The [tagset]() used is largely compatible with the [Penn Treebank Tagset](http://www.cis.upenn.edu/~treebank/).
 --
-GET /postag?text=I%20might%20buy%20macbooks
+GET /postag?text=I%20might%20buy%20a%20MacBookPro.
 > Accept: application/json
 < 200
 < Access-Control-Allow-Origin:*
