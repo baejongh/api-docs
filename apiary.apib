@@ -356,7 +356,7 @@ GET /postag?text=I%20might%20buy%20macbooks
 
 --
 Dependency Parsing
-This service analyses the grammatical structure of the text snippet and assigns typed syntactic dependencies between individual words in each sentence.
+This service analyses the grammatical structure of each sentence in the text snippet. For each sentence, typed syntactic dependencies between individual words are provided.
 The parses and the [typed dependencies]() used resemble the labels and types described in the [Cambridge Grammar of the English Language](http://www.cambridge.org/uk/linguistics/cgel/). 
 --
 GET /depparse?text=We%20found%20two%20bugs%20in%20your%20app
@@ -367,107 +367,127 @@ GET /depparse?text=We%20found%20two%20bugs%20in%20your%20app
 < Content-Type: application/json
 [{
   "dependency": {
-    "predicate": "nsubj(We-0, found-1)",
+    "predicate": "nsubj(got, I)",
     "relation": "nsubj"
   },
   "dependent": {
-    "stem": "we",
-    "text": "We",
+    "text": "I",
+    "stem": "I|i",
     "wordIndex": 0
   },
   "governor": {
-    "stem": "find",
-    "text": "found",
+    "text": "got",
+    "stem": "got|get",
     "wordIndex": 1
   }
 }, {
   "dependency": {
-    "predicate": "root(ROOT, found-1)",
-    "relation": "root"
+    "predicate": "(root, got)",
+    "relation": ""
   },
   "dependent": {
-    "stem": "find",
-    "text": "found",
-    "wordIndex": 0
-  },
-  "governor": {
-    "stem": "ROOT",
-    "text": "ROOT",
+    "text": "got",
+    "stem": "got|get",
     "wordIndex": 1
   }
 }, {
   "dependency": {
-    "predicate": "det(bugs-0, two-1)",
+    "predicate": "det(camera, a)",
     "relation": "det"
   },
   "dependent": {
-    "stem": "two",
-    "text": "two",
-    "wordIndex": 0
+    "text": "a",
+    "stem": "a",
+    "wordIndex": 2
   },
   "governor": {
-    "stem": "bug",
-    "text": "bugs",
-    "wordIndex": 1
+    "text": "camera",
+    "stem": "camera",
+    "wordIndex": 4
   }
 }, {
   "dependency": {
-    "predicate": "dobj(found-0, bugs-1)",
+    "predicate": "amod(camera, new)",
+    "relation": "amod"
+  },
+  "dependent": {
+    "text": "new",
+    "stem": "new",
+    "wordIndex": 3
+  },
+  "governor": {
+    "text": "camera",
+    "stem": "camera",
+    "wordIndex": 4
+  }
+}, {
+  "dependency": {
+    "predicate": "dobj(got, camera)",
     "relation": "dobj"
   },
   "dependent": {
-    "stem": "bug",
-    "text": "bugs",
-    "wordIndex": 0
+    "text": "camera",
+    "stem": "camera",
+    "wordIndex": 4
   },
   "governor": {
-    "stem": "find",
-    "text": "found",
+    "text": "got",
+    "stem": "got|get",
     "wordIndex": 1
   }
 }, {
   "dependency": {
-    "predicate": "prep(found-0, in-1)",
-    "relation": "prep"
+    "predicate": "rel(brilliant, which)",
+    "relation": "rel"
   },
   "dependent": {
-    "stem": "in",
-    "text": "in",
-    "wordIndex": 0
+    "text": "which",
+    "stem": "which",
+    "wordIndex": 5
   },
   "governor": {
-    "stem": "find",
-    "text": "found",
-    "wordIndex": 1
+    "text": "brilliant",
+    "stem": "brilliant",
+    "wordIndex": 7
   }
 }, {
   "dependency": {
-    "predicate": "det(app-0, your-1)",
-    "relation": "det"
+    "predicate": "cop(brilliant, is)",
+    "relation": "cop"
   },
   "dependent": {
-    "stem": "your",
-    "text": "your",
-    "wordIndex": 0
+    "text": "is",
+    "stem": "is|be",
+    "wordIndex": 6
   },
   "governor": {
-    "stem": "app",
-    "text": "app",
-    "wordIndex": 1
+    "text": "brilliant",
+    "stem": "brilliant",
+    "wordIndex": 7
   }
 }, {
   "dependency": {
-    "predicate": "pobj(in-0, app-1)",
-    "relation": "pobj"
+    "predicate": "rcmod(camera, brilliant)",
+    "relation": "rcmod"
   },
   "dependent": {
-    "stem": "app",
-    "text": "app",
-    "wordIndex": 0
+    "text": "brilliant",
+    "stem": "brilliant",
+    "wordIndex": 7
   },
   "governor": {
-    "stem": "in",
-    "text": "in",
-    "wordIndex": 1
+    "text": "camera",
+    "stem": "camera",
+    "wordIndex": 4
+  }
+}, {
+  "dependency": {
+    "predicate": "(root, .)",
+    "relation": ""
+  },
+  "dependent": {
+    "text": ".",
+    "stem": ".",
+    "wordIndex": 8
   }
 }]
