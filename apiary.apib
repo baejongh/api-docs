@@ -69,7 +69,7 @@ GET /sentiment?text=Angela%20Merkel%20failed%20to%20convince%20the%20Parliament.
 }
 
 
-Add the `level=sentence` parameter to get sentiment information about each sentence in the text snippet.
+Add the `level=sentence` parameter to get sentiment scores for each sentence in the text snippet.
 GET /sentiment?text=...&level=sentence
 > Accept: application/json
 < 200
@@ -77,28 +77,28 @@ GET /sentiment?text=...&level=sentence
 < Content-Length:91
 < Content-Type: application/json
 [{
-  "end": 38,
-  "sentenceIndex": 0,
   "sentiment": {
-    "confidence": 0.668,
     "label": "POSITIVE",
     "positive": 0.787,
     "negative": 0.16,
-    "neutral": 0.053
+    "neutral": 0.053,
+    "confidence": 0.668
   },
   "start": 0,
-  "text": "The new French President Francois Hollande wants a \" growth pact \" in Europe - a set of reforms designed to boost European economies and mitigate the pain caused by government spending cuts across the continent ."
+  "end": 36,
+  "sentenceIndex": 0,
+  "text": "The new French President Francois Hollande wants a '' growth pact '' in Europe - a set of reforms designed to boost European economies and mitigate the pain caused by government spending cuts across the continent ."
 }, {
-  "end": 68,
-  "sentenceIndex": 1,
   "sentiment": {
-    "confidence": 0.614,
     "label": "NEGATIVE",
-    "positive": 0.347,
+    "positive": 0.34700000000000003,
     "negative": 0.627,
-    "neutral": 0.026 
+    "neutral": 0.026000000000000002,
+    "confidence": 0.614
   },
   "start": 37,
+  "end": 68,
+  "sentenceIndex": 1,
   "text": "All the bad loans made by eurozone banks may need to be cleaned up ( by injecting money into the banks ) because many national governments probably can not afford it ."
 }]
 
