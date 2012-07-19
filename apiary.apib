@@ -19,9 +19,10 @@ Want to know more about our technology? Read our [White Papers](http://theysay.i
 
 Rate Limiting
 -------------
-By default, AffectR REST API allows API clients to make a limited number of calls in a given hour. In pracice, this policy will affect your usage 
-in a number of different ways. The default rate limit for calls to the REST API varies depending on the authorisation method used 
-and whether the method itself requires authentication. If your application exceeds the rate limit, it will receive a HTTP `403` error response code.
+By default, AffectR REST API allows API clients to make a limited number of calls in a given hour. 
+In practice, this policy will affect your usage in a number of different ways. 
+The default rate limit for calls to the REST API varies depending on the authorisation method used and whether the method itself requires authentication. 
+If your application exceeds the rate limit, it will receive a HTTP `403` error response code.
 The following thresholds apply:
 
 * Calls are permitted up to 500 requests per day, and are measured against the username/password combination submitted with the request.
@@ -148,7 +149,7 @@ GET /sentiment?text=...&level=entity
 }]
 
 
-Add the `level=entityrelation` parameter to get sentiment information about how pairs of entities are related in the text snippet.
+Add the `level=entityrelation` parameter to get sentiment information about sentiment relations between entities in the text snippet.
 GET /sentiment?text=...&level=entityrelation
 > Accept: application/json
 < 200
