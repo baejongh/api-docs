@@ -437,7 +437,7 @@ GET /depparse?text=We%20found%20two%20bugs%20in%20your%20app
   }
 }, {
   "dependency": {
-    "predicate": "rel(brilliant, which)",
+    "predicate": "rel(takes, which)",
     "relation": "rel"
   },
   "dependent": {
@@ -446,39 +446,54 @@ GET /depparse?text=We%20found%20two%20bugs%20in%20your%20app
     "wordIndex": 5
   },
   "governor": {
-    "text": "brilliant",
-    "stem": "brilliant",
-    "wordIndex": 7
-  }
-}, {
-  "dependency": {
-    "predicate": "cop(brilliant, is)",
-    "relation": "cop"
-  },
-  "dependent": {
-    "text": "is",
-    "stem": "is|be",
+    "text": "takes",
+    "stem": "takes|take",
     "wordIndex": 6
-  },
-  "governor": {
-    "text": "brilliant",
-    "stem": "brilliant",
-    "wordIndex": 7
   }
 }, {
   "dependency": {
-    "predicate": "rcmod(camera, brilliant)",
+    "predicate": "rcmod(camera, takes)",
     "relation": "rcmod"
   },
   "dependent": {
-    "text": "brilliant",
-    "stem": "brilliant",
-    "wordIndex": 7
+    "text": "takes",
+    "stem": "takes|take",
+    "wordIndex": 6
   },
   "governor": {
     "text": "camera",
     "stem": "camera",
     "wordIndex": 4
+  }
+}, {
+  "dependency": {
+    "predicate": "amod(photos, brilliant)",
+    "relation": "amod"
+  },
+  "dependent": {
+    "text": "brilliant",
+    "stem": "brilliant",
+    "wordIndex": 7
+  },
+  "governor": {
+    "text": "photos",
+    "stem": "photos|photo",
+    "wordIndex": 8
+  }
+}, {
+  "dependency": {
+    "predicate": "dobj(takes, photos)",
+    "relation": "dobj"
+  },
+  "dependent": {
+    "text": "photos",
+    "stem": "photos|photo",
+    "wordIndex": 8
+  },
+  "governor": {
+    "text": "takes",
+    "stem": "takes|take",
+    "wordIndex": 6
   }
 }, {
   "dependency": {
@@ -488,6 +503,6 @@ GET /depparse?text=We%20found%20two%20bugs%20in%20your%20app
   "dependent": {
     "text": ".",
     "stem": ".",
-    "wordIndex": 8
+    "wordIndex": 9
   }
 }]
