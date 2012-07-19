@@ -199,8 +199,8 @@ GET /sentiment?text=...&level=entityrelation
 }]
 
 
-Add the `level=word` parameter to obtain contextual sentence-level sentiment labels for individual words in the text snippet.
-You can use the returned sentiment labels and temporal word position co-ordinates to plot the temporal development (or flow) of sentiment through the text snippet.
+Add the `level=word` parameter to obtain contextual sentence-level sentiment labels and positional co-ordinates for individual words in the text snippet.
+You can use the returned labels and co-ordinates to plot the temporal development (or flow) of sentiment through the text snippet.
 GET /sentiment?text=...&level=word
 > Accept: application/json
 < 200
