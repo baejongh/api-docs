@@ -224,13 +224,12 @@ GET /sentiment?text=I%20really%20like%20theysay&level=word
 
 --
 Speculation Detection
-Speculative content refers directly or indirectly to any 'irrealis' events that are yet to happen. 
-Speculative expressions can hence cover events as diverse as predictions, plans, wanting, wishes, waiting, and risks and warnings, to name a few.      
+Speculative language describes or refers directly or indirectly to 'irrealis' events that are yet to happen. 
+Speculative expressions can hence cover events and concepts as diverse as predictions, plans, wanting, wishes, waiting, risks, and warnings, to name a few.      
 This service detects speculative expressions at the document and sentence level.
-The returned analysis contains only identified speculative content.
-Any detected subtypes of speculation are denoted with a dot character (e.g. SPECULATION.SUBTYPE).
+The response contains only 'positive' speculative content: if no speculative content is detected, the response is [].
+Any identified subtypes of speculation are denoted with the dot operator (e.g. SPECULATION.SUBTYPE).
 --
-Get an overall speculation score and individual speculation types from a text snippet.
 GET /speculation?text=I%20might%20buy%20macbooks
 > Accept: application/json
 < 200
