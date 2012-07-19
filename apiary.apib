@@ -276,7 +276,7 @@ This service detects expressions in the text snippet that refer explicitly or im
 * times and dates (TIMEDATE)
 * monetary issues (MONEY)
 
-For each identified expression (which can be simple and complex Noun Phrases, Adjective Phrases, or Adverb Phrases), the detected Named Entity types are ranked by their salience (most salient first).
+For each identified expression (which can be a simple or complex Noun Phrase, Adjective Phrase, or Adverb Phrase), the detected Named Entity types are ranked by their salience (most salient first).
 --
 GET /namedentity?text=...&level=phrase
 > Accept: application/json
