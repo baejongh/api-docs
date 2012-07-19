@@ -104,7 +104,7 @@ GET /sentiment?text=...&level=sentence
 }]
 
 
-Add the `level=entity` parameter to get sentiment information about each individual entity mentioned in the text snippet.
+Add the `level=entity` parameter to get sentiment scores for each individual entity mentioned in the text snippet.
 GET /sentiment?text=...&level=entity
 > Accept: application/json
 < 200
@@ -112,43 +112,39 @@ GET /sentiment?text=...&level=entity
 < Content-Length:91
 < Content-Type: application/json
 [{
-  "end": 21,
-  "headNoun": "Obama",
-  "headNounIndex": "1",
-  "namedEntityTypes": ["PEOPLE"],
-  "salience": 0.9,
-  "sentenceIndex": 0,
   "sentiment": {
     "label": "POSITIVE",
-    "positive": 0.838,
+    "positive": 1.0,
     "negative": 0.0,
-    "neutral": 0.161,
-    "confidence": 0.729
+    "neutral": 0.0,
+    "confidence": 0.756
   },
-  "start": 0,
-  "sentence": "Under it , an individual resigns from their company and any salary they subsequently receive is paid to an offshore trust .",
-  "sentenceHtml": "Under it , an individual resigns from their company and any salary they subsequently receive is paid to an offshore trust .",
-  "text": "President Obama",
-  "words": ["President Obama", "Obama"]
+  "start": 2,
+  "end": 2,
+  "sentence": "'' This collaboration is sending a strong message to all the spammers : Stop sending us spam .",
+  "sentenceHtml": "'' This <span class=\"entityMention\">collaboration</span> is sending a strong message to all the spammers : Stop sending us spam .",
+  "text": "collaboration",
+  "headNoun": "collaboration",
+  "headNounIndex": 2,
+  "salience": 1.0,
+  "namedEntityTypes": [""]
 }, {
-  "end": 21,
-  "headNoun": "Obama",
-  "headNounIndex": "1",
-  "namedEntityTypes": ["LOCATION"],
-  "salience": 0.9,
-  "sentenceIndex": 0,
   "sentiment": {
-    "label": "POSITIVE",
-    "positive": 0.838,
-    "negative": 0.0,
-    "neutral": 0.161,
-    "confidence": 0.729
+    "label": "NEGATIVE",
+    "positive": 0.41200000000000003,
+    "negative": 0.588,
+    "neutral": 0.588,
+    "confidence": 0.6890000000000001
   },
-  "start": 0,
-  "sentence": "Under it , an individual resigns from their company and any salary they subsequently receive is paid to an offshore trust .",
-  "sentenceHtml": "Under it , an individual resigns from their company and any salary they subsequently receive is paid to an offshore trust .",
-  "text": "President Obama",
-  "words": ["President Obama", "Obama"]
+  "start": 11,
+  "end": 11,
+  "sentence": "'' This collaboration is sending a strong message to all the spammers : Stop sending us spam .",
+  "sentenceHtml": "'' This collaboration is sending a strong message to all the <span class=\"entityMention\">spammers</span> : Stop sending us spam .",
+  "text": "spammers",
+  "headNoun": "spammers",
+  "headNounIndex": 11,
+  "salience": 0.7000000000000001,
+  "namedEntityTypes": [""]
 }]
 
 
