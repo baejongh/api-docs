@@ -312,7 +312,7 @@ Speculation Detection
 Speculative language describes or refers directly or indirectly to 'irrealis' events that are yet to happen. 
 Speculative expressions can hence cover events and concepts as diverse as predictions, plans, wanting, wishes, waiting, risks, and warnings, to name a few.      
 This service detects speculative expressions at the sentence level.
-The response contains only 'positive' matches: if no speculative content is detected, the response is [].
+The response contains only 'positive' matches: if no speculative content is detected, the response is [], accordingly.
 Any identified subtypes of speculation are denoted with the dot operator (e.g. SPECULATION.SUBTYPE).
 --
 GET /speculation?text=It's%20probably%20not%20advisable%20to%20use%20it.
@@ -327,6 +327,28 @@ GET /speculation?text=It's%20probably%20not%20advisable%20to%20use%20it.
   "sentenceIndex": 0,
   "speculationType": "SPECULATION.ADVICE",
   "text": "It 's probably not advisable to use it ."
+}]
+
+
+--
+Risk Detection
+[AVAILABLE EARLY OCTOBER 2012!]
+This sentence-level service detects expressions that express or refer to risk and danger, either directly or indirectly.
+The response contains only 'positive' matches: if no risk expressions are detected, the response is accordingly [].
+Any identified subtypes of risk are denoted with the dot operator (e.g. RISK.SUBTYPE).
+--
+GET /risk?text=Your%20plan%20sounds%20plain%20dangerous%20in%20my%20mind.
+> Accept: application/json
+< 200
+< Access-Control-Allow-Origin:*
+< Content-Length:91
+< Content-Type: application/json
+[{
+  "start": 0,
+  "end": 8,
+  "sentenceIndex": 0,
+  "riskType": "RISK",
+  "text": "Your plan sounds plain dangerous in my mind."
 }]
 
 
