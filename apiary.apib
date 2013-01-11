@@ -30,6 +30,10 @@ All endpoints support both `GET` and `POST` methods.
 When `GET` is used, all parameters and arguments can be specified in the URL, for example `/sentiment?text=how%20cool%20is%20that!&level=sentence`.
 `POST`, which is recommended for longer text snippets, accepts JSON objects in the request body itself. 
 
+GZIP
+-----
+If you want response data in a GZIPped format, add `Accept-Encoding: gzip` to your requests headers.
+
 JSONP
 -----
 JSONP or "JSON with padding" is a complement to the base JSON data format. You can add 'padding' by 
