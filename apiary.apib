@@ -490,6 +490,170 @@ GET /postag?text=I%20might%20buy%20a%20MacBookPro.
 
 
 --
+Shallow Chunk Parsing
+This service detects the boundaries of basic syntactic phrases in the text snippet.
+For each sentence, simple non-recursive Noun Phrase (NP) and Verb Group (VG) constituents are provided.
+--
+GET /chunkparse?text=The%20latest%20patch%20will%20probably%20solve%20all%20your%20problems.
+> Accept: application/json
+< 200
+< Access-Control-Allow-Origin:*
+< Content-Length:458
+< Content-Type: application/json
+[{
+  "chunk": {
+    "chunkType": "",
+    "end": 0,
+    "sentenceIndex": 0,
+    "start": 0,
+    "text": "The"
+  },
+  "head": {
+    "posTag": "DT",
+    "posTaggedWord": "The/DT",
+    "stem": "The",
+    "text": "The",
+    "wordIndex": 0
+  }
+}, {
+  "chunk": {
+    "chunkType": "",
+    "end": 1,
+    "sentenceIndex": 0,
+    "start": 1,
+    "text": "latest"
+  },
+  "head": {
+    "posTag": "JJS",
+    "posTaggedWord": "latest/JJS",
+    "stem": "late",
+    "text": "latest",
+    "wordIndex": 1
+  }
+}, {
+  "chunk": {
+    "chunkType": "NP",
+    "end": 2,
+    "sentenceIndex": 0,
+    "start": 0,
+    "text": "The latest patch"
+  },
+  "head": {
+    "posTag": "NN",
+    "posTaggedWord": "patch/NN",
+    "stem": "patch",
+    "text": "patch",
+    "wordIndex": 2
+  }
+}, {
+  "chunk": {
+    "chunkType": "",
+    "end": 3,
+    "sentenceIndex": 0,
+    "start": 3,
+    "text": "will"
+  },
+  "head": {
+    "posTag": "MD",
+    "posTaggedWord": "will/MD",
+    "stem": "will",
+    "text": "will",
+    "wordIndex": 3
+  }
+}, {
+  "chunk": {
+    "chunkType": "",
+    "end": 4,
+    "sentenceIndex": 0,
+    "start": 4,
+    "text": "probably"
+  },
+  "head": {
+    "posTag": "RB",
+    "posTaggedWord": "probably/RB",
+    "stem": "probably",
+    "text": "probably",
+    "wordIndex": 4
+  }
+}, {
+  "chunk": {
+    "chunkType": "VP",
+    "end": 5,
+    "sentenceIndex": 0,
+    "start": 3,
+    "text": "will probably solve"
+  },
+  "head": {
+    "posTag": "VB",
+    "posTaggedWord": "solve/VB",
+    "stem": "solve",
+    "text": "solve",
+    "wordIndex": 5
+  }
+}, {
+  "chunk": {
+    "chunkType": "",
+    "end": 6,
+    "sentenceIndex": 0,
+    "start": 6,
+    "text": "all"
+  },
+  "head": {
+    "posTag": "PDT",
+    "posTaggedWord": "all/PDT",
+    "stem": "all",
+    "text": "all",
+    "wordIndex": 6
+  }
+}, {
+  "chunk": {
+    "chunkType": "",
+    "end": 7,
+    "sentenceIndex": 0,
+    "start": 7,
+    "text": "your"
+  },
+  "head": {
+    "posTag": "PRP$",
+    "posTaggedWord": "your/PRP$",
+    "stem": "your",
+    "text": "your",
+    "wordIndex": 7
+  }
+}, {
+  "chunk": {
+    "chunkType": "NP",
+    "end": 8,
+    "sentenceIndex": 0,
+    "start": 6,
+    "text": "all your problems"
+  },
+  "head": {
+    "posTag": "NNS",
+    "posTaggedWord": "problems/NNS",
+    "stem": "problem",
+    "text": "problems",
+    "wordIndex": 8
+  }
+}, {
+  "chunk": {
+    "chunkType": "",
+    "end": 9,
+    "sentenceIndex": 0,
+    "start": 9,
+    "text": "."
+  },
+  "head": {
+    "posTag": ".",
+    "posTaggedWord": "./.",
+    "stem": ".",
+    "text": ".",
+    "wordIndex": 9
+  }
+}]
+
+
+--
 Dependency Parsing
 This service analyses the grammatical structure of each sentence in the text snippet.
 For each sentence, typed syntactic dependencies between individual words are provided.
