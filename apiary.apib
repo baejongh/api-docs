@@ -123,6 +123,7 @@ GET /sentiment?text=...&level=sentence
 Add the `level=entity` parameter to get sentiment scores for each individual entity mentioned in the text snippet.
 
 By default, all analysed entities are returned in the response. If you want to control which entities are included in the response, use the `targets` parameter to specify which entities you want.
+The `targets` parameter accepts a list of regular expressions delimited by the `|` (%7C), for example `targets=market%7Cbusiness(es)%3F%7Copportunit(y%7Cies)`. 
 The specified target entities are matched against individual words in entity NPs. If you want the matching to be based on entities' head nounds, add the `matching=head` parameter.
 GET /sentiment?text=...&level=entity
 > Accept: application/json
