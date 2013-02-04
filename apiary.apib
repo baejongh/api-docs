@@ -169,7 +169,7 @@ GET /sentiment?text=...&level=entity
 }]
 
 
-Add the `level=entityaggregate` parameter to get sentiment scores for aggregated entity mentions in the text snippet. Individual entity mentions are aggregated into unique groups (using lowercase head noun matching and weighted sentiment scores).
+Add the `level=entityaggregate` parameter to get sentiment scores for aggregated entity mentions in the text snippet. Individual entity mentions are aggregated into unique groups using lowercase head noun matching and weighted sentiment scores.
 GET /sentiment?text=...&level=entityaggregate
 > Accept: application/json
 < 200
