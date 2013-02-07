@@ -16,10 +16,10 @@ Comments, suggestions, or feedback? [Contact us](mailto:contact@theysayanalytics
 
 Rate Limiting
 -------------
-By default, AffectR API allows API clients to make a limited number of calls in a given hour. 
+By default, AffectR API allows API clients to make a limited number of calls in a given day. 
 In practice, this policy will affect your usage in a number of different ways. 
 The default rate limit for calls to the AffectR API varies depending on the authorisation method used and whether the method itself requires authentication. 
-If your application exceeds the rate limit, it will receive a HTTP `403` error response code.
+If your application exceeds your daily quota or your rate limit, you will receive a HTTP `403` error response code.
 The following thresholds apply:
 
 * By default, calls are permitted up to 500 requests per day, and are measured against the username/password combination submitted with each request. 
