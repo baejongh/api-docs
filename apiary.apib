@@ -1,6 +1,6 @@
 HOST: http://api.theysay.io/v1
 
---- TheySay AffectR REST API v1.01: Documentation ---
+--- TheySay AffectR REST API v1.02: Documentation ---
 ---
 
 AffectR REST API is a platform-agnostic service which enables developers to access and mix-and-match our powerful text analysis processors that cover sentiment analysis, speculation detection, part-of-speech 
@@ -12,7 +12,7 @@ Getting started with AffectR API is easy. Explore the API below, and simply [con
 
 Comments, suggestions, or feedback? [Contact us](mailto:contact@theysayanalytics.com?Subject=AffectR%20API%20feedback) - we love to hear from you!
 
-&copy; 2012 [TheySay](http://www.theysayanalytics.com) Ltd. All Rights Reserved.
+&copy; 2012, 2013 [TheySay](http://www.theysayanalytics.com) Ltd. All Rights Reserved.
 
 Rate Limiting
 -------------
@@ -166,6 +166,60 @@ GET /sentiment?text=...&level=entity
   "headNoun": "spammers",
   "headNounIndex": 11,
   "salience": 0.7000000000000001
+}]
+
+
+Add the `level=entityaggregate` parameter to get sentiment scores for aggregated entity mentions in the text snippet. Individual entity mentions are aggregated into unique groups using lowercase head noun matching and weighted sentiment scores.
+GET /sentiment?text=...&level=entityaggregate
+> Accept: application/json
+< 200
+< Access-Control-Allow-Origin:*
+< Content-Length:757
+< Content-Type: application/json
+[{
+  "entity": "osborne",
+  "frequency": 2,
+  "sentiment": {
+    "label": "NEGATIVE",
+    "positive": 0.0,
+    "negative": 0.96,
+    "neutral": 0.04,
+    "confidence": 0.801
+  },
+  "salience": 1.0,
+  "mentions": [{
+    "sentiment": {
+      "label": "NEGATIVE",
+      "positive": 0.0,
+      "negative": 0.851,
+      "neutral": 0.149,
+      "confidence": 0.775
+    },
+    "start": 0,
+    "end": 1,
+    "sentence": "Mr Osborne said the banking system was not working for its customers .",
+    "sentenceHtml": " <span class=\"entityMention\">Mr Osborne</span> said the banking system was not working for its customers .",
+    "text": "Mr Osborne",
+    "headNoun": "Osborne",
+    "headNounIndex": 1,
+    "salience": 1.0
+  }, {
+    "sentiment": {
+      "label": "NEGATIVE",
+      "positive": 0.0,
+      "negative": 0.861,
+      "neutral": 0.139,
+      "confidence": 0.8270000000000001
+    },
+    "start": 13,
+    "end": 13,
+    "sentence": "Osborne also said that banks had failed to take responsibility for their actions .",
+    "sentenceHtml": " <span class=\"entityMention\">Osborne</span> also said that banks had failed to take responsibility for their actions .",
+    "text": "Osborne",
+    "headNoun": "Osborne",
+    "headNounIndex": 13,
+    "salience": 1.0
+  }]
 }]
 
 
