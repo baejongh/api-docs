@@ -24,7 +24,15 @@ The following thresholds apply:
 
 * By default, calls are permitted up to 500 requests per day, and are measured against the username/password combination submitted with each request. 
 
-Responses returned by the API contain information about your usage in the following response header fields: `X-RateLimit-IntervalSecs:`, `X-RateLimit-Limit:`, `X-RateLimit-Remaining:`, and `X-RateLimit-Reset:`. 
+Responses returned by the API contain information about your usage in the following response header fields: 
+
+* `X-DailyLimit-Limit`: Example: 15000
+* `X-DailyLimit-Remaining`: Example: 14998
+* `X-DailyLimit-Reset`: Example: 1360281599708
+* `X-RateLimit-IntervalSecs`: Example: 60
+* `X-RateLimit-Limit`: Example: 30
+* `X-RateLimit-Remaining`: Example: 28
+* `X-RateLimit-Reset`: Example: 1360254866709
 
 For more information about rate limits, [contact us](mailto:contact@theysayanalytics.com?Subject=AffectR%20API%20rate-limit%20enquiry).
 
@@ -52,6 +60,8 @@ API Version Information
 To obtain version and server information about the current API, call `/version`.
 
 Example: `http://api.theysay.io/version`.
+
+In addition, each response returned by the API contains the API version in the `Server` response header field. 
 
 ---
 
