@@ -19,7 +19,7 @@ Rate Limiting
 By default, AffectR API allows API clients to make a limited number of calls in a given day. Your daily request quota depends on your API subscription and is measured against the username/password combination submitted with each request. 
 Your requests are also rate-limited with a sliding interval.
 The default rate limit for calls to the AffectR API varies depending on the authorisation method used and whether the method itself requires authentication. 
-If your application exceeds your daily quota or your sliding rate limit, you will receive a HTTP `403` error response code.
+If your application exceeds your daily quota or your sliding rate limit, you will receive a HTTP `403 Forbidden` error response code.
 By default, the following thresholds apply:
 
 * Calls are permitted up to `500` requests per day.
@@ -29,11 +29,11 @@ Responses returned by the API contain information about your usage in the follow
 
 * `X-DailyLimit-Limit`: Shows your daily request quota. Example: 15000.
 * `X-DailyLimit-Remaining`: Shows how many requests you can send before you will exceed your daily request quota. Example: 14998.
-* `X-DailyLimit-Reset`: Shows when your next daily quota will be reset. Example: 1360281599708.
+* `X-DailyLimit-Reset`: Shows when your next daily quota will be reset in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time). Example: 1360281599708.
 * `X-RateLimit-IntervalSecs`: Shows the length of your rate limit window. Example: 60.
 * `X-RateLimit-Limit`: Shows how many requests you can send within your rate limit window. Example: 30.
 * `X-RateLimit-Remaining`: Shows how many requests you can send before you will exceed your rate limit. Example: 28.
-* `X-RateLimit-Reset`: Shows when your next rate limit window will be reset. Example: 1360254866709.
+* `X-RateLimit-Reset`: Shows when your next rate limit window will be reset in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time). Example: 1360254866709.
 
 
 For more information about daily quotas, rate limits, and subscriptions, [contact us](mailto:contact@theysayanalytics.com?Subject=AffectR%20API%20rate-limit%20enquiry).
@@ -57,9 +57,9 @@ GZIP
 ----
 If you want to receive response data in a compressed GZIP format, add `Accept-Encoding: gzip` to your request headers.
 
-API Version Information
+Server Version Information
 ----
-To obtain version and server information about the current API, call `/version`.
+To obtain software build version details about the current API, call `/version`.
 
 Example: `http://api.theysay.io/version`.
 
