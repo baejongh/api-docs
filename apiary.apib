@@ -27,11 +27,11 @@ The following thresholds apply:
 Responses returned by the API contain information about your usage in the following response header fields: 
 
 * `X-DailyLimit-Limit`: Shows your daily request quota. Example: 15000.
-* `X-DailyLimit-Remaining`: Shows how many requests you can send before you hit your daily request quota. Example: 14998.
+* `X-DailyLimit-Remaining`: Shows how many requests you can send before you will exceed your daily request quota. Example: 14998.
 * `X-DailyLimit-Reset`: Shows when your next daily quota will be reset. Example: 1360281599708.
 * `X-RateLimit-IntervalSecs`: Shows the length of your rate limit window. Example: 60.
 * `X-RateLimit-Limit`: Shows how many requests you can send within your rate limit window. Example: 30.
-* `X-RateLimit-Remaining`: Shows how many requests you can send before exceeding your rate limit. Example: 28.
+* `X-RateLimit-Remaining`: Shows how many requests you can send before you will exceed your rate limit. Example: 28.
 * `X-RateLimit-Reset`: Shows when your next rate limit window will be reset. Example: 1360254866709.
 
 For more information about rate limits, [contact us](mailto:contact@theysayanalytics.com?Subject=AffectR%20API%20rate-limit%20enquiry).
