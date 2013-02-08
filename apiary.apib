@@ -17,12 +17,12 @@ Comments, suggestions, or feedback? [Contact us](mailto:contact@theysayanalytics
 HTTP Methods
 ------------
 
-- `GET`: parameters must be specified in the URL, for example: `/v1/sentiment?text=how%20cool%20is%20that!&level=sentence`.
+- `GET`: parameters must be URL-encoded, for example: `/v1/sentiment?text=how%20cool%20is%20that!&level=sentence`.
 
 - `POST`: JSON in the request body. We recommend `POST`, especially with longer text snippets.
 For example:
 ```
-{"text":"Patchy rain, sleet or snow in parts of northeast England, the Midlands and southwest England,...","level":"sentence"}
+{"text":"Patchy rain, sleet or snow in parts...","level":"sentence"}
 ```
 
 HTTP Response Codes
