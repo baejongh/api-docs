@@ -38,13 +38,13 @@ By default, the following quota apply:
 
 Responses returned by the API contain information about your quota in the following response header fields:
 
-* `X-DailyLimit-Limit`: Shows your daily request quota. Example: 15000.
-* `X-DailyLimit-Remaining`: Shows how many requests you can send before you will exceed your daily request quota. Example: 14998.
-* `X-DailyLimit-Reset`: Shows when your next daily quota will be reset in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time). Example: 1360281599708.
-* `X-RateLimit-IntervalSecs`: Shows the length of your rate limit window. Example: 60.
-* `X-RateLimit-Limit`: Shows how many requests you can send within your rate limit window. Example: 30.
-* `X-RateLimit-Remaining`: Shows how many requests you can send before you will exceed your rate limit. Example: 28.
-* `X-RateLimit-Reset`: Shows when your next rate limit window will be reset in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time). Example: 1360254866709.
+- `X-DailyLimit-Limit` - Your daily request quota. Example: 15000.
+- `X-DailyLimit-Remaining` - Remaining requests you can send before you will exceed your daily request limit. Example: 12323.
+- `X-DailyLimit-Reset` - When your next daily quota will be reset in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time). Example: 1360281599708.
+- `X-RateLimit-IntervalSecs` - The length of your rate limit window. Example: 60.
+- `X-RateLimit-Limit` - Your request quota you can send within your rate limit window. Example: 30.
+- `X-RateLimit-Remaining` - Remaining requests you can send before you will exceed your rate limit. Example: 25.
+- `X-RateLimit-Reset` - When your next rate limit window will be reset in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time). Example: 1360254866709.
 
 For more information about daily quotas, rate limits, and subscriptions, [contact us](mailto:contact@theysayanalytics.com?Subject=AffectR%20API%20rate-limit%20enquiry).
 
