@@ -87,6 +87,9 @@ If no `level=` parameter is specified, document-level analysis will be used by d
 Get document-level sentiment information about the text snippet as a whole.
 GET /sentiment{?text}
 < 200
+{
+  "type" : "templated"
+}
 < Content-Type: application/json; charset=UTF-8
 {
   "sentiment": {
