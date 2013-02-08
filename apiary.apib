@@ -59,10 +59,7 @@ If you want to receive response data in a compressed GZIP format, add `Accept-En
 
 Server Version Information
 ----
-To obtain software build version details about the current API, call `/version`.
-
-Example: `[http://api.theysay.io/version](http://api.theysay.io/version)`.
-
+To obtain software build version details about the current API, call `/version`: [http://api.theysay.io/version](http://api.theysay.io/version).
 In addition, each response returned by the API contains the API version in the `Server` response header field. 
 
 ---
@@ -89,7 +86,6 @@ If no `level=` parameter is specified, document-level analysis will be used by d
 --
 Get document-level sentiment information about the text snippet as a whole.
 GET /sentiment?text=...
-> Accept: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 {
@@ -105,7 +101,6 @@ GET /sentiment?text=...
 
 Add the `level=sentence` parameter to get sentiment scores for each sentence in the text snippet.
 GET /sentiment?text=...&level=sentence
-> Accept: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -142,7 +137,6 @@ The `targets` parameter accepts a list of regular expressions delimited by the `
 
 The specified target entities are matched against individual words in each entity NP. If you want the matching to be based on head nouns in entity NPs, add the `matching=head` parameter.
 GET /sentiment?text=...&level=entity
-> Accept: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -182,7 +176,6 @@ GET /sentiment?text=...&level=entity
 
 Add the `level=entityaggregate` parameter to get aggregated sentiment scores for entities mentioned in the text snippet. Individual entity mentions are grouped using lowercase head noun matching and scored using weighted sentiment scores.
 GET /sentiment?text=...&level=entityaggregate
-> Accept: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -234,7 +227,6 @@ GET /sentiment?text=...&level=entityaggregate
 
 Add the `level=entityrelation` parameter to get detailed information about sentiment relations between entities in the text snippet.
 GET /sentiment?text=...&level=entityrelation
-> Accept: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -283,7 +275,6 @@ GET /sentiment?text=...&level=entityrelation
 Add the `level=word` parameter to obtain contextual sentence-level sentiment labels and positional co-ordinates for individual words in the text snippet.
 You can use the returned labels and co-ordinates to plot the temporal development (or flow) of sentiment through the text snippet.
 GET /sentiment?text=...&level=word
-> Accept: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -389,7 +380,6 @@ The response contains only 'positive' matches: if no speculative content is dete
 Any identified subtypes of speculation are denoted with the dot operator (e.g. SPECULATION.SUBTYPE).
 --
 GET /speculation?text=It's%20probably%20not%20advisable%20to%20use%20it.
-> Accept: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -409,7 +399,6 @@ The response contains only 'positive' matches: if no risk expressions are detect
 Any identified subtypes of risk are denoted with the dot operator (e.g. RISK.SUBTYPE).
 --
 GET /risk?text=Your%20plan%20sounds%20plain%20dangerous%20in%20my%20mind.
-> Accept: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -429,7 +418,6 @@ The response contains only 'positive' matches: if no intent expressions are dete
 Any identified subtypes of intent are denoted with the dot operator (e.g. INTENT.DECISION).
 --
 GET /intent?text=I%20have%20made%20a%20decision%20to%20purchase%20the%20new%20improved%20camera%20model.
-> Accept: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -454,7 +442,7 @@ This service detects expressions in the text snippet that refer explicitly or im
 For each identified expression (which can be a simple or complex Noun Phrase, Adjective Phrase, or Adverb Phrase), the detected Named Entity types are ranked by their salience (most salient first).
 --
 GET /namedentity?text=...&level=phrase
-> Accept: application/json
+> : application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -502,7 +490,6 @@ This service assigns word class types to individual words in the text snippet.
 The [tagset]() used is largely compatible with the [Penn Treebank Tagset](http://www.cis.upenn.edu/~treebank/).
 --
 GET /postag?text=I%20might%20buy%20a%20MacBookPro.
-> Accept: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -556,7 +543,6 @@ This service detects the boundaries of basic syntactic phrases in the text snipp
 For each sentence, simple non-recursive Noun Phrase (NP) and Verb Group (VG) constituents are provided.
 --
 GET /chunkparse?text=The%20latest%20patch%20will%20probably%20solve%20all%20your%20problems.
-> Accept: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -719,7 +705,6 @@ For each sentence, typed syntactic dependencies between individual words are pro
 The parses and the [typed dependencies]() used resemble the labels and types described in the [Cambridge Grammar of the English Language](http://www.cambridge.org/uk/linguistics/cgel/).
 --
 GET /depparse?text=I%20got%20a%20new%20camera%20which%20takes%20brilliant%20photos.
-> Accept: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
