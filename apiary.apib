@@ -91,9 +91,7 @@ Get document-level sentiment information about the text snippet as a whole.
 GET /sentiment?text=...
 > Accept: application/json
 < 200
-< Access-Control-Allow-Origin:*
-< Content-Length:91
-< Content-Type: application/json
+< Content-Type: application/json; charset=UTF-8
 {
   "sentiment": {
     "label": "NEGATIVE",
@@ -109,9 +107,7 @@ Add the `level=sentence` parameter to get sentiment scores for each sentence in 
 GET /sentiment?text=...&level=sentence
 > Accept: application/json
 < 200
-< Access-Control-Allow-Origin:*
-< Content-Length:91
-< Content-Type: application/json
+< Content-Type: application/json; charset=UTF-8
 [{
   "sentiment": {
     "label": "POSITIVE",
