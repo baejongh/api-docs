@@ -77,7 +77,6 @@ The analysis, output by a human-like sentiment reasoning algorithm, captures bot
 general, implicit "reader-sentiment" beyond opinions that ultimately stems from affective commons sense as well as issues and events that are 
 generally considered to be good vs. bad in the world.
 
-The analysis can target multiple structural levels of text ranging from entire documents to individual entity mentions.
 The returned analysis includes majority sentiment labels, fine-grained 3-way positive/neutral/negative percentage scores, 
 and other useful auxiliary fields.
 
@@ -373,7 +372,7 @@ GET /sentiment?text=...&level=word
 
 --
 Speculation Detection
-Speculative language describes or refers directly or indirectly to 'irrealis' events that are yet to happen. 
+Speculative language describes or refers directly or indirectly to `irrealis` events that are yet to happen. 
 Speculative expressions can hence cover concepts as diverse as future, certainty, doubt, prediction, wanting, wishes, and waiting, to name a few.      
 This service detects speculative expressions at the sentence level.
 The response contains only 'positive' matches: if no speculative content is detected, the response is [], accordingly.
