@@ -14,18 +14,23 @@ Comments, suggestions, or feedback? [Contact us](mailto:contact@theysayanalytics
 
 &copy; 2012, 2013 [TheySay](http://www.theysayanalytics.com) Ltd. All Rights Reserved.
 
-Rate Limiting
--------------
-By default, AffectR API allows API clients to make a limited number of calls in a given day. Your daily request quota depends on your API subscription and is measured against the username/password combination submitted with each request. 
-Your requests are also rate-limited with a sliding interval.
-The default rate limit for calls to the AffectR API varies depending on the authorisation method used and whether the method itself requires authentication. 
-If your application exceeds your daily quota or your sliding rate limit, you will receive a HTTP `403 Forbidden` error response code.
-By default, the following thresholds apply:
+HTTP Response Codes
+-------------------
+200 `OK` - the request was successful
+400 `Bad Request` - the request could not be understood or was missing required parameters
+401 `Unauthorized` - authentication failed or user doesn't have permissions for requested operation
+403 `Forbidden` - exceeded quota, see below
+405 `Method Not Allowed` - the requested method is not supported for resource, currently we only support GET and POST
 
-* Calls are permitted up to `500` requests per day.
-* The sliding rate limit window is `60` seconds.
+Quota
+-----
+We enforce two quota's: daily requests and request rate per minute. The quota depend on your API subscription.
+By default, the following quota apply:
 
-Responses returned by the API contain information about your usage in the following response header fields: 
+* Maximum `500` requests per day, reset at midnight UTC
+* Maximum `30` requests per minute
+
+Responses returned by the API contain information about your quota in the following response header fields:
 
 * `X-DailyLimit-Limit`: Shows your daily request quota. Example: 15000.
 * `X-DailyLimit-Remaining`: Shows how many requests you can send before you will exceed your daily request quota. Example: 14998.
@@ -35,32 +40,27 @@ Responses returned by the API contain information about your usage in the follow
 * `X-RateLimit-Remaining`: Shows how many requests you can send before you will exceed your rate limit. Example: 28.
 * `X-RateLimit-Reset`: Shows when your next rate limit window will be reset in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time). Example: 1360254866709.
 
-
 For more information about daily quotas, rate limits, and subscriptions, [contact us](mailto:contact@theysayanalytics.com?Subject=AffectR%20API%20rate-limit%20enquiry).
 
 Methods
 -----
-All endpoints support both `GET` and `POST` methods. 
-When `GET` is used, all parameters and arguments can be specified in the URL, for example `/sentiment?text=how%20cool%20is%20that!&level=sentence`.
-`POST` accepts JSON objects in the request body itself. 
+All endpoints support both `GET` and `POST` methods. When `GET` is used, all parameters and arguments can be specified 
+in the URL, for example `/sentiment?text=how%20cool%20is%20that!&level=sentence`.
 
-We recommend `POST`, especially with longer text snippets.
+`POST` accepts JSON objects in the request body itself. We recommend `POST`, especially with longer text snippets.
 
-JSONP
------
-JSONP or "JSON with padding" is a complement to the base JSON data format. You can add 'padding' by 
-including the request parameter `callback`. The returned `Content-Type` will be `application/javascript`.
+JSONP Support
+-------------
+Use the `callback` request parameter to add a [JSONP](http://en.wikipedia.org/wiki/JSONP) wrapper. The returned `Content-Type` will be `application/javascript`.
 
-Example: `http://api.theysay.io/v1/sentiment?text=...&callback=processSentiment`.
-
-GZIP
-----
-If you want to receive response data in a compressed GZIP format, add `Accept-Encoding: gzip` to your request headers.
+GZIP Compression
+----------------
+Add `Accept-Encoding: gzip` to your request headers, this will indicate to us that we can deliver a gzipped stream, 
+which, from some testing, has been up to 1/5th the size of an uncompressed stream - a considerable savings of bandwidth!
 
 Server Version Information
-----
+--------------------------
 To obtain software build version details about the current API, call `/version`: [http://api.theysay.io/version](http://api.theysay.io/version).
-In addition, each response returned by the API contains the API version in the `Server` response header field. 
 
 ---
 
@@ -84,6 +84,7 @@ and other useful auxiliary fields.
 
 If no `level=` parameter is specified, document-level analysis will be used by default (`level=doc`).
 --
+Get document-level sentiment information about the text snippet as a whole.
 GET /sentiment{?text}
 < 200
 < Content-Type: application/json; charset=UTF-8
