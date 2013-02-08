@@ -144,9 +144,7 @@ The specified target entities are matched against individual words in each entit
 GET /sentiment?text=...&level=entity
 > Accept: application/json
 < 200
-< Access-Control-Allow-Origin:*
-< Content-Length:91
-< Content-Type: application/json
+< Content-Type: application/json; charset=UTF-8
 [{
   "sentiment": {
     "label": "POSITIVE",
@@ -186,9 +184,7 @@ Add the `level=entityaggregate` parameter to get aggregated sentiment scores for
 GET /sentiment?text=...&level=entityaggregate
 > Accept: application/json
 < 200
-< Access-Control-Allow-Origin:*
-< Content-Length:757
-< Content-Type: application/json
+< Content-Type: application/json; charset=UTF-8
 [{
   "entity": "osborne",
   "frequency": 2,
@@ -240,9 +236,7 @@ Add the `level=entityrelation` parameter to get detailed information about senti
 GET /sentiment?text=...&level=entityrelation
 > Accept: application/json
 < 200
-< Access-Control-Allow-Origin:*
-< Content-Length:91
-< Content-Type: application/json
+< Content-Type: application/json; charset=UTF-8
 [{
  "entity1": {
     "head": "Avanesov",
@@ -291,9 +285,7 @@ You can use the returned labels and co-ordinates to plot the temporal developmen
 GET /sentiment?text=...&level=word
 > Accept: application/json
 < 200
-< Access-Control-Allow-Origin:*
-< Content-Length:91
-< Content-Type: application/json
+< Content-Type: application/json; charset=UTF-8
 [{
   "sentiment": {
     "label": "NEGATIVE",
@@ -399,9 +391,7 @@ Any identified subtypes of speculation are denoted with the dot operator (e.g. S
 GET /speculation?text=It's%20probably%20not%20advisable%20to%20use%20it.
 > Accept: application/json
 < 200
-< Access-Control-Allow-Origin:*
-< Content-Length:91
-< Content-Type: application/json
+< Content-Type: application/json; charset=UTF-8
 [{
   "start": 0,
   "end": 8,
@@ -421,9 +411,7 @@ Any identified subtypes of risk are denoted with the dot operator (e.g. RISK.SUB
 GET /risk?text=Your%20plan%20sounds%20plain%20dangerous%20in%20my%20mind.
 > Accept: application/json
 < 200
-< Access-Control-Allow-Origin:*
-< Content-Length:91
-< Content-Type: application/json
+< Content-Type: application/json; charset=UTF-8
 [{
   "start": 0,
   "end": 8,
@@ -443,9 +431,7 @@ Any identified subtypes of intent are denoted with the dot operator (e.g. INTENT
 GET /intent?text=I%20have%20made%20a%20decision%20to%20purchase%20the%20new%20improved%20camera%20model.
 > Accept: application/json
 < 200
-< Access-Control-Allow-Origin:*
-< Content-Length:91
-< Content-Type: application/json
+< Content-Type: application/json; charset=UTF-8
 [{
   "start": 0,
   "end": 11,
@@ -470,9 +456,7 @@ For each identified expression (which can be a simple or complex Noun Phrase, Ad
 GET /namedentity?text=...&level=phrase
 > Accept: application/json
 < 200
-< Access-Control-Allow-Origin:*
-< Content-Length:91
-< Content-Type: application/json
+< Content-Type: application/json; charset=UTF-8
 [{
   "head": "Hollande",
   "headIndex": 5,
@@ -520,9 +504,7 @@ The [tagset]() used is largely compatible with the [Penn Treebank Tagset](http:/
 GET /postag?text=I%20might%20buy%20a%20MacBookPro.
 > Accept: application/json
 < 200
-< Access-Control-Allow-Origin:*
-< Content-Length:91
-< Content-Type: application/json
+< Content-Type: application/json; charset=UTF-8
 [{
   "posTag": "PRP",
   "posTaggedWord": "I/PRP",
@@ -576,9 +558,7 @@ For each sentence, simple non-recursive Noun Phrase (NP) and Verb Group (VG) con
 GET /chunkparse?text=The%20latest%20patch%20will%20probably%20solve%20all%20your%20problems.
 > Accept: application/json
 < 200
-< Access-Control-Allow-Origin:*
-< Content-Length:458
-< Content-Type: application/json
+< Content-Type: application/json; charset=UTF-8
 [{
   "chunk": {
     "chunkType": "",
@@ -741,9 +721,7 @@ The parses and the [typed dependencies]() used resemble the labels and types des
 GET /depparse?text=I%20got%20a%20new%20camera%20which%20takes%20brilliant%20photos.
 > Accept: application/json
 < 200
-< Access-Control-Allow-Origin:*
-< Content-Length:91
-< Content-Type: application/json
+< Content-Type: application/json; charset=UTF-8
 [{
   "dependency": {
     "predicate": "nsubj(got, I)",
