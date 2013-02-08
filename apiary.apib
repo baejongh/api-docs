@@ -11,13 +11,9 @@ AffectR API follows [REST principles](http://en.wikipedia.org/wiki/Representatio
 
 HTTP Methods
 ------------
-- `GET`: parameters must be URL-encoded, for example: `/v1/sentiment?text=how%20cool%20is%20that!&level=sentence`.
-- `POST`: JSON in the request body. We recommend `POST`, especially with longer text snippets.
+- `GET`: parameters must be URL-encoded. Example: `/v1/sentiment?text=how%20cool%20is%20that!&level=sentence`.
+- `POST`: JSON in the request body. We recommend `POST`, especially with longer text snippets. Example: `{"text":"Patchy rain, sleet or snow in parts...","level":"sentence"}`.
 
-For example:
-```
-{"text":"Patchy rain, sleet or snow in parts...","level":"sentence"}
-```
 
 HTTP Response Codes
 -------------------
