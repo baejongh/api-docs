@@ -11,10 +11,9 @@ AffectR API follows [REST principles](http://en.wikipedia.org/wiki/Representatio
 
 HTTP Methods
 ------------
-
 - `GET`: parameters must be URL-encoded, for example: `/v1/sentiment?text=how%20cool%20is%20that!&level=sentence`.
-
 - `POST`: JSON in the request body. We recommend `POST`, especially with longer text snippets.
+
 For example:
 ```
 {"text":"Patchy rain, sleet or snow in parts...","level":"sentence"}
@@ -28,13 +27,13 @@ HTTP Response Codes
 - 403 `Forbidden` - Exceeded quota, see below.
 - 405 `Method Not Allowed` - The requested method is not supported for resource, only GET and POST are allowed.
 
-Quota
+Quotas
 -----
-We enforce two quota's: daily requests and requests per minute. The quota depend on your API subscription.
-By default, the following quota apply:
+We enforce two quotas: daily requests and requests per minute. Your quotas depend on your API subscription.
+By default, the following quotas apply:
 
-* Maximum `500` requests per day, reset at midnight UTC
-* Maximum `30` requests per minute
+* Maximum `500` requests per day, reset at midnight UTC.
+* Maximum `30` requests per minute.
 
 Responses returned by the API contain information about your quota in the following response header fields:
 
