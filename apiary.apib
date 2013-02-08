@@ -81,9 +81,8 @@ The analysis can target multiple structural levels of text ranging from entire d
 The returned analysis includes majority sentiment labels, fine-grained 3-way positive/neutral/negative percentage scores, 
 and other useful auxiliary fields.
 
-If no `level=` parameter is specified, document-level analysis will be used by default (`level=doc`).
 --
-Get document-level sentiment information about the text snippet as a whole.
+Get sentiment information about the text snippet as a whole.
 POST /sentiment
 > Content-Type: application/json
 {"text":"Love is a canvas furnished by Nature and embroidered by imagination."}
