@@ -17,10 +17,14 @@ Comments, suggestions, or feedback? [Contact us](mailto:contact@theysayanalytics
 HTTP Methods
 ------------
 
-All endpoints support both `GET` and `POST` methods. When `GET` is used, all parameters and arguments can be specified 
-in the URL, for example `/sentiment?text=how%20cool%20is%20that!&level=sentence`.
+All endpoints support both `GET` and `POST` methods. When `GET` is used, parameters must be specified in the URL,
+for example `/v1/sentiment?text=how%20cool%20is%20that!&level=sentence`.
 
 `POST` accepts JSON objects in the request body itself. We recommend `POST`, especially with longer text snippets.
+
+```json
+{"text":"Patchy rain, sleet or snow in parts of northeast England, the Midlands and southwest England,...","level":"sentence"}
+```
 
 HTTP Response Codes
 -------------------
