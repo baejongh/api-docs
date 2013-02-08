@@ -84,7 +84,9 @@ and other useful auxiliary fields.
 If no `level=` parameter is specified, document-level analysis will be used by default (`level=doc`).
 --
 Get document-level sentiment information about the text snippet as a whole.
-GET /sentiment{?text}
+POST /sentiment
+> Content-Type: application/json
+{"text":"Love is a canvas furnished by Nature and embroidered by imagination."}
 < 200
 < Content-Type: application/json; charset=UTF-8
 {
