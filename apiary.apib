@@ -85,7 +85,7 @@ and other useful auxiliary fields.
 If no `level=` parameter is specified, document-level analysis will be used by default (`level=doc`).
 --
 Get document-level sentiment information about the text snippet as a whole.
-GET /sentiment?text=...
+GET /sentiment?{text,&level}
 < 200
 < Content-Type: application/json; charset=UTF-8
 {
