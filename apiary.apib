@@ -31,11 +31,11 @@ HTTP Response Codes
 - 400 `Bad Request` - the request could not be understood or was missing required parameters
 - 401 `Unauthorized` - authentication failed or user doesn't have permissions for requested operation
 - 403 `Forbidden` - exceeded quota, see below
-- 405 `Method Not Allowed` - the requested method is not supported for resource, currently we only support GET and POST
+- 405 `Method Not Allowed` - the requested method is not supported for resource, only GET and POST are allowed
 
 Quota
 -----
-We enforce two quota's: daily requests and request rate per minute. The quota depend on your API subscription.
+We enforce two quota's: daily requests and requests per minute. The quota depend on your API subscription.
 By default, the following quota apply:
 
 * Maximum `500` requests per day, reset at midnight UTC
