@@ -21,26 +21,26 @@ HTTP Response Codes
 - 200 `OK` - The request was successful.
 - 400 `Bad Request` - The request could not be interpreted correctly or some required parameters were missing.
 - 401 `Unauthorized` - Authentication failed - double-check your username and/or password.
-- 403 `Forbidden` - Quota exceeded (see below).
+- 403 `Forbidden` - Quota or rate limit exceeded (see below).
 - 405 `Method Not Allowed` - The requested method is not supported. Only GET and POST are allowed.
 
 Quotas and Rate Limits
 -----
-We enforce two quotas: daily requests and requests per minute. Your quotas depend on your API subscription.
-By default, the following quotas apply:
+We enforce two request quotas: requests per day and requests per minute. Your quotas depend on your API subscription.
+By default, the following rates apply:
 
 * Maximum `500` requests per day, reset at midnight UTC.
 * Maximum `30` requests per minute.
 
 Responses returned by the API contain information about your quota in the following response header fields:
 
-- `X-DailyLimit-Limit` - Your daily request quota. Example: 15000.
-- `X-DailyLimit-Remaining` - Remaining requests you can send before you will exceed your daily request limit. Example: 12323.
-- `X-DailyLimit-Reset` - When your next daily quota will be reset in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time). Example: 1360281599708.
+- `X-DailyLimit-Limit` - # of requests that you can send in a day. Example: 15000.
+- `X-DailyLimit-Remaining` - # of requests that you can send before you will exceed your daily request limit. Example: 12323.
+- `X-DailyLimit-Reset` - When your next daily quota will be reset (in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time)). Example: 1360281599708.
 - `X-RateLimit-IntervalSecs` - The length of your rate limit window. Example: 60.
-- `X-RateLimit-Limit` - Your request quota you can send within your rate limit window. Example: 30.
-- `X-RateLimit-Remaining` - Remaining requests you can send before you will exceed your rate limit. Example: 25.
-- `X-RateLimit-Reset` - When your next rate limit window will be reset in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time). Example: 1360254866709.
+- `X-RateLimit-Limit` - # of requests that can send within your rate limit window. Example: 30.
+- `X-RateLimit-Remaining` - # of requests that you can send before you will exceed your rate limit. Example: 25.
+- `X-RateLimit-Reset` - When your next rate limit window will be reset (in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time)). Example: 1360254866709.
 
 For more information about daily quotas, rate limits, and subscriptions, [contact us](mailto:contact@theysayanalytics.com?Subject=AffectR%20API%20rate-limit%20enquiry).
 
@@ -50,8 +50,7 @@ Use the `callback` request parameter to add a [JSONP](http://en.wikipedia.org/wi
 
 GZIP Compression
 ----------------
-Add `Accept-Encoding: gzip` to your request headers, this will indicate to us that we can deliver a gzipped stream, 
-which, from some testing, has been up to 1/5th the size of an uncompressed response - a considerable savings of bandwidth!
+Add `Accept-Encoding: gzip` to your request headers if you want the API to deliver a gzipped stream.
 
 Server Version Information
 --------------------------
