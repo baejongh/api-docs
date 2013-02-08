@@ -14,13 +14,21 @@ Comments, suggestions, or feedback? [Contact us](mailto:contact@theysayanalytics
 
 &copy; 2012, 2013 [TheySay](http://www.theysayanalytics.com) Ltd. All Rights Reserved.
 
+HTTP Methods
+------------
+
+All endpoints support both `GET` and `POST` methods. When `GET` is used, all parameters and arguments can be specified 
+in the URL, for example `/sentiment?text=how%20cool%20is%20that!&level=sentence`.
+
+`POST` accepts JSON objects in the request body itself. We recommend `POST`, especially with longer text snippets.
+
 HTTP Response Codes
 -------------------
-200 `OK` - the request was successful
-400 `Bad Request` - the request could not be understood or was missing required parameters
-401 `Unauthorized` - authentication failed or user doesn't have permissions for requested operation
-403 `Forbidden` - exceeded quota, see below
-405 `Method Not Allowed` - the requested method is not supported for resource, currently we only support GET and POST
+- 200 `OK` - the request was successful
+- 400 `Bad Request` - the request could not be understood or was missing required parameters
+- 401 `Unauthorized` - authentication failed or user doesn't have permissions for requested operation
+- 403 `Forbidden` - exceeded quota, see below
+- 405 `Method Not Allowed` - the requested method is not supported for resource, currently we only support GET and POST
 
 Quota
 -----
@@ -41,13 +49,6 @@ Responses returned by the API contain information about your quota in the follow
 * `X-RateLimit-Reset`: Shows when your next rate limit window will be reset in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time). Example: 1360254866709.
 
 For more information about daily quotas, rate limits, and subscriptions, [contact us](mailto:contact@theysayanalytics.com?Subject=AffectR%20API%20rate-limit%20enquiry).
-
-Methods
------
-All endpoints support both `GET` and `POST` methods. When `GET` is used, all parameters and arguments can be specified 
-in the URL, for example `/sentiment?text=how%20cool%20is%20that!&level=sentence`.
-
-`POST` accepts JSON objects in the request body itself. We recommend `POST`, especially with longer text snippets.
 
 JSONP Support
 -------------
