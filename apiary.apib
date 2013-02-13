@@ -841,3 +841,45 @@ GET /depparse?text=I%20got%20a%20new%20camera%20which%20takes%20brilliant%20phot
     "wordIndex": 9
   }
 }]
+
+
+--
+Usage Data
+You can monitor your API usage within a specific time period. 
+The `from` and `to` timestamps expect values that are compliant with the [w3](http://www.w3.org/TR/NOTE-datetime) format.
+--
+GET /usagestats?from=2013-02-01T00:00:00.000Z&to=2013-02-13T00:00:00.000Z
+< 200
+< Content-Type: application/json; charset=UTF-8
+{
+  "username": "yourUserName",
+  "from": "2013-02-06T00:00:00.000Z",
+  "to": "2013-02-13T00:00:00.000Z",
+  "requestCount": 193,
+  "dailyUsage": [{
+    "date": "2013-02-06T00:00:00.000Z",
+    "requestCount": 0
+  }, {
+    "date": "2013-02-07T00:00:00.000Z",
+    "requestCount": 3
+  }, {
+    "date": "2013-02-08T00:00:00.000Z",
+    "requestCount": 97
+  }, {
+    "date": "2013-02-09T00:00:00.000Z",
+    "requestCount": 0
+  }, {
+    "date": "2013-02-10T00:00:00.000Z",
+    "requestCount": 0
+  }, {
+    "date": "2013-02-11T00:00:00.000Z",
+    "requestCount": 15
+  }, {
+    "date": "2013-02-12T00:00:00.000Z",
+    "requestCount": 72
+  }, {
+    "date": "2013-02-13T00:00:00.000Z",
+    "requestCount": 6
+  }]
+}
+
