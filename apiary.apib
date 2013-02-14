@@ -128,9 +128,9 @@ Add the `level=entity` parameter to get sentiment scores for each individual ent
 
 By default, all analysed entities are returned in the response. If you want to control which entities are included in the response, use the `targets` and `matching` parameters to specify which entities you want.
 
-* `targets` accepts a list of regular expressions delimited by the `|` (`%7C`) operator, for example `targets=market` or `targets=market%7Cbusiness(es)%3F%7Copportunity%20cost`.
+* `targets` accepts a list of regular expressions delimited by the `|` (`%7C`) operator. Example: `targets=market` or `targets=market%7Cbusiness(es)%3F%7Copportunity%20cost`.
 
-The specified target entities are matched against words in each entity NP in different ways.
+The specified target entities are matched against words in each entity NP using the following matching modes:
 
 * `matching=head` - Matching is based on the head noun in each entity NP.
 * `matching=phrase` (or null) (default) - Matching is based on substring search inside each entity NPs.
