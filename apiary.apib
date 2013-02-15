@@ -132,8 +132,8 @@ By default, all analysed entities are returned in the response. If you want to c
 
 The specified target entities are matched against words in each entity NP using the following matching modes:
 
-* `matching=head` - Matching is based on the head noun in each entity NP.
-* `matching=phrase` (or null) (default) - Matching is based on substring search inside each entity NPs.
+* `matching=head` - Matching is restricted to the head noun in each entity NP.
+* `matching=phrase` (or null) (default) - Matching is based on substring search inside each entity NP.
 GET /sentiment?text=...&level=entity
 < 200
 < Content-Type: application/json; charset=UTF-8
