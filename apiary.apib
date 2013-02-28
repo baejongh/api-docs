@@ -21,8 +21,8 @@ HTTP Response Codes
 - 200 `OK` - The request was successful.
 - 400 `Bad Request` - The request could not be interpreted correctly or some required parameters were missing.
 - 401 `Unauthorized` - Authentication failed - double-check your username and/or password.
-- 403 `Forbidden` - Quota or rate limit exceeded (see below).
 - 405 `Method Not Allowed` - The requested method is not supported. Only GET and POST are allowed.
+- 429 `Too Many Requests` - Quota or rate limit exceeded (see below).
 
 Quotas and Rate Limits
 -----
@@ -34,15 +34,15 @@ By default, the following rates apply:
 
 Responses returned by the API contain information about your quota in the following response header fields:
 
-- `X-DailyLimit-Limit` - # of requests that you can send in a day. Example: 15000.
-- `X-DailyLimit-Remaining` - # of requests that you can send before you will exceed your daily request limit. Example: 12323.
-- `X-DailyLimit-Reset` - When your next daily quota will be reset (in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time)). Example: 1360281599708.
+- `X-RequestLimit-Limit` - # of requests that you can send in a day. Example: 15000.
+- `X-RequestLimit-Remaining` - # of requests that you can send before you will exceed your daily request limit. Example: 12323.
+- `X-RequestLimit-Reset` - When your next daily quota will be reset (in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time)). Example: 1360281599708.
 - `X-RateLimit-IntervalSecs` - The length of your rate limit window. Example: 60.
 - `X-RateLimit-Limit` - # of requests that can send within your rate limit window. Example: 30.
 - `X-RateLimit-Remaining` - # of requests that you can send before you will exceed your rate limit. Example: 25.
 - `X-RateLimit-Reset` - When your next rate limit window will be reset (in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time)). Example: 1360254866709.
 
-For more information about daily quotas, rate limits, and subscriptions, [contact us](mailto:contact@theysayanalytics.com?Subject=AffectR%20API%20rate-limit%20enquiry).
+For more information about quotas, rate limits, and subscriptions, [contact us](mailto:contact@theysayanalytics.com?Subject=AffectR%20API%20rate-limit%20enquiry).
 
 Maximum Request Length
 -----
@@ -97,8 +97,10 @@ POST /sentiment
 }
 
 
-Add the `level=sentence` parameter to get sentiment scores for each sentence in the text snippet.
-GET /sentiment?text=...&level=sentence
+Add the field `"level":"sentence"` to get sentiment scores for each sentence in the text snippet.
+POST /sentiment
+> Content-Type: application/json
+{"text":"...","level":"sentence"}}
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -128,7 +130,7 @@ GET /sentiment?text=...&level=sentence
 }]
 
 
-Add the `level=entity` parameter to get sentiment scores for each individual entity mentioned in the text snippet.
+Add the field `"level":"entity"` to get sentiment scores for each individual entity mentioned in the text snippet.
 
 By default, all analysed entities are returned in the response. If you want to control which entities are included in the response, use the `targets` and `matching` parameters to specify which entities you want.
 
@@ -139,7 +141,9 @@ The specified target entities are matched against words in each entity NP using 
 * `matching=head` - The `targets` match the head noun of an entity NP (full head match).
 * `matching=exact` - The `targets` match an entity NP (full match).
 * `matching=phrase` (or none) (default) - The `targets` can match anywhere inside an entity NP (substring search).
-GET /sentiment?text=...&level=entity
+POST /sentiment
+> Content-Type: application/json
+{"text":"...", "level":"entity"}
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
