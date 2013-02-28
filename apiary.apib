@@ -132,15 +132,15 @@ POST /sentiment
 
 Specify `"level":"entity"` to get sentiment scores for each individual entity mentioned in the text snippet.
 
-By default, all analysed entities are returned in the response. If you want to control which entities are included in the response, use the `targets` and `matching` parameters to specify which entities you want.
+By default, all analysed entities are returned in the response. If you want to control which entities are included in the response, use the `targets` and `matching` fields to specify which entities you want.
 
 * `targets` accepts a list of regular expressions delimited by the `|` (`%7C` encoded) operator. Example: `"targets":"market"` or `"targets":"market|business(es)?|opportunity|cost"`.
 
 The specified target entities are matched against words in each entity NP using the following matching modes:
 
-* `matching=head` - The `targets` match the head noun of an entity NP (full head match).
-* `matching=exact` - The `targets` match an entity NP (full match).
-* `matching=phrase` (or none) (default) - The `targets` can match anywhere inside an entity NP (substring search).
+* `"matching":"head"` - The `targets` match the head noun of an entity NP (full head match).
+* `"matching":"exact"` - The `targets` match an entity NP (full match).
+* `"matching":"phrase"` (or none) (default) - The `targets` can match anywhere inside an entity NP (substring search).
 POST /sentiment
 > Content-Type: application/json
 {"text":"...", "level":"entity"}
