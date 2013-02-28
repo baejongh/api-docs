@@ -97,7 +97,7 @@ POST /sentiment
 }
 
 
-Add the field `"level":"sentence"` to get sentiment scores for each sentence in the text snippet.
+Specify `"level":"sentence"` to get sentiment scores for each sentence in the text snippet.
 POST /sentiment
 > Content-Type: application/json
 {"text":"...","level":"sentence"}}
@@ -130,7 +130,7 @@ POST /sentiment
 }]
 
 
-Add the field `"level":"entity"` to get sentiment scores for each individual entity mentioned in the text snippet.
+Specify `"level":"entity"` to get sentiment scores for each individual entity mentioned in the text snippet.
 
 By default, all analysed entities are returned in the response. If you want to control which entities are included in the response, use the `targets` and `matching` parameters to specify which entities you want.
 
@@ -181,7 +181,7 @@ POST /sentiment
 }]
 
 
-Add the field `"level":"entityaggregate"` to get aggregated sentiment scores for entities mentioned in the text snippet. Individual entity mentions are grouped using lowercase head noun matching and scored using weighted sentiment scores.
+Specify `"level":"entityaggregate"` to get aggregated sentiment scores for entities mentioned in the text snippet. Individual entity mentions are grouped using lowercase head noun matching and scored using weighted sentiment scores.
 POST /sentiment
 > Content-Type: application/json
 {"text":"...","level":"entityaggregate"}}
@@ -234,7 +234,7 @@ POST /sentiment
 }]
 
 
-Add the field `"level":"entityrelation"` parameter to get detailed information about sentiment relations between entities in the text snippet.
+Specify `"level":"entityrelation"` parameter to get detailed information about sentiment relations between entities in the text snippet.
 POST /sentiment
 > Content-Type: application/json
 {"text":"...","level":"entityrelation"}}
@@ -283,7 +283,7 @@ POST /sentiment
 }]
 
 
-Add the field `"level":"word"` to obtain contextual sentence-level sentiment labels and positional co-ordinates for individual words in the text snippet.
+Specify `"level":"word"` to obtain contextual sentence-level sentiment labels and positional co-ordinates for individual words in the text snippet.
 You can use the returned labels and co-ordinates to plot the temporal development (or flow) of sentiment through the text snippet.
 POST /sentiment
 > Content-Type: application/json
