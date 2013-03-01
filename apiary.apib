@@ -392,7 +392,9 @@ This service detects speculative expressions at the sentence level.
 The response contains only 'positive' matches: if no speculative content is detected, the response is [], accordingly.
 Any identified subtypes of speculation are denoted with the dot operator (e.g. SPECULATION.SUBTYPE).
 --
-GET /speculation?text=It's%20probably%20not%20advisable%20to%20use%20it.
+POST /speculation
+> Content-Type: application/json
+{"text":"It's probably not advisable to use it."}}
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -411,7 +413,9 @@ This sentence-level service detects expressions that describe or refer to risk a
 The response contains only 'positive' matches: if no risk expressions are detected, the response is accordingly [].
 Any identified subtypes of risk are denoted with the dot operator (e.g. RISK.SUBTYPE).
 --
-GET /risk?text=Your%20plan%20sounds%20plain%20dangerous%20in%20my%20mind.
+POST /risk
+> Content-Type: application/json
+{"text":"Your plan sounds plain dangerous in my mind."}}
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -430,7 +434,9 @@ This sentence-level service detects expressions pertaining to intent, intentions
 The response contains only 'positive' matches: if no intent expressions are detected, the response is correspondingly [].
 Any identified subtypes of intent are denoted with the dot operator (e.g. INTENT.DECISION).
 --
-GET /intent?text=I%20have%20made%20a%20decision%20to%20purchase%20the%20new%20improved%20camera%20model.
+POST /intent
+> Content-Type: application/json
+{"text":"I have made a decision to purchase the new improved camera model."}}
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -454,7 +460,9 @@ This service detects expressions in the text snippet that refer explicitly or im
 
 For each identified expression (which can be a simple or complex Noun Phrase, Adjective Phrase, or Adverb Phrase), the detected Named Entity types are ranked by their salience (most salient first).
 --
-GET /namedentity?text=...&level=phrase
+POST /namedentity
+> Content-Type: application/json
+{"text":"...", "level":"phrase"}}
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -501,7 +509,9 @@ Part-of-Speech Tagging
 This service assigns word class types to individual words in the text snippet.
 The [tagset]() used is largely compatible with the [Penn Treebank Tagset](http://www.cis.upenn.edu/~treebank/).
 --
-GET /postag?text=I%20might%20buy%20a%20MacBookPro.
+GET /postag
+> Content-Type: application/json
+{"text":"I might buy a MacBookPro."}}
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -554,7 +564,9 @@ Shallow Chunk Parsing
 This service detects the boundaries of basic syntactic phrases in the text snippet.
 For each sentence, simple non-recursive Noun Phrase (NP) and Verb Group (VG) constituents are provided.
 --
-GET /chunkparse?text=The%20latest%20patch%20will%20probably%20solve%20all%20your%20problems.
+POST /chunkparse
+> Content-Type: application/json
+{"text":"The latest patch will probably solve all your problems."}}
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -716,7 +728,9 @@ This service analyses the grammatical structure of each sentence in the text sni
 For each sentence, typed syntactic dependencies between individual words are provided.
 The parses and the [typed dependencies]() used resemble the labels and types described in the [Cambridge Grammar of the English Language](http://www.cambridge.org/uk/linguistics/cgel/).
 --
-GET /depparse?text=I%20got%20a%20new%20camera%20which%20takes%20brilliant%20photos.
+POST /depparse
+> Content-Type: application/json
+{"text":"I got a new camera which takes brilliant photos."}}
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
@@ -867,7 +881,7 @@ Usage Data
 You can monitor your API usage within a specific time period between two time stamps (`from` and `to`).
 The timestamps expect values that are compliant with the [W3C](http://www.w3.org/TR/NOTE-datetime) date and time format.
 --
-GET /usagestats?from=2013-02-01T00:00:00.000Z&to=2013-02-13T00:00:00.000Z
+GET /usagestats?from=2013-02-01&to=2013-02-13
 < 200
 < Content-Type: application/json; charset=UTF-8
 {
