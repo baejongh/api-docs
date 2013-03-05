@@ -421,7 +421,11 @@ Speculative language describes or refers directly or indirectly to `irrealis` ev
 Speculative expressions can hence cover concepts as diverse as future, certainty, doubt, prediction, wanting, wishes, and waiting, to name a few.      
 This service detects speculative expressions at the sentence level.
 The response contains only 'positive' matches: if no speculative content is detected, the response is [], accordingly.
-Any identified subtypes of speculation are denoted with the dot operator (e.g. SPECULATION.SUBTYPE).
+Any identified subtypes of speculation are denoted with the dot operator (`.`) (e.g. SPECULATION.SUBTYPE). 
+
+Request fields: 
+
+* `"text"` - The text that you want to analyse.
 --
 POST /speculation
 > Content-Type: application/json
@@ -442,7 +446,11 @@ Risk Detection
 
 This sentence-level service detects expressions that describe or refer to risk and danger, either directly or indirectly.
 The response contains only 'positive' matches: if no risk expressions are detected, the response is accordingly [].
-Any identified subtypes of risk are denoted with the dot operator (e.g. RISK.SUBTYPE).
+Any identified subtypes of risk are denoted with the dot operator (`.`) (e.g. RISK.SUBTYPE). 
+
+Request fields: 
+
+* `"text"` - The text that you want to analyse.
 --
 POST /risk
 > Content-Type: application/json
@@ -463,7 +471,11 @@ Intent Analysis
 
 This sentence-level service detects expressions pertaining to intent, intentions, plans, and decisions that can be detected in text.
 The response contains only 'positive' matches: if no intent expressions are detected, the response is correspondingly [].
-Any identified subtypes of intent are denoted with the dot operator (e.g. INTENT.DECISION).
+Any identified subtypes of intent are denoted with the dot operator (`.`) (e.g. INTENT.DECISION). 
+
+Request fields: 
+
+* `"text"` - The text that you want to analyse.
 --
 POST /intent
 > Content-Type: application/json
@@ -489,7 +501,11 @@ This service detects expressions in the text snippet that refer explicitly or im
 * times and dates (TIMEDATE)
 * monetary issues (MONEY)
 
-For each identified expression (which can be a simple or complex Noun Phrase, Adjective Phrase, or Adverb Phrase), the detected Named Entity types are ranked by their salience (most salient first).
+For each identified expression (which can be a simple or complex Noun Phrase, Adjective Phrase, or Adverb Phrase), the detected Named Entity types are ranked by their salience (most salient first). 
+
+Request fields: 
+
+* `"text"` - The text that you want to analyse.
 --
 POST /namedentity
 > Content-Type: application/json
@@ -538,7 +554,11 @@ POST /namedentity
 --
 Part-of-Speech Tagging
 This service assigns word class types to individual words in the text snippet.
-The [tagset]() used is largely compatible with the [Penn Treebank Tagset](http://www.cis.upenn.edu/~treebank/).
+The [tagset]() used is largely compatible with the [Penn Treebank Tagset](http://www.cis.upenn.edu/~treebank/). 
+
+Request fields: 
+
+* `"text"` - The text that you want to analyse.
 --
 POST /postag
 > Content-Type: application/json
@@ -593,7 +613,10 @@ POST /postag
 --
 Shallow Chunk Parsing
 This service detects the boundaries of basic syntactic phrases in the text snippet.
-For each sentence, simple non-recursive Noun Phrase (NP) and Verb Group (VG) constituents are provided.
+For each sentence, simple non-recursive Noun Phrase (NP) and Verb Group (VG) constituents are provided. 
+Request fields: 
+
+* `"text"` - The text that you want to analyse.
 --
 POST /chunkparse
 > Content-Type: application/json
@@ -757,7 +780,11 @@ POST /chunkparse
 Dependency Parsing
 This service analyses the grammatical structure of each sentence in the text snippet.
 For each sentence, typed syntactic dependencies between individual words are provided.
-The parses and the [typed dependencies]() used resemble the labels and types described in the [Cambridge Grammar of the English Language](http://www.cambridge.org/uk/linguistics/cgel/).
+The parses and the [typed dependencies]() used resemble the labels and types described in the [Cambridge Grammar of the English Language](http://www.cambridge.org/uk/linguistics/cgel/). 
+
+Request fields: 
+
+* `"text"` - The text that you want to analyse.
 --
 POST /depparse
 > Content-Type: application/json
