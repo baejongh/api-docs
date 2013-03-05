@@ -421,7 +421,7 @@ Speculative language describes or refers directly or indirectly to `irrealis` ev
 Speculative expressions can hence cover concepts as diverse as future, certainty, doubt, prediction, wanting, wishes, and waiting, to name a few.      
 This service detects speculative expressions at the sentence level.
 The response contains only 'positive' matches: if no speculative content is detected, the response is `[]`, accordingly.
-Any identified subtypes of speculation are denoted with the dot operator (`.`) (e.g. SPECULATION.SUBTYPE). 
+Any identified subtypes of speculation are denoted with the dot operator (`.`) (e.g. `SPECULATION.SUBTYPE`). 
 
 Request fields: 
 
@@ -445,8 +445,8 @@ POST /speculation
 Risk Detection
 
 This sentence-level service detects expressions that describe or refer to risk and danger, either directly or indirectly.
-The response contains only 'positive' matches: if no risk expressions are detected, the response is accordingly [].
-Any identified subtypes of risk are denoted with the dot operator (`.`) (e.g. RISK.SUBTYPE). 
+The response contains only 'positive' matches: if no risk expressions are detected, the response is hence `[]`.
+Any identified subtypes of risk are denoted with the dot operator (`.`) (e.g. `RISK.SUBTYPE`). 
 
 Request fields: 
 
@@ -470,8 +470,8 @@ POST /risk
 Intent Analysis
 
 This sentence-level service detects expressions pertaining to intent, intentions, plans, and decisions that can be detected in text.
-The response contains only 'positive' matches: if no intent expressions are detected, the response is correspondingly [].
-Any identified subtypes of intent are denoted with the dot operator (`.`) (e.g. INTENT.DECISION). 
+The response contains only 'positive' matches: if no intent expressions are detected, the response is `[]`.
+Any identified subtypes of intent are denoted with the dot operator (`.`) (e.g. `INTENT.SUBTYPE`). 
 
 Request fields: 
 
