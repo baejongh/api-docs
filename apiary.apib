@@ -936,8 +936,13 @@ POST /depparse
 
 --
 Usage Data
-You can monitor your API usage within a specific time period between two time stamps (`from` and `to`).
-The timestamps expect values that are compliant with the [W3C](http://www.w3.org/TR/NOTE-datetime) date and time format.
+You can monitor your API usage within a specific time period between two time stamps.
+The timestamps expect values that are compliant with the [W3C](http://www.w3.org/TR/NOTE-datetime) date and time format. 
+
+Request fields: 
+
+* `"from"` - The start time stamp value for the query.
+* `"to"` (optional)- The end time stamp value for the query. If omitted, defaults to `now`.
 --
 GET /usagestats?from=2013-02-01&to=2013-02-13
 < 200
