@@ -82,7 +82,9 @@ The returned analysis includes majority sentiment labels, fine-grained 3-way pos
 and other useful auxiliary fields.
 
 --
-Get sentiment information about the text snippet as a whole.
+Returns sentiment information about the entire text (document-level analysis).
+Request fields:
+* `"text"`: The text that you want to analyse.
 POST /sentiment
 > Content-Type: application/json
 {"text":"Love is a canvas furnished by Nature and embroidered by imagination."}
