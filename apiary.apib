@@ -154,9 +154,9 @@ By default, all analysed entities are returned in the response. If you want to c
 
 The specified target entities are matched against words in each entity NP using the following matching modes:
 
-* `"matching":"head"` - The `targets` match the head noun of an entity NP (full head match).
-* `"matching":"exact"` - The `targets` match an entity NP (full match).
-* `"matching":"phrase"` (or none) (default) - The `targets` can match anywhere inside an entity NP (substring search).
+* `"matching":"head"` - The targets match the head noun of an entity NP (full head match).
+* `"matching":"exact"` - The targets match an entity NP (full match).
+* `"matching":"phrase"` (or none) (default) - The targets can match anywhere inside an entity NP (substring search).
 POST /sentiment
 > Content-Type: application/json
 {"text":"...", "level":"entity"}
@@ -197,7 +197,12 @@ POST /sentiment
 }]
 
 
-Specify `"level":"entityaggregate"` to get aggregated sentiment scores for entities mentioned in the text snippet. Individual entity mentions are grouped using lowercase head noun matching and scored using weighted sentiment scores.
+Returns sentiment information about aggregated entities (terms, keywords) mentioned in the text. Individual entity mentions are grouped using lowercase head noun matching and scored using weighted sentiment scores. 
+
+Request fields: 
+
+* `"level":"entityaggregate"` - Selects aggregated entity-level sentiment analysis.
+* `"text"` - The text that you want to analyse.
 POST /sentiment
 > Content-Type: application/json
 {"text":"...","level":"entityaggregate"}}
