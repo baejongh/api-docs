@@ -107,7 +107,7 @@ Returns sentiment information about each sentence in the text (sentence-level se
 
 Request fields: 
 
-* `"level":"sentence"` - The text that you want to analyse.
+* `"level":"sentence"` - Selects sentence-level sentiment analysis.
 * `"text"` - The text that you want to analyse.
 POST /sentiment
 > Content-Type: application/json
@@ -141,7 +141,12 @@ POST /sentiment
 }]
 
 
-Specify `"level":"entity"` to get sentiment scores for each individual entity mentioned in the text snippet.
+Returns information about each individual entity (term, keyword) mentioned in the text. 
+
+Request fields: 
+
+* `"level":"entity"` - Selects entity-level sentiment analysis.
+* `"text"` - The text that you want to analyse.
 
 By default, all analysed entities are returned in the response. If you want to control which entities are included in the response, use the `targets` and `matching` fields to specify which entities you want.
 
