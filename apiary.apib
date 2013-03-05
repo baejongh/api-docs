@@ -255,7 +255,12 @@ POST /sentiment
 }]
 
 
-Specify `"level":"entityrelation"` parameter to get detailed information about sentiment relations between entities in the text snippet.
+Returns sentiment information about detailed relations between entity (term, keyword) mentions in the text. 
+
+Request fields: 
+
+* `"level":"entityrelation"` - Selects relational entity-level sentiment analysis.
+* `"text"` - The text that you want to analyse.
 POST /sentiment
 > Content-Type: application/json
 {"text":"...","level":"entityrelation"}}
