@@ -148,9 +148,9 @@ Request fields:
 * `"level":"entity"` - Selects entity-level sentiment analysis.
 * `"text"` - The text that you want to analyse.
 
-By default, all analysed entities are returned in the response. If you want to control which entities are included in the response, use the `targets` and `matching` fields to specify which entities you want.
+By default, all analysed entities are returned in the response. If you want to control which entities are included in the response, use the `"targets"` and `"matching"` fields to specify which entities you want.
 
-* `targets` accepts a list of regular expressions delimited by the `|` (`%7C` encoded) operator. Example: `"targets":"market"` or `"targets":"market|business(es)?|opportunity|cost"`.
+* `"targets"` accepts a list of regular expressions delimited by the `|` (`%7C` encoded) operator. Example: `"targets":"market"` or `"targets":"market|business(es)?|opportunity|cost"`.
 
 The specified target entities are matched against words in each entity NP using the following matching modes:
 
