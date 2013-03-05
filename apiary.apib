@@ -255,7 +255,7 @@ POST /sentiment
 }]
 
 
-Returns sentiment information about detailed relations between entity (term, keyword) mentions in the text. 
+Returns sentiment information about detailed relations between entities (terms, keywords) mentioned in the text. 
 
 Request fields: 
 
@@ -309,8 +309,14 @@ POST /sentiment
 }]
 
 
-Specify `"level":"word"` to obtain contextual sentence-level sentiment labels and positional co-ordinates for individual words in the text snippet.
-You can use the returned labels and co-ordinates to plot the temporal development (or flow) of sentiment through the text snippet.
+Returns information about the flow of sentiment through the text (sentiment timeline analysis).
+The analysis targets contextual sentence-level sentiment labels and positional co-ordinates for individual words in the text snippet.
+You can use the labels and co-ordinates to plot the temporal development (or flow) of sentiment through the text snippet. 
+
+Request fields: 
+
+* `"level":"word"` - Selects sentiment timeline analysis.
+* `"text"` - The text that you want to analyse.
 POST /sentiment
 > Content-Type: application/json
 {"text":"...","level":"word"}}
