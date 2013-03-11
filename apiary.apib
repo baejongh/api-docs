@@ -14,7 +14,7 @@ HTTP Methods
 AffectR API follows [REST principles](http://en.wikipedia.org/wiki/Representational_state_transfer). The following HTTP request methods are supported:
 
 - `POST` (recommended) - Query fields are in the request body and expressed as JSON. Example: `{ "text" : "Patchy rain, sleet or snow in parts...", "level" : "sentence" }`.
-- `GET` - Query fields are expressed as parameters in the URL and must be URL-encoded. Note that `GET` exposes only a limited subset of request parameters. Example: `/v1/sentiment?text=how%20cool%20is%20that!&level=sentence`.
+- `GET` - Query fields are expressed as parameters in the URL and must be URL-encoded. Note that `GET` exposes only a limited subset of available query fields. Example: `/v1/sentiment?text=how%20cool%20is%20that!&level=sentence`.
 
 HTTP Response Codes
 -------------------
