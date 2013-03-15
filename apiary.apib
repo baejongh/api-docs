@@ -86,7 +86,7 @@ Returns sentiment information about the entire text (document-level sentiment an
 
 Request fields: 
 
-* `"bias" : { p : d }` - Sentiment coefficients (`0 ≤ d ≤ 100`) to control the (in)sensitivity of the sentiment analysis towards `p ∈ { positive | neutral | negative }` sentiment. Example: `bias: { "positive" : 7.5 }`
+* `"bias":{ p:d }` - Sentiment coefficients (`0 ≤ d ≤ 100`) to control the (in)sensitivity of the sentiment analysis towards `p ∈ { positive | neutral | negative }` sentiment. Example: `bias: { "positive" : 7.5 }`
 * `"text"` - The text that you want to analyse.
 POST /sentiment
 > Content-Type: application/json
@@ -108,7 +108,7 @@ Returns sentiment information about each sentence in the text (sentence-level se
 
 Request fields: 
 
-* `"bias" : { p : d }` - Sentiment coefficients (`0 ≤ d ≤ 100`) to control the (in)sensitivity of the sentiment analysis towards `p ∈ { positive | neutral | negative }` sentiment. Example: `bias: { "positive" : 7.5 }`
+* `"bias":{ p:d }` - Sentiment coefficients (`0 ≤ d ≤ 100`) to control the (in)sensitivity of the sentiment analysis towards `p ∈ { positive | neutral | negative }` sentiment. Example: `bias: { "positive" : 7.5 }`
 * `"level":"sentence"` - Selects sentence-level sentiment analysis.
 * `"text"` - The text that you want to analyse.
 POST /sentiment
@@ -147,7 +147,7 @@ Returns sentiment information about each individual entity (term, keyword) menti
 
 Request fields: 
 
-* `"bias" : { p : d }` - Sentiment coefficients (`0 ≤ d ≤ 100`) to control the (in)sensitivity of the sentiment analysis towards `p ∈ { positive | neutral | negative }` sentiment. Example: `bias: { "positive" : 7.5 }`
+* `"bias":{ p:d }` - Sentiment coefficients (`0 ≤ d ≤ 100`) to control the (in)sensitivity of the sentiment analysis towards `p ∈ { positive | neutral | negative }` sentiment. Example: `bias: { "positive" : 7.5 }`
 * `"level":"entity"` - Selects entity-level sentiment analysis.
 * `"text"` - The text that you want to analyse.
 
@@ -204,7 +204,7 @@ Returns sentiment information about aggregated entities (terms, keywords) mentio
 
 Request fields: 
 
-* `"bias" : { p : d }` - Sentiment coefficients (`0 ≤ d ≤ 100`) to control the (in)sensitivity of the sentiment analysis towards `p ∈ { positive | neutral | negative }` sentiment. Example: `bias: { "positive" : 7.5 }`
+* `"bias":{ p:d }` - Sentiment coefficients (`0 ≤ d ≤ 100`) to control the (in)sensitivity of the sentiment analysis towards `p ∈ { positive | neutral | negative }` sentiment. Example: `bias: { "positive" : 7.5 }`
 * `"level":"entityaggregate"` - Selects aggregated entity-level sentiment analysis.
 * `"text"` - The text that you want to analyse.
 POST /sentiment
