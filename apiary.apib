@@ -86,7 +86,7 @@ Returns sentiment information about the entire text (document-level sentiment an
 
 Request fields: 
 
-* `"bias" : { "neutral" | "negative" | "positive" : d }` - Sentiment coefficients (0 ≤ d ≤ 100) to control the (in)sensitivity of the sentiment analysis towards positive/neutral/negative sentiment. Example: `bias: { "positive" : 7.5 }`
+* `"bias" : { p : d }` - Sentiment coefficients (0 ≤ d ≤ 100) to control the (in)sensitivity of the sentiment analysis towards `p ∈ { positive | neutral | negative }` sentiment. Example: `bias: { "positive" : 7.5 }`
 * `"text"` - The text that you want to analyse.
 POST /sentiment
 > Content-Type: application/json
