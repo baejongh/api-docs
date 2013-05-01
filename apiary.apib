@@ -498,6 +498,31 @@ POST /intent
 
 
 --
+Comparison Analysis
+
+This sentence-level service detects comparative expressions.
+The response contains only 'positive' matches: if no comparative expressions are detected, the response is `[]`.
+Any identified finer-grained comparative expressions are denoted with the dot operator (`.`) (e.g. `COMPARISON.SIMILARITY`). 
+
+Request fields: 
+
+* `"text"` - The text that you want to analyse.
+--
+POST /comparison
+> Content-Type: application/json
+{"text":"This thing is vastly superior to other APIs."}}
+< 200
+< Content-Type: application/json; charset=UTF-8
+[{
+  "start": 0,
+  "end": 8,
+  "sentenceIndex": 0,
+  "riskType": "RISK",
+  "text": "Your plan sounds plain dangerous in my mind."
+}]
+
+
+--
 Named Entity Recognition
 This service detects expressions in the text snippet that refer explicitly or implicitly to
 
