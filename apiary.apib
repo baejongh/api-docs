@@ -947,7 +947,7 @@ This service generates a summary from a piece of text. The summary consists of s
 
 Request fields: 
 
-* `"ratio:r"` - The size of the summary - the proportion of the full input text that is included in the summary (`0 ≤ r ≤ 1.0` where `0` returns all sentences and `1.0` includes only the most salient sentence(s) in the input text.).
+* `"ratio:r"` - The size of the summary - the proportion of the full input text that is included in the summary (`0 ≤ r ≤ 1.0` where `0` returns all sentences and `1.0` includes only the most salient sentence(s) in the input text).
 * `"text"` - The text that you want to summarise.
 --
 POST /summary
@@ -956,7 +956,7 @@ POST /summary
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
-  "summary": "Charities criticise UK for ending South African aid\nCharities have criticised the UK after the government announced it would stop direct aid to South Africa in 2015.\n UK ministers said their relationship with South Africa should now be based on trade and not development."
+  "summary": "Charities criticise UK for ending humanitarian aid\nCharities have criticised the UK after the govt announced it would stop direct aid to Peru in 2019.\n UK ministers said their relationship with Peru is more about trade and not development as such."
 }]
 
 
