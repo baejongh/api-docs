@@ -1002,7 +1002,7 @@ Resources
 This end point allows you to manage the lexical resources that are used for the analyses on your account.
 The following two resource types are currently supported:
 
-* sentiment lexica: word lists (`{ adjectives | adverbs | nouns | verbs }`) used in the sentiment analysis
+* sentiment lexica: word lists (adjectives, adverbs, nouns, verbs) used in the sentiment analysis
 * entity taxonomies: pattern matching rules for categorising entity mentions into various taxonomic categories
 
 Request fields: 
@@ -1010,11 +1010,10 @@ Request fields:
 * `"polarity":p` - The sentiment polarity of the lexicon entry `p ∈ { pos | ntr | neg }`. Example: `polarity:"pos"`
 * `"reverse":r` - The sentiment reversal property of the lexicon entry `r ∈ { rev | equ }`. Example: `reverse:"rev"`
 * `"text"` - The entry to be stored in the lexicon.
+
+The following examples illustrate `/resources/lexicons/sentiment/adjectives`. `/adverbs`, `/nouns`, and `/verbs` behave in the same way.
 --
 POST /resources/lexicons/sentiment/adjectives
-POST /resources/lexicons/sentiment/adverbs
-POST /resources/lexicons/sentiment/nouns
-POST /resources/lexicons/sentiment/verbs
 > Content-Type: application/json
 {"text":"schnatzy", "polarity":"pos"}
 < 201
