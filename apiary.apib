@@ -1004,6 +1004,12 @@ This end point allows you to manage lexical resources on your account. The follo
 * sentiment lexica: word lists used in the sentiment analysis
 * entity taxonomies: pattern matching rules for categorising entity mentions into various taxonomic categories
 
+Request fields: 
+
+* `"polarity":p` - The sentiment polarity of the lexicon entry `p ∈ { pos | ntr | neg }`. Example: `polarity:"pos"`
+* `"reverse":r` - The sentiment reversal property of the lexicon entry `r ∈ { rev | equ }`. Example: `reverse:"rev"`
+* `"text"` - The entry to be stored in the lexicon.
+POST /resources/lexicons/sentiment/adjectives
 
 --
 Usage Data
