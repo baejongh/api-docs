@@ -999,9 +999,10 @@ Resources
 
 `[AVAILABLE SOON]`
 
-This end point allows you to manage lexical resources on your account. The following two resource types are currently supported:
+This end point allows you to manage the lexical resources that are used for the analyses on your account.
+The following two resource types are currently supported:
 
-* sentiment lexica: word lists used in the sentiment analysis
+* sentiment lexica: adjective/adverb/noun/verb word lists used in the sentiment analysis
 * entity taxonomies: pattern matching rules for categorising entity mentions into various taxonomic categories
 
 Request fields: 
@@ -1011,6 +1012,9 @@ Request fields:
 * `"text"` - The entry to be stored in the lexicon.
 --
 POST /resources/lexicons/sentiment/adjectives
+POST /resources/lexicons/sentiment/adverbs
+POST /resources/lexicons/sentiment/nouns
+POST /resources/lexicons/sentiment/verbs
 > Content-Type: application/json
 {"text":"schnatzy", "polarity":"pos"}
 < 201
