@@ -426,6 +426,39 @@ POST /sentiment
 
 
 --
+Sentiment Resources
+
+`[AVAILABLE SOON]`
+
+This end point allows you to customise the lexical resources (word lists of adjectives, adverbs, nouns, verbs) that are used in the sentiment analysis on your account.
+
+Request fields: 
+
+* `"polarity":p` - The sentiment polarity of the lexicon entry `p ∈ { pos | ntr | neg }`. Example: `"polarity":"pos"`
+* `"reverse":r` - The sentiment reversal property of the lexicon entry `r ∈ { rev | equ }`. Example: `"reverse":"rev"`
+* `"text"` - The entry to be stored in the lexicon.
+
+--
+POST /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
+> Content-Type: application/json
+{"text":"schnatzy", "polarity":"pos"}
+< 201
+< Content-Type: application/json; charset=UTF-8
+
+
+GET /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
+> Content-Type: application/json
+< 200
+< Content-Type: application/json; charset=UTF-8
+
+
+DELETE /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }/{object ID}
+> Content-Type: application/json
+< 200
+< Content-Type: application/json; charset=UTF-8
+
+
+--
 Speculation Detection
 Speculative language describes or refers directly or indirectly to irrealis events that are yet to happen. 
 Speculative expressions can hence cover concepts as diverse as future, certainty, doubt, prediction, wanting, wishes, and waiting, to name a few.      
@@ -992,39 +1025,6 @@ POST /summary
 [{
   "summary": "Charities criticise UK for ending humanitarian aid\nCharities have criticised the UK after the govt announced it would stop direct aid to Peru in 2019.\n UK ministers said their relationship with Peru is more about trade and not development as such."
 }]
-
-
---
-Sentiment Resources
-
-`[AVAILABLE SOON]`
-
-This end point allows you to customise the lexical resources (word lists of adjectives, adverbs, nouns, verbs) that are used in the sentiment analysis on your account.
-
-Request fields: 
-
-* `"polarity":p` - The sentiment polarity of the lexicon entry `p ∈ { pos | ntr | neg }`. Example: `"polarity":"pos"`
-* `"reverse":r` - The sentiment reversal property of the lexicon entry `r ∈ { rev | equ }`. Example: `"reverse":"rev"`
-* `"text"` - The entry to be stored in the lexicon.
-
---
-POST /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
-> Content-Type: application/json
-{"text":"schnatzy", "polarity":"pos"}
-< 201
-< Content-Type: application/json; charset=UTF-8
-
-
-GET /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
-> Content-Type: application/json
-< 200
-< Content-Type: application/json; charset=UTF-8
-
-
-DELETE /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }/{object ID}
-> Content-Type: application/json
-< 200
-< Content-Type: application/json; charset=UTF-8
 
 
 --
