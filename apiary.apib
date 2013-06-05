@@ -995,15 +995,11 @@ POST /summary
 
 
 --
-Resources
+Sentiment Resources
 
 `[AVAILABLE SOON]`
 
-This end point allows you to manage the lexical resources that are used for the analyses on your account.
-The following two resource types are currently supported:
-
-* sentiment lexica: word lists (adjectives, adverbs, nouns, verbs) used in the sentiment analysis
-* entity taxonomies: pattern matching rules for categorising entity mentions into various taxonomic categories
+This end point allows you to customise the sentiment word lists (adjectives, adverbs, nouns, verbs) that are used in the sentimen analysis on your account.
 
 Request fields: 
 
@@ -1011,7 +1007,8 @@ Request fields:
 * `"reverse":r` - The sentiment reversal property of the lexicon entry `r ∈ { rev | equ }`. Example: `reverse:"rev"`
 * `"text"` - The entry to be stored in the lexicon.
 
-The following examples illustrate `/resources/lexicons/sentiment/adjectives`. `/adverbs`, `/nouns`, and `/verbs` behave in the same way.
+The following examples illustrate `/resources/lexicons/sentiment/adjectives`.
+`/adverbs`, `/nouns`, and `/verbs` behave in the same way.
 --
 POST /resources/lexicons/sentiment/adjectives
 > Content-Type: application/json
