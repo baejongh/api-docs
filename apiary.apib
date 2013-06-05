@@ -1011,6 +1011,10 @@ Request fields:
 * `"text"` - The entry to be stored in the lexicon.
 --
 POST /resources/lexicons/sentiment/adjectives
+> Content-Type: application/json
+{"text":"schnatzy", "polarity":"pos"}
+< 201
+< Content-Type: application/json; charset=UTF-8
 
 
 --
