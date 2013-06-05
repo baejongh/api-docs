@@ -1007,8 +1007,6 @@ Request fields:
 * `"reverse":r` - The sentiment reversal property of the lexicon entry `r ∈ { rev | equ }`. Example: `"reverse":"rev"`
 * `"text"` - The entry to be stored in the lexicon.
 
-The following examples illustrate `/v1/resources/lexicons/sentiment/adjectives`.
-`/adverbs`, `/nouns`, and `/verbs` behave in the same way.
 --
 POST /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
 > Content-Type: application/json
@@ -1017,13 +1015,13 @@ POST /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
 < Content-Type: application/json; charset=UTF-8
 
 
-GET /resources/lexicons/sentiment/adjectives
+GET /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
 > Content-Type: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 
 
-DELETE /resources/lexicons/sentiment/adjectives/{object ID}
+DELETE /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }/{object ID}
 > Content-Type: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
