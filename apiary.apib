@@ -1003,14 +1003,14 @@ This end point allows you to customise the lexical resources (word lists of adje
 
 Request fields: 
 
-* `"polarity":p` - The sentiment polarity of the lexicon entry `p ∈ { pos | ntr | neg }`. Example: `polarity:"pos"`
-* `"reverse":r` - The sentiment reversal property of the lexicon entry `r ∈ { rev | equ }`. Example: `reverse:"rev"`
+* `"polarity":p` - The sentiment polarity of the lexicon entry `p ∈ { pos | ntr | neg }`. Example: `"polarity":"pos"`
+* `"reverse":r` - The sentiment reversal property of the lexicon entry `r ∈ { rev | equ }`. Example: `"reverse":"rev"`
 * `"text"` - The entry to be stored in the lexicon.
 
 The following examples illustrate `/v1/resources/lexicons/sentiment/adjectives`.
 `/adverbs`, `/nouns`, and `/verbs` behave in the same way.
 --
-POST /resources/lexicons/sentiment/adjectives
+POST /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
 > Content-Type: application/json
 {"text":"schnatzy", "polarity":"pos"}
 < 201
