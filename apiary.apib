@@ -461,7 +461,6 @@ GET /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
 }]
 
 
-
 GET /resources/lexicons/sentiment/{ adjective | adverb | noun | verb }/{ objectID }
 > Content-Type: application/json
 < 200
@@ -471,7 +470,6 @@ GET /resources/lexicons/sentiment/{ adjective | adverb | noun | verb }/{ objectI
   "polarity": "pos",
   "id": "51b0630a7a233d39005ecc1e"
 }
-
 
 
 DELETE /resources/lexicons/sentiment/{ adjective | adverb | noun | verb }/{ objectID }
@@ -489,45 +487,43 @@ By adding taxonomy categories and pattern matching rules, you can categorise ent
 
 Taxonomy rules can have the following fields: 
 
-* `"polarity":p` - The sentiment polarity of the lexicon entry `p ∈ { pos | ntr | neg }`. Example: `"polarity":"pos"`
-* `"reverse":r` - The sentiment reversal property of the lexicon entry `r ∈ { rev | equ }`. Example: `"reverse":"rev"`
-* `"text"` - The entry to be stored in the lexicon.
+* `"matchPattern"` - A regex matching pattern for matching entity mentions. Example: `"matchPattern":"pizza(s)?"
+* `"category"` - The taxonomic category under which matched entity mentions should be categorised. Example: `"category":"FOOD.SOUP.ITALIAN"`
 
 --
-POST /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
+POST /resources/taxonomies/entity
 > Content-Type: application/json
-{"text":"schnatzy", "polarity":"pos"}
+{"matchPattern":"(price(s)?|bill(s)?|offer(s)?|expensive|rip(-| )?off)":"category":"PRICE"}
 < 201
 
 
-GET /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
+GET /resources/taxonomies/entities
 > Content-Type: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
-  "text": "schnazty",
-  "polarity": "pos",
+  "matchPattern": "",
+  "category": "",
   "id": "51b0630a7a233d39005ecc1e"
 }, {
-  "text": "unemployment",
-  "polarity": "ntr",
+  "matchPattern": "(price(s)?|bill(s)?|offer(s)?|expensive|rip(-| )?off)",
+  "category": "PRICE",
   "id": "51b0630a7a233d39005ecc1e"
 }]
 
 
-GET /resources/lexicons/sentiment/{ adjective | adverb | noun | verb }/{ objectID }
+GET /resources/taxonomies/entity/{ objectID }
 > Content-Type: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
 {
-  "text": "schnazty",
-  "polarity": "pos",
+  "matchPattern": "(price(s)?|bill(s)?|offer(s)?|expensive|rip(-| )?off)",
+  "category": "PRICE",
   "id": "51b0630a7a233d39005ecc1e"
 }
 
 
-
-DELETE /resources/lexicons/sentiment/{ adjective | adverb | noun | verb }/{ objectID }
+DELETE /resources/taxonomies/entity/{ objectID }
 > Content-Type: application/json
 < 200
 
