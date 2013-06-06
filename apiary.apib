@@ -502,13 +502,13 @@ GET /resources/taxonomies/entities
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
-  "matchPattern": "",
-  "category": "",
-  "id": "51b0630a7a233d39005ecc1e"
+  "matchPattern": "pizza(s)?",
+  "category": "FOOD.PIZZA",
+  "id": "51b0780a7a233d4e005ecc1f"
 }, {
-  "matchPattern": "(price(s)?|bill(s)?|offer(s)?|expensive|rip(-| )?off)",
-  "category": "PRICE",
-  "id": "51b0630a7a233d39005ecc1e"
+  "matchPattern": "(beer|lager|bitter)",
+  "category": "FOOD.DRINK",
+  "id": "51b0781f7a233d48005ecc20"
 }]
 
 
@@ -517,9 +517,9 @@ GET /resources/taxonomies/entity/{ objectID }
 < 200
 < Content-Type: application/json; charset=UTF-8
 {
-  "matchPattern": "(price(s)?|bill(s)?|offer(s)?|expensive|rip(-| )?off)",
-  "category": "PRICE",
-  "id": "51b0630a7a233d39005ecc1e"
+  "matchPattern": "(beer|lager|bitter)",
+  "category": "FOOD.DRINK",
+  "id": "51b0781f7a233d48005ecc20"
 }
 
 
