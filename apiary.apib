@@ -432,7 +432,7 @@ Sentiment Resources
 
 This end point allows you to customise the lexical resources (word lists of adjectives, adverbs, nouns, verbs) that are used in the sentiment analysis on your account.
 
-Request fields: 
+Sentiment lexicon entries can have the following fields: 
 
 * `"polarity":p` - The sentiment polarity of the lexicon entry `p ∈ { pos | ntr | neg }`. Example: `"polarity":"pos"`
 * `"reverse":r` - The sentiment reversal property of the lexicon entry `r ∈ { rev | equ }`. Example: `"reverse":"rev"`
@@ -458,6 +458,18 @@ GET /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
   "polarity": "ntr",
   "id": "51b0630a7a233d39005ecc1e"
 }]
+
+
+
+GET /resources/lexicons/sentiment/{ adjective | adverb | noun | verb }/{object ID}
+> Content-Type: application/json
+< 200
+< Content-Type: application/json; charset=UTF-8
+{
+  "text": "schnazty",
+  "polarity": "pos",
+  "id": "51b0630a7a233d39005ecc1e"
+}
 
 
 
