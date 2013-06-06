@@ -480,6 +480,59 @@ DELETE /resources/lexicons/sentiment/{ adjective | adverb | noun | verb }/{ obje
 
 
 --
+Resources for Entity Taxonomies
+
+`[AVAILABLE SOON]`
+
+This end point allows you to manage the entity taxonomy resources that are used in entity categorisation on your account.
+By adding taxonomy categories and pattern matching rules, you can categorise entity mentions into any desired categories.
+
+Taxonomy rules can have the following fields: 
+
+* `"polarity":p` - The sentiment polarity of the lexicon entry `p ∈ { pos | ntr | neg }`. Example: `"polarity":"pos"`
+* `"reverse":r` - The sentiment reversal property of the lexicon entry `r ∈ { rev | equ }`. Example: `"reverse":"rev"`
+* `"text"` - The entry to be stored in the lexicon.
+
+--
+POST /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
+> Content-Type: application/json
+{"text":"schnatzy", "polarity":"pos"}
+< 201
+
+
+GET /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
+> Content-Type: application/json
+< 200
+< Content-Type: application/json; charset=UTF-8
+[{
+  "text": "schnazty",
+  "polarity": "pos",
+  "id": "51b0630a7a233d39005ecc1e"
+}, {
+  "text": "unemployment",
+  "polarity": "ntr",
+  "id": "51b0630a7a233d39005ecc1e"
+}]
+
+
+GET /resources/lexicons/sentiment/{ adjective | adverb | noun | verb }/{ objectID }
+> Content-Type: application/json
+< 200
+< Content-Type: application/json; charset=UTF-8
+{
+  "text": "schnazty",
+  "polarity": "pos",
+  "id": "51b0630a7a233d39005ecc1e"
+}
+
+
+
+DELETE /resources/lexicons/sentiment/{ adjective | adverb | noun | verb }/{ objectID }
+> Content-Type: application/json
+< 200
+
+
+--
 Speculation Detection
 Speculative language describes or refers directly or indirectly to irrealis events that are yet to happen. 
 Speculative expressions can hence cover concepts as diverse as future, certainty, doubt, prediction, wanting, wishes, and waiting, to name a few.      
