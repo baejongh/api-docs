@@ -443,13 +443,22 @@ POST /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
 > Content-Type: application/json
 {"text":"schnatzy", "polarity":"pos"}
 < 201
-< Content-Type: application/json; charset=UTF-8
 
 
 GET /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
 > Content-Type: application/json
 < 200
 < Content-Type: application/json; charset=UTF-8
+[{
+  "text": "schnazty",
+  "polarity": "pos",
+  "id": "51b0630a7a233d39005ecc1e"
+}, {
+  "text": "unemployment",
+  "polarity": "ntr",
+  "id": "51b0630a7a233d39005ecc1e"
+}]
+
 
 
 DELETE /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }/{object ID}
