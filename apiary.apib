@@ -163,9 +163,9 @@ By default, all analysed entities are returned in the response. If you want to c
 
 The specified target entities are matched against words in each entity NP using the following matching modes:
 
-* `"matching":"head"` - The targets match the head noun of an entity NP (full head match).
+* `"matching":"head"` (or none) (default) - The targets match the head noun of an entity NP (full head match).
 * `"matching":"exact"` - The targets match an entity NP (full match).
-* `"matching":"phrase"` (or none) (default) - The targets can match anywhere inside an entity NP (substring search).
+* `"matching":"phrase"` - The targets can match anywhere inside an entity NP (substring search).
 POST /sentiment
 > Content-Type: application/json
 {"text":"...", "level":"entity"}
