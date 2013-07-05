@@ -603,6 +603,66 @@ POST /intent
 
 
 --
+Humour Detection
+
+`AVAILABLE SOON!`
+
+A great many charged sentiment expressions express humour as is evidenced by jokes, puns, funny anecdotes, proverbs, puns, and other devices.
+You can use the Humour Detection service to discover explitic and implicit humour signals in text.
+The returned analysis offers humour type labels (`HUMOUR` vs. `NOT_HUMOUR`) as well as confidence values from the predictions.
+
+--
+Returns a humour prediction for the entire input text (document-level humour detection). 
+
+Request fields: 
+
+* `"text"` - The text that you want to analyse.
+POST /humour
+> Content-Type: application/json
+{"text":"What do you get when you cross a lawyer with the Godfather? An offer you can't understand."}
+< 200
+< Content-Type: application/json; charset=UTF-8
+{
+  "humourType": {
+    "label": "HUMOUR",
+    "confidence": 0.941
+  }
+}
+
+
+Returns humour predictions for each sentence in the input text (sentence-level humour detection). 
+
+Request fields: 
+
+* `"level":"sentence"` - Selects sentence-level humour detection.
+* `"text"` - The text that you want to analyse.
+POST /humour
+> Content-Type: application/json
+{"text":"...","level":"sentence"}}
+< 200
+< Content-Type: application/json; charset=UTF-8
+[{
+  "humourType": {
+    "label": "NOT_HUMOUR",
+    "confidence": 0.763
+  },
+  "start": 64,
+  "end": 90,
+  "sentenceIndex": 3,
+  "text": "The company said that the share award scheme is a one-off opportunity, but if it was successful, awards to employees would increase in the future."
+  }, {
+  "humourType": {
+    "label": "HUMOUR",
+    "confidence": 0.816
+  },
+  "start": 91,
+  "end": 103,
+  "sentenceIndex": 4,
+  "text": "Shares will mainly be awarded to workers working in the \"famous chocolate factory\"... if u know wot i meen"
+}]
+
+
+--
 Comparison Analysis
 
 
