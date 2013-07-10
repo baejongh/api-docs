@@ -1159,15 +1159,13 @@ Feedback
 
 `AVAILABLE SOON`
 
-If you spot misclassifications, misanalyses, incorrect predictions, or anomalies in the responses, you can submit feedback to us which we will look into.
+If you spot misanalyses, misclassifications, incorrect predictions, anomalies, or issues in the responses returned by the API, you can submit feedback to us which we will look into.
 
 Request fields: 
 
-{\"\":\"sentiment\",\"\":\"this is a test\",\"\":\"feedback\"}"
-
-* `"endpoint"` - The name of the service end point that returned the incorrect analysis.
-* `"feedback"` - Any feedback that you can give us - correct or expected analysis or prediction, or general comments. The more the merrier!
-* `"text"` The text that contained the incorrect analysis.
+* `"endpoint"` - The name of the service end point that returned the response that you want to report.
+* `"feedback"` - Any feedback that you can give us - correct or expected value(s), or general comments. The more the merrier!
+* `"text"` The text that contained the incorrect analysis (e.g. a sentence or a short paragraph).
 --
 POST /feedback
 < 200
