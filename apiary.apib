@@ -441,7 +441,7 @@ Sentiment lexicon entries can have the following fields:
 --
 POST /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
 > Content-Type: application/json
-{"text":"schnatzy", "polarity":"pos"}
+{"text":"quasi-intelligent", "polarity":"pos"}
 < 201
 
 
@@ -450,7 +450,7 @@ GET /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
-  "text": "schnazty",
+  "text": "quasi-intelligent",
   "polarity": "pos",
   "id": "51b0630a7a233d39005ecc1e"
 }, {
@@ -465,7 +465,7 @@ GET /resources/lexicons/sentiment/{ adjective | adverb | noun | verb }/{ objectI
 < 200
 < Content-Type: application/json; charset=UTF-8
 {
-  "text": "schnazty",
+  "text": "quasi-intelligent",
   "polarity": "pos",
   "id": "51b0630a7a233d39005ecc1e"
 }
