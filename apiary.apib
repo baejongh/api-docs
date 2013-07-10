@@ -1164,12 +1164,11 @@ If you spot 1) incorrect or odd analyses (classifications, predictions, tags, ch
 Request fields: 
 
 * `"endpoint"` - The name of the service end point that returned the response that you want to report.
-* `"feedback"` - Any feedback that you can give us - correct or expected value(s), or general comments. The more the merrier!
-* `"text"` The text that contained the incorrect analysis (e.g. a sentence or a short paragraph).
+* `"feedback"` - Any feedback that you can give us - correct or expected value(s), or general comments that will help us diagnose the issue. The more the merrier!
+* `"text"` The text that you sent to the end point in question (e.g. a sentence or a short paragraph).
 --
 POST /feedback
-< 200
-< Content-Type: application/json; charset=UTF-8
+< 201 (Created)
 
 
 --
