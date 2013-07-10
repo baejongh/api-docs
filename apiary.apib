@@ -1136,7 +1136,6 @@ POST /depparse
 --
 Text Summarisation
 
-
 This service generates a summary from a piece of text. The summary consists of sentences delimited by `\n`.
 
 Request fields: 
@@ -1165,7 +1164,7 @@ Request fields:
 
 * `"endpoint"` - The name of the service end point that returned the response that you want to report.
 * `"feedback"` - Any feedback that you can give us - correct or expected value(s), or general comments that will help us diagnose the issue. The more the merrier!
-* `"text"` The text that you sent to the end point in question (e.g. a sentence or a short paragraph).
+* `"text"` The data in the `text` field that you used in the request that was sent to end point in question.
 --
 POST /feedback
 < 201 (Created)
