@@ -1155,7 +1155,28 @@ POST /summary
 
 
 --
+Feedback
+
+`AVAILABLE SOON`
+
+If you spot misclassifications, misanalyses, incorrect predictions, or anomalies in the responses, you can submit feedback to us which we will look into.
+
+Request fields: 
+
+{\"\":\"sentiment\",\"\":\"this is a test\",\"\":\"feedback\"}"
+
+* `"endpoint"` - The name of the service end point that returned the incorrect analysis.
+* `"feedback"` - Any feedback that you can give us - correct or expected analysis or prediction, or general comments. The more the merrier!
+* `"text"` The text that contained the incorrect analysis.
+--
+POST /feedback
+< 200
+< Content-Type: application/json; charset=UTF-8
+
+
+--
 Usage Data
+
 You can monitor your API usage within a specific time period between two time stamps.
 The timestamps expect values that are compliant with the [W3C](http://www.w3.org/TR/NOTE-datetime) date and time format. 
 
