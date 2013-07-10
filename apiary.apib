@@ -40,13 +40,13 @@ By default, the following rates apply:
 
 Responses returned by the API contain information about your quota in the following response header fields:
 
-- `X-RequestLimit-Limit` - # of requests that you can send in a day. Example: 15000.
-- `X-RequestLimit-Remaining` - # of requests that you can send before you will exceed your daily request limit. Example: 12323.
-- `X-RequestLimit-Reset` - When your next daily quota will be reset (in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time)). Example: 1360281599708.
-- `X-RateLimit-IntervalSecs` - The length of your rate limit window. Example: 60.
-- `X-RateLimit-Limit` - # of requests that can send within your rate limit window. Example: 30.
-- `X-RateLimit-Remaining` - # of requests that you can send before you will exceed your rate limit. Example: 25.
-- `X-RateLimit-Reset` - When your next rate limit window will be reset (in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time)). Example: 1360254866709.
+- `X-RequestLimit-Limit` - # of requests that you can send in a day. Example: `15000`.
+- `X-RequestLimit-Remaining` - # of requests that you can send before you will exceed your daily request limit. Example: `12323`.
+- `X-RequestLimit-Reset` - When your next daily quota will be reset (in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time)). Example: `1360281599708`.
+- `X-RateLimit-IntervalSecs` - The length of your rate limit window. Example: `60`.
+- `X-RateLimit-Limit` - # of requests that can send within your rate limit window. Example: `30`.
+- `X-RateLimit-Remaining` - # of requests that you can send before you will exceed your rate limit. Example: `25`.
+- `X-RateLimit-Reset` - When your next rate limit window will be reset (in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time)). Example: `1360254866709`.
 
 You can also see your current rate limit status by calling `/rate_limit`. Example: [http://api.theysay.io/rate_limit](http://api.theysay.io/rate_limit) 
 
