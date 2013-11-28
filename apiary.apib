@@ -1,13 +1,13 @@
 HOST: http://api.theysay.io/v1
 
---- TheySay AffectR API Documentation ---
+--- TheySay PreCeive API Documentation ---
 ---
 
-Affectr API is a platform-agnostic service which enables developers to access and mix-and-match our powerful text analysis processors that cover sentiment analysis, speculation detection, part-of-speech 
+TheySay PreCeive API is a platform-agnostic service which enables developers to access and mix-and-match our powerful text analysis processors that cover sentiment analysis, speculation detection, part-of-speech 
 tagging, dependency parsing, and others. If you're building an application that cannot do without serious, state-of-the-art text analytics but don't want to delve deep into natural language processing,
 then this is the API for you.
 
-Getting started with AffectR API is easy. Test-drive our live public [API demo](http://apidemo.theysay.io), explore its end points below, and [contact us](mailto:contact@theysayanalytics.com?Subject=AffectR%20API%20Development%20key%20request) to receive a development key. Need help or want to give feedback? [Contact us](mailto:contact@theysayanalytics.com?Subject=AffectR%20API%20feedback) - we'd love to hear from you!
+Getting started with PreCeive API is easy. Test-drive our live public [API demo](http://apidemo.theysay.io), explore its end points below, and [contact us](mailto:contact@theysayanalytics.com?Subject=PreCeive%20API%20Development%20key%20request) to receive a development key. Need help or want to give feedback? [Contact us](mailto:contact@theysayanalytics.com?Subject=PreCeive%20API%20feedback) - we'd love to hear from you!
 
 API Clients
 ------------
@@ -15,7 +15,7 @@ To help you get started, Open Source API clients are currently available for [Ja
 
 HTTP Methods
 ------------
-AffectR API follows [REST principles](http://en.wikipedia.org/wiki/Representational_state_transfer). The following HTTP request methods are supported:
+PreCeive API follows [REST principles](http://en.wikipedia.org/wiki/Representational_state_transfer). The following HTTP request methods are supported:
 
 - `POST` (recommended) - Query fields are in the request body and expressed as JSON. Example: `{ "text":"Patchy rain, sleet or snow in parts...", "level":"sentence" }`.
 - `GET` - Query fields are expressed as parameters in the URL and must be URL-encoded. Note that `GET` exposes only a limited subset of available query fields. Example: `/v1/sentiment?text=how%20cool%20is%20that!&level=sentence`.
@@ -50,7 +50,7 @@ Responses returned by the API contain information about your quota in the follow
 
 You can also see your current rate limit status by calling `/rate_limit`. Example: [http://api.theysay.io/rate_limit](http://api.theysay.io/rate_limit). 
 
-For more information about quotas, rate limits, and subscriptions, [contact us](mailto:contact@theysayanalytics.com?Subject=AffectR%20API%20rate-limit%20enquiry).
+For more information about quotas, rate limits, and subscriptions, [contact us](mailto:contact@theysayanalytics.com?Subject=PreCeive%20API%20rate-limit%20enquiry).
 
 Maximum Request Length
 -----
