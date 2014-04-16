@@ -751,6 +751,33 @@ POST /humour
 
 
 --
+Advertisement Detection
+
+
+Due to the fact that advertisements are almost invariably positive, they can skew sentiment measurements.
+This end point allows you to detect texts that contain or resemble advertisements.
+The returned analysis offers advertisement type labels (`AD` vs. `NOT_AD`) as well as confidence values from the predictions.
+
+--
+Returns an advertisement prediction for the entire input text (document-level advertisement detection). 
+
+Request fields: 
+
+* `"text"` - The text that you want to analyse.
+POST /ad
+> Content-Type: application/json
+{"text":"Get a one year subscription of this publication read by thousands of professionals and executives for the price of one year – just $29. Quickly while offer lasts!"}
+< 200
+< Content-Type: application/json; charset=UTF-8
+{
+  "score": {
+    "label": "AD",
+    "confidence": 1
+  }
+}
+
+
+--
 Comparison Analysis
 
 
