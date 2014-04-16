@@ -431,7 +431,7 @@ Emotion Analysis
 
 Beyond positive vs. negative sentiment polarity, a vast range of psychological dimensions exist in the realm of emotions/moods/feelings/affect.
 You can use the Emotion Analysis service to project the text onto a fine-grained, multi-dimensional emotion space which is more natural than a singular majority label.
-The returned analysis lists emotion dimension labels, each with a confidence values from the prediction, and covers the following basic unbounded emotion dimensions:
+The returned analysis lists emotion dimension labels, each with a confidence value from the prediction, and covers the following basic unbounded emotion dimensions:
 
 * `anger1D` - 1-dimensional anger scale (> 0).
 * `fear1D` - 1-dimensional fear scale (> 0).
@@ -664,12 +664,12 @@ POST /intent
 
 
 --
-Gender Detection
+Gender Classification
 
 
 This end point allows you to predict the gender of the author who wrote the text.
 The prediction is based solely on the text itself - no user profile information is considered.
-The returned analysis offers gender type labels (`MALE` vs. `FEMALE`) as well as confidence values from the predictions.
+The returned analysis offers gender labels (`MALE` vs. `FEMALE`) as well as confidence values from the predictions.
 
 --
 Returns a gender prediction for the entire input text (document-level gender detection). 
