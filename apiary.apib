@@ -426,107 +426,6 @@ POST /sentiment
 
 
 --
-Resources for Sentiment Analysis
-
-
-This end point allows you to manage the lexical resources that are used in the sentiment analysis on your account.
-By fine-tuning and customising word lists (adjectives, adverbs, nouns, verbs), you can adapt the sentiment analysis to a particular genre, domain, topic, or use case beyond the default generic resources.
-
-Sentiment lexicon entries can have the following fields: 
-
-* `"polarity":p` - The sentiment polarity of the lexicon entry `p ∈ { pos | ntr | neg }`. Example: `"polarity":"pos"`
-* `"reverse":r` - The sentiment reversal property of the lexicon entry `r ∈ { rev | equ }`. Example: `"reverse":"rev"`
-* `"text"` - The entry to be stored in the lexicon.
-
---
-POST /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
-> Content-Type: application/json
-{"text":"quasi-intelligent", "polarity":"pos"}
-< 201
-
-
-GET /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
-> Content-Type: application/json
-< 200
-< Content-Type: application/json; charset=UTF-8
-[{
-  "text": "quasi-intelligent",
-  "polarity": "pos",
-  "id": "51b0630a7a233d39005ecc1e"
-}, {
-  "text": "unemployment",
-  "polarity": "ntr",
-  "id": "51b0630a7a233d39005ecc1e"
-}]
-
-
-GET /resources/lexicons/sentiment/{ adjective | adverb | noun | verb }/{ objectID }
-> Content-Type: application/json
-< 200
-< Content-Type: application/json; charset=UTF-8
-{
-  "text": "quasi-intelligent",
-  "polarity": "pos",
-  "id": "51b0630a7a233d39005ecc1e"
-}
-
-
-DELETE /resources/lexicons/sentiment/{ adjective | adverb | noun | verb }/{ objectID }
-> Content-Type: application/json
-< 200
-
-
---
-Resources for Entity Taxonomies
-
-
-This end point allows you to manage the taxonomic resources that are used in the entity categorisation on your account.
-By adding pattern matching rules for taxonomic categories, you can categorise entity mentions into any desired taxonomic levels beyond the default head noun-based grouping.
-
-Entity taxonomy entries can have the following fields: 
-
-* `"matchPattern"` - A regex pattern for capturing entity mentions. Example: `"matchPattern":"pizza(s)?"`
-* `"category"` - The taxonomic category under which matched entity mentions should be categorised. Example: `"category":"FOOD.SOUP.ITALIAN"`
-
---
-POST /resources/taxonomies/entity
-> Content-Type: application/json
-{"matchPattern":"(price(s)?|bill(s)?|offer(s)?|expensive|rip(-| )?off)":"category":"PRICE"}
-< 201
-
-
-GET /resources/taxonomies/entities
-> Content-Type: application/json
-< 200
-< Content-Type: application/json; charset=UTF-8
-[{
-  "matchPattern": "pizza(s)?",
-  "category": "FOOD.PIZZA",
-  "id": "51b0780a7a233d4e005ecc1f"
-}, {
-  "matchPattern": "(beer|lager|bitter)",
-  "category": "FOOD.DRINK",
-  "id": "51b0781f7a233d48005ecc20"
-}]
-
-
-GET /resources/taxonomies/entity/{ objectID }
-> Content-Type: application/json
-< 200
-< Content-Type: application/json; charset=UTF-8
-{
-  "matchPattern": "(beer|lager|bitter)",
-  "category": "FOOD.DRINK",
-  "id": "51b0781f7a233d48005ecc20"
-}
-
-
-DELETE /resources/taxonomies/entity/{ objectID }
-> Content-Type: application/json
-< 200
-
-
---
 Emotion Analysis
 
 
@@ -1357,6 +1256,107 @@ POST /langdetect
 {
  "iso6391": "en"
 }
+
+
+--
+Resources for Sentiment Analysis
+
+
+This end point allows you to manage the lexical resources that are used in the sentiment analysis on your account.
+By fine-tuning and customising word lists (adjectives, adverbs, nouns, verbs), you can adapt the sentiment analysis to a particular genre, domain, topic, or use case beyond the default generic resources.
+
+Sentiment lexicon entries can have the following fields: 
+
+* `"polarity":p` - The sentiment polarity of the lexicon entry `p ∈ { pos | ntr | neg }`. Example: `"polarity":"pos"`
+* `"reverse":r` - The sentiment reversal property of the lexicon entry `r ∈ { rev | equ }`. Example: `"reverse":"rev"`
+* `"text"` - The entry to be stored in the lexicon.
+
+--
+POST /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
+> Content-Type: application/json
+{"text":"quasi-intelligent", "polarity":"pos"}
+< 201
+
+
+GET /resources/lexicons/sentiment/{ adjectives | adverbs | nouns | verbs }
+> Content-Type: application/json
+< 200
+< Content-Type: application/json; charset=UTF-8
+[{
+  "text": "quasi-intelligent",
+  "polarity": "pos",
+  "id": "51b0630a7a233d39005ecc1e"
+}, {
+  "text": "unemployment",
+  "polarity": "ntr",
+  "id": "51b0630a7a233d39005ecc1e"
+}]
+
+
+GET /resources/lexicons/sentiment/{ adjective | adverb | noun | verb }/{ objectID }
+> Content-Type: application/json
+< 200
+< Content-Type: application/json; charset=UTF-8
+{
+  "text": "quasi-intelligent",
+  "polarity": "pos",
+  "id": "51b0630a7a233d39005ecc1e"
+}
+
+
+DELETE /resources/lexicons/sentiment/{ adjective | adverb | noun | verb }/{ objectID }
+> Content-Type: application/json
+< 200
+
+
+--
+Resources for Entity Taxonomies
+
+
+This end point allows you to manage the taxonomic resources that are used in the entity categorisation on your account.
+By adding pattern matching rules for taxonomic categories, you can categorise entity mentions into any desired taxonomic levels beyond the default head noun-based grouping.
+
+Entity taxonomy entries can have the following fields: 
+
+* `"matchPattern"` - A regex pattern for capturing entity mentions. Example: `"matchPattern":"pizza(s)?"`
+* `"category"` - The taxonomic category under which matched entity mentions should be categorised. Example: `"category":"FOOD.SOUP.ITALIAN"`
+
+--
+POST /resources/taxonomies/entity
+> Content-Type: application/json
+{"matchPattern":"(price(s)?|bill(s)?|offer(s)?|expensive|rip(-| )?off)":"category":"PRICE"}
+< 201
+
+
+GET /resources/taxonomies/entities
+> Content-Type: application/json
+< 200
+< Content-Type: application/json; charset=UTF-8
+[{
+  "matchPattern": "pizza(s)?",
+  "category": "FOOD.PIZZA",
+  "id": "51b0780a7a233d4e005ecc1f"
+}, {
+  "matchPattern": "(beer|lager|bitter)",
+  "category": "FOOD.DRINK",
+  "id": "51b0781f7a233d48005ecc20"
+}]
+
+
+GET /resources/taxonomies/entity/{ objectID }
+> Content-Type: application/json
+< 200
+< Content-Type: application/json; charset=UTF-8
+{
+  "matchPattern": "(beer|lager|bitter)",
+  "category": "FOOD.DRINK",
+  "id": "51b0781f7a233d48005ecc20"
+}
+
+
+DELETE /resources/taxonomies/entity/{ objectID }
+> Content-Type: application/json
+< 200
 
 
 --
