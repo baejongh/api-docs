@@ -527,6 +527,167 @@ DELETE /resources/taxonomies/entity/{ objectID }
 
 
 --
+Emotion Analysis
+
+
+You can use this service to project the text onto a fine-grained, multi-dimensional emotion space.
+The returned analysis lists emotion dimension labels, each with a confidence values from the prediction.
+The following dimensions are captured:
+
+* anger1D
+* calm2D
+* fear1D
+* happy2D
+* like2D
+* shame1D
+* sure2D
+* surprise1D
+
+--
+Returns emotion dimensions for the entire input text (document-level emotion analysis). 
+
+Request fields: 
+
+* `"text"` - The text that you want to analyse.
+POST /emotion
+> Content-Type: application/json
+{"text":"Let he without sin cast the stone, he says. I have been called vile, villainous and evil for criticising her. She was unstable and difficult, if not impossible, to live with. Even her brother acknowledged her problems during the funeral."}
+< 200
+< Content-Type: application/json; charset=UTF-8
+{
+  "emotions": [
+    {
+      "dimension": "anger1D",
+      "score": 1.667
+    },
+    {
+      "dimension": "calm2D",
+      "score": -0.478
+    },
+    {
+      "dimension": "fear1D",
+      "score": 0
+    },
+    {
+      "dimension": "happy2D",
+      "score": 0
+    },
+    {
+      "dimension": "like2D",
+      "score": -1.4
+    },
+    {
+      "dimension": "shame1D",
+      "score": 0
+    },
+    {
+      "dimension": "sure2D",
+      "score": -0.667
+    },
+    {
+      "dimension": "surprise1D",
+      "score": 0
+    }
+  ]
+}
+
+
+Returns emotion dimensions for each sentence in the input text (sentence-level emotion analysis). 
+
+Request fields: 
+
+* `"level":"sentence"` - Selects sentence-level emotion analysis.
+* `"text"` - The text that you want to analyse.
+POST /emotion
+> Content-Type: application/json
+{"text":"...","level":"sentence"}}
+< 200
+< Content-Type: application/json; charset=UTF-8
+[
+  {
+    "emotions": [
+      {
+        "dimension": "anger1D",
+        "score": 0
+      },
+      {
+        "dimension": "calm2D",
+        "score": 0
+      },
+      {
+        "dimension": "fear1D",
+        "score": 0
+      },
+      {
+        "dimension": "happy2D",
+        "score": 0
+      },
+      {
+        "dimension": "like2D",
+        "score": 0
+      },
+      {
+        "dimension": "shame1D",
+        "score": 0
+      },
+      {
+        "dimension": "sure2D",
+        "score": 0
+      },
+      {
+        "dimension": "surprise1D",
+        "score": 0
+      }
+    ],
+    "start": 0,
+    "end": 10,
+    "sentenceIndex": 0,
+    "text": "Let he without sin cast the stone , he says ."
+  },
+  {
+    "emotions": [
+      {
+        "dimension": "anger1D",
+        "score": 5
+      },
+      {
+        "dimension": "calm2D",
+        "score": -3.9
+      },
+      {
+        "dimension": "fear1D",
+        "score": 0
+      },
+      {
+        "dimension": "happy2D",
+        "score": 0
+      },
+      {
+        "dimension": "like2D",
+        "score": -2.533
+      },
+      {
+        "dimension": "shame1D",
+        "score": 0
+      },
+      {
+        "dimension": "sure2D",
+        "score": 0
+      },
+      {
+        "dimension": "surprise1D",
+        "score": 0
+      }
+    ],
+    "start": 11,
+    "end": 23,
+    "sentenceIndex": 1,
+    "text": "I have been called vile , villainous and evil for criticising her ."
+  }
+]
+
+
+--
 Speculation Detection
 Speculative language describes or refers directly or indirectly to irrealis events that are yet to happen. 
 Speculative expressions can hence cover concepts as diverse as future, certainty, doubt, prediction, wanting, wishes, and waiting, to name a few.      
