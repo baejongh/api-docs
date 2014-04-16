@@ -711,7 +711,7 @@ POST /humour
 < 200
 < Content-Type: application/json; charset=UTF-8
 {
-  "humourType": {
+  "score": {
     "label": "HUMOUR",
     "confidence": 0.941
   }
@@ -730,7 +730,7 @@ POST /humour
 < 200
 < Content-Type: application/json; charset=UTF-8
 [{
-  "humourType": {
+  "score": {
     "label": "NOT_HUMOUR",
     "confidence": 0.763
   },
@@ -739,7 +739,7 @@ POST /humour
   "sentenceIndex": 3,
   "text": "The company said that the share award scheme is a one-off opportunity, but if it was successful, awards to employees would increase in the future."
   }, {
-  "humourType": {
+  "score": {
     "label": "HUMOUR",
     "confidence": 0.816
   },
