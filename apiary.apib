@@ -606,6 +606,29 @@ POST /intent
 Gender Detection
 
 
+This end point allows you to predict the gender of the author who wrote the text.
+The prediction is based solely on the text itself - no user profile information is considered.
+The returned analysis offers gender type labels (`MALE` vs. `FEMALE`) as well as confidence values from the predictions.
+
+--
+Returns a gender prediction for the entire input text (document-level gender detection). 
+
+Request fields: 
+
+* `"text"` - The text that you want to analyse.
+POST /gender
+> Content-Type: application/json
+{"text":"A 2015 Ford Mustang GT was spotted in Sacramento this weekend. Bystanders had the privilege to witness the throaty V8 5.0-liter engine being revved big time!. The motor boasts 421 bhp (314 kW) and a peak torque of 528 Nm (390 lb-ft)."}
+< 200
+< Content-Type: application/json; charset=UTF-8
+{
+  "score": {
+    "label": "MALE",
+    "confidence": 0.997
+  }
+}
+
+
 --
 Humour Detection
 
