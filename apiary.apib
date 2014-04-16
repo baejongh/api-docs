@@ -1180,6 +1180,25 @@ POST /summary
 
 
 --
+Language Detection
+
+This service returns an [ISO 639-1](http://www.loc.gov/standards/iso639-2/php/code_list.php) natural language code for the text.
+
+Request fields: 
+
+* `"text"` - The text for which you want a language code.
+--
+POST /langdetect
+> Content-Type: application/json
+{"text":"To be or not to be"}
+< 200
+< Content-Type: application/json; charset=UTF-8
+{
+ "iso6391": "en"
+}
+
+
+--
 Feedback
 
 `AVAILABLE SOON!`
