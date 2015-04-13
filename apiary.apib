@@ -1427,6 +1427,8 @@ Request fields:
 
 * `"from"` - The [W3C](http://www.w3.org/TR/NOTE-datetime) start value for the query.
 * `"to"` (optional) - The [W3C](http://www.w3.org/TR/NOTE-datetime) end value for the query. If omitted, defaults to `now`.
+* `"groupby"` (optional, defaults to `date`) - Specify the fields to group the results by. Possible values: `date`, `method`, `path`, `status`, `ip`. These can be combined as a comma separated list, e.g. `groupby=date,ip`. The `all` value can be used a shorthand.
+* `"aggregate"` (optional, defaults to `count`) - Specify the aggregates. Possible values `count`, `length`, `duration`. These can be combined as a comma separated list, e.g. `aggregate=length,duration`. The `all` value can be used a shorthand.
 
 --
 GET /usagestats?from=2013-02-01&to=2013-02-13
