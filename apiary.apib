@@ -3,7 +3,7 @@ HOST: http://api.theysay.io/v1
 --- TheySay PreCeive API Documentation ---
 ---
 
-TheySay PreCeive API is a platform-agnostic service which enables developers to access and mix-and-match our powerful text analysis processors that cover sentiment analysis, speculation detection, part-of-speech 
+TheySay PreCeive API is a platform-agnostic service which enables developers to access and mix-and-match our powerful text analysis processors that cover sentiment analysis, speculation detection, part-of-speech
 tagging, dependency parsing, and others. If you're building an application that cannot do without serious, state-of-the-art text analytics but don't want to delve deep into natural language processing,
 then this is the API for you.
 
@@ -48,7 +48,7 @@ Responses returned by the API contain information about your quota in the follow
 - `X-RateLimit-Remaining` - # of requests that you can send before you will exceed your rate limit. Example: `25`.
 - `X-RateLimit-Reset` - When your next rate limit window will be reset (in UTC [epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time)). Example: `1360254866709`.
 
-You can also see your current rate limit status by calling `/rate_limit`. Example: [http://api.theysay.io/rate_limit](http://api.theysay.io/rate_limit). 
+You can also see your current rate limit status by calling `/rate_limit`. Example: [http://api.theysay.io/rate_limit](http://api.theysay.io/rate_limit).
 
 For more information about quotas, rate limits, and subscriptions, [contact us](mailto:contact@theysayanalytics.com?Subject=PreCeive%20API%20rate-limit%20enquiry).
 
@@ -80,17 +80,17 @@ vs
 * `negative` / bad / cons / unfavourable / undesirable / not recommended / thumbs down /...
 
 You can use the Sentiment Analysis service to discover and score deep, fine-grained sentiments and opinions in text.
-The analysis, output by a human-like sentiment reasoning algorithm, captures both explicit "author sentiment" as well as 
-general, implicit "reader-sentiment" beyond opinions that ultimately stems from affective commons sense as well as issues and events that are 
+The analysis, output by a human-like sentiment reasoning algorithm, captures both explicit "author sentiment" as well as
+general, implicit "reader-sentiment" beyond opinions that ultimately stems from affective commons sense as well as issues and events that are
 generally considered to be good vs. bad in the world.
 
-The returned analysis includes majority sentiment labels, fine-grained 3-way positive/neutral/negative percentage scores, 
+The returned analysis includes majority sentiment labels, fine-grained 3-way positive/neutral/negative percentage scores,
 and other useful auxiliary fields.
 
 --
-Returns sentiment information about the entire text (document-level sentiment analysis). 
+Returns sentiment information about the entire text (document-level sentiment analysis).
 
-Request fields: 
+Request fields:
 
 * `"bias":{ p:d }` (optional) - Sentiment coefficients (`0 ≤ d ≤ 100`) to control the (in)sensitivity of the sentiment analysis towards `p ∈ { positive | neutral | negative }` sentiment. Example: `bias: { "positive":7.5 }`
 * `"text"` - The text that you want to analyse.
@@ -110,9 +110,9 @@ POST /sentiment
 }
 
 
-Returns sentiment information about each sentence in the text (sentence-level sentiment analysis). 
+Returns sentiment information about each sentence in the text (sentence-level sentiment analysis).
 
-Request fields: 
+Request fields:
 
 * `"bias":{ p:d }` (optional) - Sentiment coefficients (`0 ≤ d ≤ 100`) to control the (in)sensitivity of the sentiment analysis towards `p ∈ { positive | neutral | negative }` sentiment. Example: `bias: { "positive":7.5 }`
 * `"level":"sentence"` - Selects sentence-level sentiment analysis.
@@ -149,9 +149,9 @@ POST /sentiment
 }]
 
 
-Returns sentiment information about each individual entity (term, keyword) mentioned in the text (entity-level sentiment analysis). 
+Returns sentiment information about each individual entity (term, keyword) mentioned in the text (entity-level sentiment analysis).
 
-Request fields: 
+Request fields:
 
 * `"bias":{ p:d }` (optional) - Sentiment coefficients (`0 ≤ d ≤ 100`) to control the (in)sensitivity of the sentiment analysis towards `p ∈ { positive | neutral | negative }` sentiment. Example: `bias: { "positive":7.5 }`
 * `"level":"entity"` - Selects entity-level sentiment analysis.
@@ -206,9 +206,9 @@ POST /sentiment
 }]
 
 
-Returns sentiment information about aggregated entities (terms, keywords) mentioned in the text. Individual entity mentions are grouped using lowercase head noun matching and scored using weighted sentiment scores. 
+Returns sentiment information about aggregated entities (terms, keywords) mentioned in the text. Individual entity mentions are grouped using lowercase head noun matching and scored using weighted sentiment scores.
 
-Request fields: 
+Request fields:
 
 * `"bias":{ p:d }` (optional) - Sentiment coefficients (`0 ≤ d ≤ 100`) to control the (in)sensitivity of the sentiment analysis towards `p ∈ { positive | neutral | negative }` sentiment. Example: `bias: { "positive":7.5 }`
 * `"level":"entityaggregate"` - Selects aggregated entity-level sentiment analysis.
@@ -265,9 +265,9 @@ POST /sentiment
 }]
 
 
-Returns sentiment information about detailed relations between entities (terms, keywords) mentioned in the text. 
+Returns sentiment information about detailed relations between entities (terms, keywords) mentioned in the text.
 
-Request fields: 
+Request fields:
 
 * `"level":"entityrelation"` - Selects relational entity-level sentiment analysis.
 * `"text"` - The text that you want to analyse.
@@ -320,9 +320,9 @@ POST /sentiment
 
 
 Returns information about the flow of sentiment through the text (document-level sentiment timeline analysis).
-The analysis covers contextual sentence-level sentiment labels and positional co-ordinates for individual words in the text which you can use to plot the temporal development (or flow) of sentiment through the text. 
+The analysis covers contextual sentence-level sentiment labels and positional co-ordinates for individual words in the text which you can use to plot the temporal development (or flow) of sentiment through the text.
 
-Request fields: 
+Request fields:
 
 * `"level":"word"` - Selects document-level sentiment timeline analysis.
 * `"text"` - The text that you want to analyse.
@@ -444,9 +444,9 @@ The returned analysis lists emotion dimension labels, each with a confidence val
 
 
 --
-Returns emotion dimensions for the entire input text (document-level emotion analysis). 
+Returns emotion dimensions for the entire input text (document-level emotion analysis).
 
-Request fields: 
+Request fields:
 
 * `"text"` - The text that you want to analyse.
 POST /emotion
@@ -492,9 +492,9 @@ POST /emotion
 }
 
 
-Returns emotion dimensions for each sentence in the input text (sentence-level emotion analysis). 
+Returns emotion dimensions for each sentence in the input text (sentence-level emotion analysis).
 
-Request fields: 
+Request fields:
 
 * `"level":"sentence"` - Selects sentence-level emotion analysis.
 * `"text"` - The text that you want to analyse.
@@ -589,15 +589,16 @@ POST /emotion
 
 --
 Speculation Detection
-Speculative language describes or refers directly or indirectly to irrealis events that are yet to happen. 
-Speculative expressions can hence cover concepts as diverse as future, certainty, doubt, prediction, wanting, wishes, and waiting, to name a few.      
+Speculative language describes or refers directly or indirectly to irrealis events that are yet to happen.
+Speculative expressions can hence cover concepts as diverse as future, certainty, doubt, prediction, wanting, wishes, and waiting, to name a few.
 This service detects speculative expressions at the sentence level.
 The response contains only 'positive' matches: if no speculative content is detected, the response is `[]`, accordingly.
-Any identified subtypes of speculation are denoted with the dot operator (`.`) (e.g. `SPECULATION.SUBTYPE`). 
+Any identified subtypes of speculation are denoted with the dot operator (`.`) (e.g. `SPECULATION.SUBTYPE`).
 
-Request fields: 
+Request fields:
 
 * `"text"` - The text that you want to analyse.
+
 --
 POST /speculation
 > Content-Type: application/json
@@ -618,11 +619,12 @@ Risk Detection
 
 This sentence-level service detects expressions that describe or refer to risk and danger, either directly or indirectly.
 The response contains only 'positive' matches: if no risk expressions are detected, the response is hence `[]`.
-Any identified subtypes of risk are denoted with the dot operator (`.`) (e.g. `RISK.SUBTYPE`). 
+Any identified subtypes of risk are denoted with the dot operator (`.`) (e.g. `RISK.SUBTYPE`).
 
-Request fields: 
+Request fields:
 
 * `"text"` - The text that you want to analyse.
+
 --
 POST /risk
 > Content-Type: application/json
@@ -643,11 +645,12 @@ Intent Analysis
 
 This sentence-level service detects expressions pertaining to intent, intentions, plans, and decisions that can be detected in text.
 The response contains only 'positive' matches: if no intent expressions are detected, the response is `[]`.
-Any identified subtypes of intent are denoted with the dot operator (`.`) (e.g. `INTENT.SUBTYPE`). 
+Any identified subtypes of intent are denoted with the dot operator (`.`) (e.g. `INTENT.SUBTYPE`).
 
-Request fields: 
+Request fields:
 
 * `"text"` - The text that you want to analyse.
+
 --
 POST /intent
 > Content-Type: application/json
@@ -672,9 +675,9 @@ The prediction is based solely on the text itself - no user profile information 
 The returned analysis offers gender labels (`MALE` vs. `FEMALE`) as well as confidence values from the predictions.
 
 --
-Returns a gender prediction for the entire input text (document-level gender detection). 
+Returns a gender prediction for the entire input text (document-level gender detection).
 
-Request fields: 
+Request fields:
 
 * `"text"` - The text that you want to analyse.
 POST /gender
@@ -700,9 +703,9 @@ The returned analysis offers humour type labels (`HUMOUR` vs. `NOT_HUMOUR`) as w
 Have fun!
 
 --
-Returns a humour prediction for the entire input text (document-level humour detection). 
+Returns a humour prediction for the entire input text (document-level humour detection).
 
-Request fields: 
+Request fields:
 
 * `"text"` - The text that you want to analyse.
 POST /humour
@@ -718,9 +721,9 @@ POST /humour
 }
 
 
-Returns humour predictions for each sentence in the input text (sentence-level humour detection). 
+Returns humour predictions for each sentence in the input text (sentence-level humour detection).
 
-Request fields: 
+Request fields:
 
 * `"level":"sentence"` - Selects sentence-level humour detection.
 * `"text"` - The text that you want to analyse.
@@ -759,9 +762,9 @@ This service allows you to detect texts that are or resemble advertisements.
 The returned analysis offers advertisement type labels (`AD` vs. `NOT_AD`) as well as confidence values from the predictions.
 
 --
-Returns an advertisement prediction for the entire input text (document-level advertisement detection). 
+Returns an advertisement prediction for the entire input text (document-level advertisement detection).
 
-Request fields: 
+Request fields:
 
 * `"text"` - The text that you want to analyse.
 POST /ad
@@ -783,11 +786,12 @@ Comparison Analysis
 
 This sentence-level service detects comparative expressions.
 The response contains only 'positive' matches: if no comparative expressions are detected, the response is `[]`.
-Any identified finer-grained comparative expressions are denoted with the dot operator (`.`) (e.g. `COMPARISON.SUBTYPE`). 
+Any identified finer-grained comparative expressions are denoted with the dot operator (`.`) (e.g. `COMPARISON.SUBTYPE`).
 
-Request fields: 
+Request fields:
 
 * `"text"` - The text that you want to analyse.
+
 --
 POST /comparison
 > Content-Type: application/json
@@ -813,11 +817,12 @@ This service detects expressions in the text snippet that refer explicitly or im
 * times and dates (`TIMEDATE`)
 * monetary issues (`MONEY`)
 
-For each identified expression (which can be a simple or complex Noun Phrase, Adjective Phrase, or Adverb Phrase), the detected Named Entity types are ranked by their salience (most salient first). 
+For each identified expression (which can be a simple or complex Noun Phrase, Adjective Phrase, or Adverb Phrase), the detected Named Entity types are ranked by their salience (most salient first).
 
-Request fields: 
+Request fields:
 
 * `"text"` - The text that you want to analyse.
+
 --
 POST /namedentity
 > Content-Type: application/json
@@ -866,11 +871,12 @@ POST /namedentity
 --
 Part-of-Speech Tagging
 This service assigns word class types to individual words in the text snippet.
-The [tagset]() used is largely compatible with the [Penn Treebank Tagset](http://www.cis.upenn.edu/~treebank/). 
+The [tagset]() used is largely compatible with the [Penn Treebank Tagset](http://www.cis.upenn.edu/~treebank/).
 
-Request fields: 
+Request fields:
 
 * `"text"` - The text that you want to analyse.
+
 --
 POST /postag
 > Content-Type: application/json
@@ -925,11 +931,12 @@ POST /postag
 --
 Shallow Chunk Parsing
 This service detects the boundaries of basic syntactic phrases in the text snippet.
-For each sentence, simple non-recursive Noun Phrase (NP) and Verb Group (VG) constituents are provided. 
+For each sentence, simple non-recursive Noun Phrase (NP) and Verb Group (VG) constituents are provided.
 
-Request fields: 
+Request fields:
 
 * `"text"` - The text that you want to analyse.
+
 --
 POST /chunkparse
 > Content-Type: application/json
@@ -1093,11 +1100,12 @@ POST /chunkparse
 Dependency Parsing
 This service analyses the grammatical structure of each sentence in the text snippet.
 For each sentence, typed syntactic dependencies between individual words are provided.
-The parses and the [typed dependencies]() used resemble the labels and types described in the [Cambridge Grammar of the English Language](http://www.cambridge.org/uk/linguistics/cgel/). 
+The parses and the [typed dependencies]() used resemble the labels and types described in the [Cambridge Grammar of the English Language](http://www.cambridge.org/uk/linguistics/cgel/).
 
-Request fields: 
+Request fields:
 
 * `"text"` - The text that you want to analyse.
+
 --
 POST /depparse
 > Content-Type: application/json
@@ -1252,10 +1260,11 @@ Text Summarisation
 
 This service generates a summary from the input text. The summary consists of sentences delimited by `\n`.
 
-Request fields: 
+Request fields:
 
 * `"ratio"` (optional) - The size of the summary - the proportion of the full input text that is included in the summary (`0 ≤ ratio ≤ 1.0` where `0` returns all sentences and `1.0` includes only the most salient sentence(s) in the input text).
 * `"text"` - The text that you want to summarise.
+
 --
 POST /summary
 > Content-Type: application/json
@@ -1272,9 +1281,10 @@ Language Detection
 
 This service returns an [ISO 639-1](http://www.loc.gov/standards/iso639-2/php/code_list.php) natural language code for the input text.
 
-Request fields: 
+Request fields:
 
 * `"text"` - The text for which you want a language code.
+
 --
 POST /langdetect
 > Content-Type: application/json
@@ -1293,7 +1303,7 @@ Resources for Sentiment Analysis
 This end point allows you to manage the lexical resources that are used in the sentiment analysis on your account.
 By fine-tuning and customising word lists (adjectives, adverbs, nouns, verbs), you can adapt the sentiment analysis to a particular genre, domain, topic, or use case beyond the default generic resources.
 
-Sentiment lexicon entries can have the following fields: 
+Sentiment lexicon entries can have the following fields:
 
 * `"polarity":p` - The sentiment polarity of the lexicon entry `p ∈ { pos | ntr | neg }`. Example: `"polarity":"pos"`
 * `"reverse":r` - The sentiment reversal property of the lexicon entry `r ∈ { rev | equ }`. Example: `"reverse":"rev"`
@@ -1344,7 +1354,7 @@ Resources for Entity Taxonomies
 This end point allows you to manage the taxonomic resources that are used in the entity categorisation on your account.
 By adding pattern matching rules for taxonomic categories, you can categorise entity mentions into any desired taxonomic levels beyond the default head noun-based grouping.
 
-Entity taxonomy entries can have the following fields: 
+Entity taxonomy entries can have the following fields:
 
 * `"matchPattern"` - A regex pattern for capturing entity mentions. Example: `"matchPattern":"pizza(s)?"`
 * `"category"` - The taxonomic category under which matched entity mentions should be categorised. Example: `"category":"FOOD.SOUP.ITALIAN"`
@@ -1395,12 +1405,13 @@ Feedback
 If you spot 1) incorrect, odd, or funny analyses (classifications, predictions, tags, chunks, parses, labels, ranges, values and the like), 2) structural anomalies or defects, or 3) general issues in the responses returned by the API, you can submit free-form feedback to us which we will look into.
 Your feedback is greatly appreciated!
 
-Request fields: 
+Request fields:
 
 * `"endpoint"` - The name of the service end point that returned the response that you want to report.
 * `"expected"` (optional) - The correct or expected value(s) that the response should have contained.
 * `"feedback"` - Any detailed information or general comments that you can provide that will help us diagnose the issue.
 * `"text"` The data in the `text` field that you used in the request that was sent to end point in question.
+
 --
 POST /feedback
 < 201
@@ -1410,12 +1421,13 @@ POST /feedback
 Usage Data
 
 You can monitor your API usage within a specific time period between two time stamps.
-The timestamps expect values that are compliant with the [W3C](http://www.w3.org/TR/NOTE-datetime) date and time format. 
+The timestamps expect values that are compliant with the [W3C](http://www.w3.org/TR/NOTE-datetime) date and time format.
 
-Request fields: 
+Request fields:
 
 * `"from"` - The [W3C](http://www.w3.org/TR/NOTE-datetime) start value for the query.
 * `"to"` (optional) - The [W3C](http://www.w3.org/TR/NOTE-datetime) end value for the query. If omitted, defaults to `now`.
+
 --
 GET /usagestats?from=2013-02-01&to=2013-02-13
 < 200
@@ -1451,4 +1463,3 @@ GET /usagestats?from=2013-02-01&to=2013-02-13
     "requestCount": 6
   }]
 }
-
